@@ -1,4 +1,4 @@
-package com.xws.tim12;
+package com.sep.tim12;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
