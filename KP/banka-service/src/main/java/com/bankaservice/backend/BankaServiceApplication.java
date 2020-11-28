@@ -1,4 +1,4 @@
-package com.bankaservice.backend.bankaservice;
+package com.bankaservice.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
