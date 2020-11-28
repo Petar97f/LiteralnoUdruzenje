@@ -8,7 +8,7 @@
 		<version>2.2.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.xws.tim12</groupId>
+	<groupId>com.sep.tim26</groupId>
 	<artifactId>Eureka</artifactId>
 	<version>1.0.0</version>
 	<name>Eureka</name>
