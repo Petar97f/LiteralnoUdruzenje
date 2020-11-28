@@ -1,4 +1,4 @@
-package com.xws.tim12;
+package com.sep.tim26;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
