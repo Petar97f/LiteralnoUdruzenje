@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public User findUserByEmail(String em){
         return userRepository.findByEmail(em);
@@ -21,5 +21,8 @@ public class UserService {
     public List<User> findall()
     {
         return userRepository.findAll();
+    }
+    public User findById(Long id) {
+    	return userRepository.findUserById(id);
     }
 }

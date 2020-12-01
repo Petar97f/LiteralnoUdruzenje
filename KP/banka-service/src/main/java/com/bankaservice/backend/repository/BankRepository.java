@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface BankRepository  extends JpaRepository<Bank, Long> {
     List<Bank> findAll();
-    Bank findBankById();
+    Bank findBankById(Long id);
 }
