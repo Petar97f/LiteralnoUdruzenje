@@ -73,4 +73,13 @@ public class Card {
     public void setAvailableMoney(Float availableMoney) {
         this.availableMoney = availableMoney;
     }
+
+	public Long getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
+    
 }
