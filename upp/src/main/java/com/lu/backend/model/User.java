@@ -17,6 +17,11 @@ public class User {
     private String email;
     @Column
     private String password;
+    @Column
+    private String city;
+    @Column
+    private String town;
+    
 
     public User() {
     }
@@ -60,4 +65,22 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+    
+    
 }
