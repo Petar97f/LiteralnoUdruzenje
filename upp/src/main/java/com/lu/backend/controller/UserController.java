@@ -35,9 +35,9 @@ public class UserController {
 	}
     
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public ResponseEntity<?> loginUser(@RequestBody UserDTO user,HttpSession session,HttpServletRequest request){
-		System.out.println("u:"+user.toString());
-		System.out.println("u:"+user.getEmail());
+	public ResponseEntity<?> loginUser(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){
+		System.out.println("u:" + user.toString());
+		System.out.println("u:" + user.getEmail());
 		
 		User logged = userService.findUserByEmail(user.getEmail());
 		
@@ -45,10 +45,31 @@ public class UserController {
 			
 			HttpSession newSession = request.getSession();
 		    newSession.setAttribute("logged", logged);
-			System.out.println("u:"+logged.getEmail());
-			return new ResponseEntity<>(logged,HttpStatus.OK);
+			System.out.println("u:" + logged.getEmail());
+			return new ResponseEntity<>(logged, HttpStatus.OK);
 		}
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
+	
+	
+	@RequestMapping(value="/register-reader",method=RequestMethod.POST)
+	public ResponseEntity<?> registerReader(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){
+		System.out.println("u:" + user.toString());
+		System.out.println("u:" + user.getEmail());
+		//to-do
+		
+		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
+	}
+	
+	@RequestMapping(value="/register-writter",method=RequestMethod.POST)
+	public ResponseEntity<?> registerWritter(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){
+		System.out.println("u:" + user.toString());
+		System.out.println("u:" + user.getEmail());
+		//to-do
+		// šalje email sa linkom za potvrdu koji koristi jednokratni hash 
+		
+		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
+	}
+	
     
 }
