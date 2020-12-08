@@ -3,7 +3,7 @@ import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-class Register extends Component {
+class RegisterWritter extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,14 +13,13 @@ class Register extends Component {
 			confirmPassword: '',
 			email: '',
 			city: '',
-      country: '',
-      genres: [],
-      selectedGenres: [],
-      isBeta: false
+			country: '',
+			genres: [],
+			selectedGenres: []
 		}
 	}
 
-  async componentDidMount () {
+	async componentDidMount () {
 		try {
       let response = await (await fetch('http://localhost:8081/getGenres', {
         method: 'get',
@@ -40,14 +39,14 @@ class Register extends Component {
         errors: err.toString()
       });
     }
-  }
-  
+	}
+	
 	onLogin = (e) => {
 		e.preventDefault();
 		this.props.onLogin();
-  }
-  
-  onGenreChange = (e, id) => {
+	}
+
+	onGenreChange = (e, id) => {
     if (e.target.checked) {
       if (!this.state.selectedGenres.includes(id)) {
         this.setState({
@@ -69,7 +68,7 @@ class Register extends Component {
 				<Modal show={this.props.show} onHide={this.props.onClose} style={{ paddingTop: '65px' }}>
 					<Modal.Header closeButton>
 						<Modal.Title>
-							<label>Register as Reader</label>
+							<label>Register as Writter</label>
 						</Modal.Title>
 					</Modal.Header>
 					<Modal.Body style={{ maxHeight: 'calc(100vh - 30px - 30px - 75px - 57px - 60px - 16px)', overflowY: 'auto' }}>
@@ -102,19 +101,14 @@ class Register extends Component {
 							<Form.Label className="font-weight-bold">Country</Form.Label>
 							<Form.Control type="text" placeholder="Country *" value={this.state.country} onChange={e => this.setState({country: e.target.value})}  />
 						</Form.Group>
-            <Form.Group>
-              <Form.Check className="font-weight-bold" type="checkbox" value={this.state.isBeta} label="Beta reader?" onClick={e => this.setState({isBeta: e.target.checked})} />
-				  	</Form.Group>
-            {this.state.isBeta &&
-              <Form.Group>
+						<Form.Group>
                 <Form.Label className="font-weight-bold">Select Genres:</Form.Label>
                 {this.state.genres.map(genre => {
                   return (
-                    <Form.Check key={genre.id} type="checkbox" value={this.state.selectedGenres.includes(genre.id)} label={genre.name} onClick={e => this.onGenreChange(e, genre.id)}/>
+                    <Form.Check type="checkbox" value={this.state.selectedGenres.includes(genre.id)} label={genre.name} onClick={e => this.onGenreChange(e, genre.id)}/>
                   );
                 })}
               </Form.Group>
-            }
 						<div>
 							Already registered<a href="#" className="ml-2" onClick={this.onLogin}>Login</a>
 						</div>	
@@ -130,4 +124,4 @@ class Register extends Component {
   }
 }
 
-export default withRouter(Register);
+export default withRouter(RegisterWritter);

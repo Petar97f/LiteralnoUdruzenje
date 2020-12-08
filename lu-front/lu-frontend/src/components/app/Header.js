@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import Login from './Login';
 import Register from './Register';
+import RegisterWritter from './RegisterWritter';
 import { Link } from 'react-router-dom';
 import User from '.././user/User';
 
@@ -9,6 +10,8 @@ class Header extends Component {
     super(props);
     this.state = {
       showLogin: false,
+      showRegister: false,
+      showRegisterWritter: false,
       isLoggedIn: false
     }
   }
@@ -26,6 +29,13 @@ class Header extends Component {
       showRegister: true
     })
   } 
+
+  onRegisterWritter = (e) => {
+    e.preventDefault();
+    this.setState({
+      showRegisterWritter: true
+    })
+  }
 
   onLogout = (e) => {
     e.preventDefault();
@@ -45,10 +55,12 @@ class Header extends Component {
             <div className="d-flex flex-row justify-content-end align-self-center">
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onLogin}>Login</Link>
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onRegister}>Register</Link>
+              <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onRegisterWritter}>Register as Writter</Link>
             </div>
           </div>
           {this.state.showLogin && <Login show={this.state.showLogin} onClose={e => this.setState({showLogin: false})} onRegister={e => this.setState({showRegister: true, showLogin: false})}/>}
           {this.state.showRegister && <Register show={this.state.showRegister} onClose={e => this.setState({showRegister: false})} onLogin={e => this.setState({showRegister: false, showLogin: true})}/>}
+          {this.state.showRegisterWritter && <RegisterWritter show={this.state.showRegisterWritter} onClose={e => this.setState({showRegisterWritter: false})} onLogin={e => this.setState({showRegisterWritter: false, showLogin: true})}/>}
         </div>
       );
     } else {
@@ -59,6 +71,8 @@ class Header extends Component {
               <h4 href="#" className="ml-3" >User: {User.name}</h4>
             </div>
             <div className="d-flex flex-row justify-content-end align-self-center">
+              <Link to={`/user`} className="text-decoration-none mr-5" >Home</Link>
+              <Link to={`/about`} className="text-decoration-none mr-5" >About</Link>
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onLogout}>Logout</Link>
             </div>
           </div>
