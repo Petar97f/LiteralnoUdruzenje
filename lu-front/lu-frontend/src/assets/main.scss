@@ -1,0 +1,13 @@
+.main-container {
+  margin-top: 72px;
+  height: 320px;
+  width:  100%;
+  background-image: url('./images/libraryimage.jpg'); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  opacity: 0.9;
+  min-height: calc(100vh - 72px - 64px);
+}
