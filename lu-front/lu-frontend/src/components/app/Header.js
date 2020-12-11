@@ -55,12 +55,12 @@ class Header extends Component {
             <div className="d-flex flex-row justify-content-end align-self-center">
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onLogin}>Login</Link>
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onRegister}>Register</Link>
-              <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onRegisterWritter}>Register as Writter</Link>
+              {/*<Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onRegisterWritter}>Register as Writter</Link>*/}
             </div>
           </div>
           {this.state.showLogin && <Login show={this.state.showLogin} onClose={e => this.setState({showLogin: false})} onRegister={e => this.setState({showRegister: true, showLogin: false})}/>}
           {this.state.showRegister && <Register show={this.state.showRegister} onClose={e => this.setState({showRegister: false})} onLogin={e => this.setState({showRegister: false, showLogin: true})}/>}
-          {this.state.showRegisterWritter && <RegisterWritter show={this.state.showRegisterWritter} onClose={e => this.setState({showRegisterWritter: false})} onLogin={e => this.setState({showRegisterWritter: false, showLogin: true})}/>}
+          {/*this.state.showRegisterWritter && <RegisterWritter show={this.state.showRegisterWritter} onClose={e => this.setState({showRegisterWritter: false})} onLogin={e => this.setState({showRegisterWritter: false, showLogin: true})}/>*/}
         </div>
       );
     } else {

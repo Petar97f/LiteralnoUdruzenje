@@ -89,7 +89,7 @@ class Register extends Component {
 				<Modal show={this.props.show} onHide={this.props.onClose} style={{ paddingTop: '65px' }}>
 					<Modal.Header closeButton>
 						<Modal.Title>
-							<label>Register as Reader</label>
+							<label>Register</label>
 						</Modal.Title>
 					</Modal.Header>
 					<Modal.Body style={{ maxHeight: 'calc(100vh - 30px - 30px - 75px - 57px - 60px - 16px)', overflowY: 'auto' }}>
