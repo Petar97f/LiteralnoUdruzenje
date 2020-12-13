@@ -15,7 +15,7 @@
           <camunda:formField id="password" label="Password" type="string" />
           <camunda:formField id="genres" label="Genres" type="enum" />
         </camunda:formData>
-        <camunda:taskListener class="com.lu.backend.service.RegisterService" event="create" />
+        <camunda:taskListener class="com.lu.backend.handlers.RegisterService" event="create" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0rfqzp9</bpmn:incoming>
       <bpmn:outgoing>Flow_0bjhf3y</bpmn:outgoing>
