@@ -1,11 +1,15 @@
 package com.lu.backend.controller;
 
+import com.lu.backend.dto.GenreDTO;
+import com.lu.backend.dto.RegistrationDTO;
 import com.lu.backend.dto.UserDTO;
 import com.lu.backend.model.FormFieldsDTO;
 import com.lu.backend.model.User;
+import com.lu.backend.service.GenreService;
 import com.lu.backend.service.UserService;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,7 +40,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
-	
+	@Autowired
+	private GenreService genreService;
 	@Autowired
 	private RuntimeService runtimeService;
 	
@@ -68,7 +74,7 @@ public class UserController {
     
     
     
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@PostMapping(value="/login")
 	public ResponseEntity<?> loginUser(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){
 		System.out.println("u:" + user.toString());
 		System.out.println("u:" + user.getEmail());
@@ -83,6 +89,27 @@ public class UserController {
 		}
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
+	
+
+	@RequestMapping(value="/register",method=RequestMethod.POST)
+	public ResponseEntity<?> register(@RequestBody RegistrationDTO user, HttpSession session, HttpServletRequest request){
+		System.out.println("u:" + user.toString());
+		System.out.println("u:" + user.getEmail());
+		//to-do
+		System.out.println(user.getGenres());
+		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getTown());
+		userService.save(u);
+		for(GenreDTO g : user.getGenres()) {
+			System.out.println(g);
+			System.out.println(u.getGenres());
+			u.getGenres().add(genreService.convertFromDTO(g));
+			genreService.findById(g.getId()).getUsers().add(u);
+		}
+		System.out.println(u);
+		return new ResponseEntity<>("success", HttpStatus.CREATED);
+	}
+	
+	
 	
 	
 	@RequestMapping(value="/register-reader",method=RequestMethod.POST)

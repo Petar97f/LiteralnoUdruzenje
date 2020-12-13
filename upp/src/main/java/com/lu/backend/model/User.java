@@ -1,6 +1,13 @@
 package com.lu.backend.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.lu.backend.dto.GenreDTO;
+
+
 
 @Entity
 public class User {
@@ -21,12 +28,30 @@ public class User {
     private String city;
     @Column
     private String town;
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    private Set<Genre> genres;
     
 
     public User() {
     }
+    
 
-    public Long getId() {
+    public User(Long id, String name, String surname, String email, String password, String city, String town) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.town = town;
+		this.genres = new HashSet<Genre>();
+	}
+
+
+
+
+	public Long getId() {
         return id;
     }
 
@@ -81,6 +106,15 @@ public class User {
 	public void setTown(String town) {
 		this.town = town;
 	}
+
+	public Set<Genre> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(Set<Genre> genres) {
+		this.genres = genres;
+	}
+	
     
     
 }

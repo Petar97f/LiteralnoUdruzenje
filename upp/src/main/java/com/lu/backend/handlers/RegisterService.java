@@ -39,7 +39,7 @@ public class RegisterService implements TaskListener {
 	        }
 	       
 	        String taskId = delegateTask.getId();
-
+	        System.out.println("genresDTO: "+ genresDTO);
 	    
 	        FormService formService = delegateTask.getProcessEngineServices().getFormService();
 	        TaskFormData taskFormData = formService.getTaskFormData(taskId);

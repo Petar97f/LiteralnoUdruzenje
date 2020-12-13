@@ -9,6 +9,6 @@ import com.lu.backend.model.Genre;
 
 
 public interface GenreRepository extends JpaRepository<Genre,Long> {
-
+	  Genre findOneById(Long id);
 	  List<Genre> findAll();
 }
