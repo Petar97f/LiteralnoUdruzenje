@@ -7,13 +7,11 @@ class Register extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+      user: {},
 			firstName: '',
 			lastName: '',
 			password: '',
 			confirmPassword: '',
-			email: '',
-			city: '',
-      country: '',
       genres: [],
       selectedGenres: [],
 			isBeta: false,
@@ -83,6 +81,15 @@ class Register extends Component {
     }
   }
 
+  onInputChange = (name, value) => {
+    console.log(name, value);
+    let user = {...this.state.user};
+    user[name] = value;
+    this.setState({
+      user: user
+    });
+  }
+
   render () {
     return (
 			<div>
@@ -111,7 +118,7 @@ class Register extends Component {
 								return(
 									<Form.Group>
 										<Form.Label className="font-weight-bold">{item.label}</Form.Label>
-										<Form.Control type={item.type.name} placeholder={item.label} value={this.state.firstName} />
+										<Form.Control type={item.type.name} placeholder={item.label} value={this.state.user[item.id]} onChange={e => this.onInputChange(item.id, e.target.value)} />
 									</Form.Group>
 								)
 							})
