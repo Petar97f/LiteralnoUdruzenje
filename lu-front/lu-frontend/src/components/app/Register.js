@@ -95,6 +95,19 @@ class Register extends Component {
 					<Modal.Body style={{ maxHeight: 'calc(100vh - 30px - 30px - 75px - 57px - 60px - 16px)', overflowY: 'auto' }}>
 						<Form>
 							{this.state.formFields && this.state.formFields.map(item => {
+                if (item.type.name === 'enum') {
+                  return (
+                    <Form.Group>
+                      <Form.Label className="font-weight-bold">Select Genres:</Form.Label>
+                      {Object.keys(item.type.values).map(value =>{
+                        console.log(item.type.values[value])
+                        return (
+                          <Form.Check type="checkbox" value={this.state.selectedGenres.includes(value)} label={item.type.values[value]} onClick={e => this.onGenreChange(e, value)}/>
+                        )
+                      })}
+                    </Form.Group>
+                  )
+                }
 								return(
 									<Form.Group>
 										<Form.Label className="font-weight-bold">{item.label}</Form.Label>
