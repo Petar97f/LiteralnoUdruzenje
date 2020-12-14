@@ -35,6 +35,11 @@ public class FormSubmissionDTO implements Serializable {
 		this.fieldValue = fieldValue;
 	}
 
+	@Override
+	public String toString() {
+		return "FormSubmissionDTO [fieldId=" + fieldId + ", fieldValue=" + fieldValue + "]";
+	}
+
 	
 	
 }

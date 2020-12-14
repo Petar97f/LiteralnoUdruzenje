@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,11 +29,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lu.backend.dto.FormSubmissionDTO;
 import com.lu.backend.dto.RegistrationDTO;
+import com.lu.backend.dto.RegistrationFormDTO;
 import com.lu.backend.dto.UserDTO;
 import com.lu.backend.model.FormFieldsDTO;
 import com.lu.backend.model.User;
 
 @CrossOrigin("*")
+@RequestMapping("")
 @RestController
 public class CamundaController {
 
@@ -40,10 +43,10 @@ public class CamundaController {
 	private RuntimeService runtimeService;
 	
     @Autowired
-	TaskService taskService;
+	private TaskService taskService;
 	
 	@Autowired
-	FormService formService;
+	private FormService formService;
 	
 	@GetMapping(value = "/{taskId}")
 	public  ResponseEntity<?> getTask(@PathVariable("taskId") String taskId) {
@@ -89,9 +92,9 @@ public class CamundaController {
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}*/
 	
-	@RequestMapping(value="/submitForm/{taskId}", method=RequestMethod.POST)
-    public @ResponseBody ResponseEntity<?> submitForm(@RequestBody ArrayList<FormSubmissionDTO> dto, @PathVariable String taskId) {
-		HashMap<String, Object> map = this.mapListToDto(dto);
+	@PostMapping(value="/submitForm/{taskId}", produces = "application/json")
+    public @ResponseBody ResponseEntity<?> submitForm(@RequestBody RegistrationFormDTO dto, @PathVariable String taskId) {
+		HashMap<String, Object> map = this.mapListToDto(dto.getDto());
 		//daj mi task RegisterForm
 		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
 		if (task == null) {
@@ -105,6 +108,7 @@ public class CamundaController {
 		System.out.println(dto);
 		runtimeService.setVariable(processInstanceId, "registration", dto);
 		formService.submitTaskForm(taskId, map);
+		System.out.println("DAJ TU VARIJABLU :D :D : " + runtimeService.getVariable(processInstanceId, "registration"));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 	
