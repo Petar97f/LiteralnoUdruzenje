@@ -69,7 +69,7 @@ public class UserController {
 		TaskFormData tfd = formService.getTaskFormData(task.getId());
 		List<FormField> properties = tfd.getFormFields();
 		
-		return new FormFieldsDTO(task.getId(), properties, pi.getId());
+		return new FormFieldsDTO(task.getId(), "Process_reg", properties, pi.getId());
 	}
     
     
@@ -91,12 +91,32 @@ public class UserController {
 	}
 	
 
-	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ResponseEntity<?> register(@RequestBody RegistrationDTO user, HttpSession session, HttpServletRequest request){
+	@RequestMapping(value="/register/{taskId}",method=RequestMethod.POST)
+	public ResponseEntity<?> register(@RequestBody RegistrationDTO user, @PathVariable String taskId, HttpSession session, HttpServletRequest request){
 		System.out.println("u:" + user.toString());
 		System.out.println("u:" + user.getEmail());
 		//to-do
-		System.out.println(user.getGenres());
+		//to complete task
+		//Task taskTemp = taskService.createTaskQuery().taskId(taskId).singleResult();
+		//check if task exists
+		//if(taskTemp == null) {
+		//	return new ResponseEntity<>("The task doesn't exist!", HttpStatus.NOT_FOUND);
+		//}
+		//taskService.complete(taskId);
+		
+		//processEngine().getTaskService() .complete("someTaskIdHere");
+		
+		System.out.println("Submiting the form values.");
+		
+		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();	
+		
+		if(task == null) {
+			return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
+		}
+		
+		//List<FormField> properties = ;
+		//formService.submitTaskForm(taskId, properties);
+		
 		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getTown());
 		userService.save(u);
 		for(GenreDTO g : user.getGenres()) {

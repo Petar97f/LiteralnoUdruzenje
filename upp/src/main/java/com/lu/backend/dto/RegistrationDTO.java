@@ -10,7 +10,7 @@ public class RegistrationDTO {
 	private String password;
 	private String city;
 	private String town;
-	private List<GenreDTO>genres;
+	private List<GenreDTO> genres;
 	
 	
 	public RegistrationDTO() {
