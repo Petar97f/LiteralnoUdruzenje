@@ -41,7 +41,7 @@ class Register extends Component {
       });
 		}*/
 		try {
-      let response = await (await fetch('http://localhost:8081/getFormRegister', {
+      let response = await (await fetch('http://localhost:8081/start/Process_reg', {
         method: 'get',
         headers: {
           'Accept': 'application/json',
