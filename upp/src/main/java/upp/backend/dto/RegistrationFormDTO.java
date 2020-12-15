@@ -1,4 +1,4 @@
-package com.lu.backend.dto;
+package upp.backend.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;

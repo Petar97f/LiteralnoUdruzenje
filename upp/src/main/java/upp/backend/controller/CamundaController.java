@@ -1,4 +1,4 @@
-package com.lu.backend.controller;
+package upp.backend.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,12 +27,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lu.backend.dto.FormSubmissionDTO;
-import com.lu.backend.dto.RegistrationDTO;
-import com.lu.backend.dto.RegistrationFormDTO;
-import com.lu.backend.dto.UserDTO;
-import com.lu.backend.model.FormFieldsDTO;
-import com.lu.backend.model.User;
+import upp.backend.dto.FormSubmissionDTO;
+import upp.backend.dto.RegistrationDTO;
+import upp.backend.dto.RegistrationFormDTO;
+import upp.backend.dto.UserDTO;
+import upp.backend.model.FormFieldsDTO;
+import upp.backend.model.User;
 
 @CrossOrigin("*")
 @RequestMapping("")
@@ -65,7 +65,7 @@ public class CamundaController {
 		TaskFormData tfd = formService.getTaskFormData(task.getId());
 		List<FormField> properties = tfd.getFormFields();
 		
-		return new FormFieldsDTO(task.getId(), processName, properties, pi.getId());
+		return new FormFieldsDTO(task.getId(), pi.getId(),properties);
 	}
 	
 	/*@RequestMapping(value="/submitForm/{taskId}",method=RequestMethod.POST)
