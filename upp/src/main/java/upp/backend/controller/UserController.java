@@ -1,15 +1,11 @@
-package com.lu.backend.controller;
+package upp.backend.controller;
 
-import com.lu.backend.dto.GenreDTO;
-import com.lu.backend.dto.RegistrationDTO;
-import com.lu.backend.dto.UserDTO;
-import com.lu.backend.model.FormFieldsDTO;
-import com.lu.backend.model.User;
-import com.lu.backend.service.GenreService;
-import com.lu.backend.service.UserService;
-
-import java.util.List;
-import java.util.Set;
+import upp.backend.dto.GenreDTO;
+import upp.backend.dto.RegistrationDTO;
+import upp.backend.dto.UserDTO;
+import upp.backend.model.User;
+import upp.backend.service.GenreService;
+import upp.backend.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,10 +13,6 @@ import javax.servlet.http.HttpSession;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
-import org.camunda.bpm.engine.form.FormField;
-import org.camunda.bpm.engine.form.TaskFormData;
-import org.camunda.bpm.engine.runtime.ProcessInstance;
-import org.camunda.bpm.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 //@CrossOrigin(origins = "http://localhost:4200")
@@ -59,19 +50,19 @@ public class UserController {
     	return userDTO;
 		
 	}
-    
-    @GetMapping(value = "/getFormRegister")
-	public @ResponseBody FormFieldsDTO getRegisterForm() {
-    	ProcessInstance pi = runtimeService.startProcessInstanceByKey("Process_reg");
-
-		Task task = taskService.createTaskQuery().processInstanceId(pi.getId()).list().get(0);
-		
-		TaskFormData tfd = formService.getTaskFormData(task.getId());
-		List<FormField> properties = tfd.getFormFields();
-		
-		return new FormFieldsDTO(task.getId(), properties, pi.getId());
-	}
-    
+//
+//    @GetMapping(value = "/getFormRegister")
+//	public @ResponseBody FormFieldsDTO getRegisterForm() {
+//    	ProcessInstance pi = runtimeService.startProcessInstanceByKey("Process_reg");
+//
+//		Task task = taskService.createTaskQuery().processInstanceId(pi.getId()).list().get(0);
+//
+//		TaskFormData tfd = formService.getTaskFormData(task.getId());
+//		List<FormField> properties = tfd.getFormFields();
+//
+//		return new FormFieldsDTO(task.getId(), properties, pi.getId());
+//	}
+//
     
     
 	@PostMapping(value="/login")

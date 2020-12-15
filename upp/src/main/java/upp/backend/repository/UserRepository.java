@@ -1,6 +1,6 @@
-package com.lu.backend.repository;
+package upp.backend.repository;
 
-import com.lu.backend.model.User;
+import upp.backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,12 +1,9 @@
-package com.lu.backend.model;
+package upp.backend.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-
-import com.lu.backend.dto.GenreDTO;
-
 
 
 @Entity

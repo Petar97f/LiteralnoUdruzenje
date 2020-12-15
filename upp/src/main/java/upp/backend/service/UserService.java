@@ -1,7 +1,7 @@
-package com.lu.backend.service;
+package upp.backend.service;
 
-import com.lu.backend.model.User;
-import com.lu.backend.repository.UserRepository;
+import upp.backend.model.User;
+import upp.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
