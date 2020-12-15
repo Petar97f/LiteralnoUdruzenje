@@ -9,7 +9,7 @@ public class RegistrationDTO {
 	private String email;
 	private String password;
 	private String city;
-	private String town;
+	private String country;
 	private List<GenreDTO>genres;
 	
 	
@@ -19,7 +19,7 @@ public class RegistrationDTO {
 
 
 	public RegistrationDTO(Long id, String name, String surname, String email, String password, String city,
-			String town, List<GenreDTO> genres) {
+			String country, List<GenreDTO> genres) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,7 +27,7 @@ public class RegistrationDTO {
 		this.email = email;
 		this.password = password;
 		this.city = city;
-		this.town = town;
+		this.country = country;
 		this.genres = genres;
 	}
 
@@ -92,13 +92,13 @@ public class RegistrationDTO {
 	}
 
 
-	public String getTown() {
-		return town;
+	public String getCountry() {
+		return country;
 	}
 
 
-	public void setTown(String town) {
-		this.town = town;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 

@@ -47,7 +47,7 @@ public class UserController {
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
 		
     	User u = userService.findById(userId);
-    	UserDTO userDTO = new UserDTO(u.getId(),u.getName(),u.getSurname(),u.getEmail(),u.getPassword(),u.getCity(),u.getTown());
+    	UserDTO userDTO = new UserDTO(u.getId(),u.getName(),u.getSurname(),u.getEmail(),u.getPassword(),u.getCity(),u.getCountry());
     	return userDTO;
 		
 	}
@@ -111,7 +111,7 @@ public class UserController {
 		//List<FormField> properties = ;
 		//formService.submitTaskForm(taskId, properties);
 		
-		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getTown());
+		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getCountry());
 		userService.save(u);
 		for(GenreDTO g : user.getGenres()) {
 			System.out.println(g);

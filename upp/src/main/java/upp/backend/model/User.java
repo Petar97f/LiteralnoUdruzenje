@@ -24,16 +24,18 @@ public class User {
     @Column
     private String city;
     @Column
-    private String town;
+    private String country;
+    @Column
+    private Boolean activated;
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     private Set<Genre> genres;
-    
+   
 
     public User() {
     }
     
-
-    public User(Long id, String name, String surname, String email, String password, String city, String town) {
+    
+    public User(Long id, String name, String surname, String email, String password, String city, String country) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,7 +43,37 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.city = city;
-		this.town = town;
+		this.country = country;
+		this.activated = false;
+		this.genres = new HashSet<Genre>();
+	}
+
+
+	public User(Long id, String name, String surname, String email, String password, String city, String country,
+			Set<Genre> genres) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.country = country;
+		this.activated = false;
+		this.genres = genres;
+	}
+
+
+	public User(Long id, String name, String surname, String email, String password, String city, String country,Boolean activate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.country = country;
+		this.activated = activate;
 		this.genres = new HashSet<Genre>();
 	}
 
@@ -96,12 +128,12 @@ public class User {
 		this.city = city;
 	}
 
-	public String getTown() {
-		return town;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setTown(String town) {
-		this.town = town;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public Set<Genre> getGenres() {
