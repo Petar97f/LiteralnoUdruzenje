@@ -15,7 +15,8 @@ class Register extends Component {
       genres: [],
       selectedGenres: [],
 			isBeta: false,
-			formFields: []
+      formFields: [],
+      returnDto: [],
 		}
 	}
 
@@ -50,7 +51,8 @@ class Register extends Component {
       })).json();
       console.log(response)
       this.setState({
- 				formFields: response.formFields
+         formFields: response.formFields,
+         taskId: response.taskId
       })
 
     } catch (err) {
@@ -88,6 +90,42 @@ class Register extends Component {
     this.setState({
       user: user
     });
+  }
+
+  onSubmitRegister = async () => {
+    try {
+      let returnDto = [];
+      let formFields = this.state.formFields.filter(item => {
+        if (item.id !== "genres") {
+          return item;
+        } 
+      })
+      returnDto = formFields.map( item => {
+          let res = {};
+          if (item.id !== "genres") {
+            res.fieldId = item.id;
+            res.fieldValue = this.state.user[item.id];
+            return res;
+          } 
+          
+      }) 
+      console.log(returnDto);
+      let response = await (await fetch(`http://localhost:8081/submitForm/${this.state.taskId}`, {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          dto: returnDto
+        })
+      })).json();
+    } catch (err) {
+      this.setState({
+        errors: err.toString()
+      });
+    }
   }
 
   render () {
@@ -128,7 +166,7 @@ class Register extends Component {
 				
 					</Modal.Body>
 					<Modal.Footer>
-						<button className="btn btn-primary">Register</button>
+						<button className="btn btn-primary" onClick={this.onSubmitRegister}>Register</button>
 						<button className="btn btn-primary"  onClick={this.props.onClose}>Cancel</button>
 					</Modal.Footer>
 				</Modal>
