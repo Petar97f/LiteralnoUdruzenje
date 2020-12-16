@@ -144,7 +144,7 @@ class Register extends Component {
 								return(
 									<Form.Group>
 										<Form.Label className="font-weight-bold">{item.label}</Form.Label>
-										<Form.Control type={item.type.name} placeholder={item.label} value={this.state.user[item.id]} onChange={e => this.onInputChange(item.id, e.target.value)}/>
+										<Form.Control type={(item.id === 'password') ? 'password' : `${item.type.name}`} placeholder={item.label} value={this.state.user[item.id]} onChange={e => this.onInputChange(item.id, e.target.value)}/>
 									</Form.Group>
 								)
 							})
