@@ -7,12 +7,36 @@
     <bpmn:userTask id="reg_1" name="RegisterForm">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="name" label="First Name" type="string" />
-          <camunda:formField id="surname" label="Surname" type="string" />
-          <camunda:formField id="email" label="Email" type="string" />
-          <camunda:formField id="city" label="City" type="string" />
-          <camunda:formField id="country" label="Country" type="string" />
-          <camunda:formField id="password" label="Password" type="string" />
+          <camunda:formField id="name" label="First Name" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="surname" label="Surname" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="email" label="Email" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="city" label="City" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="country" label="Country" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="password" label="Password" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
           <camunda:formField id="genres" label="Genres" type="enum" />
         </camunda:formData>
         <camunda:taskListener class="upp.backend.handlers.RegisterService" event="create" />

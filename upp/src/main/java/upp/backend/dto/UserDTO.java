@@ -8,11 +8,13 @@ public class UserDTO {
 	private String email;
 	private String password;
 	private String city;
-	private String town;
+	private String country;
+	private Boolean activated;
 	
 	public UserDTO() {}
-
-	public UserDTO(Long id, String name, String surname, String email, String password, String city, String town) {
+	
+	public UserDTO(Long id, String name, String surname, String email, String password, String city, String country,
+			Boolean activated) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,7 +22,19 @@ public class UserDTO {
 		this.email = email;
 		this.password = password;
 		this.city = city;
-		this.town = town;
+		this.country = country;
+		this.activated = activated;
+	}
+
+	public UserDTO(Long id, String name, String surname, String email, String password, String city, String country) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.country = country;
 	}
 
 	public Long getId() {
@@ -71,18 +85,18 @@ public class UserDTO {
 		this.city = city;
 	}
 
-	public String getTown() {
-		return town;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setTown(String town) {
-		this.town = town;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", password="
-				+ password + ", city=" + city + ", town=" + town + "]";
+				+ password + ", city=" + city + ", country=" + country + "]";
 	}
 
 
