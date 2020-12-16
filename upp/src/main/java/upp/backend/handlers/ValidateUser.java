@@ -1,5 +1,7 @@
 package upp.backend.handlers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -42,16 +44,21 @@ public class ValidateUser implements JavaDelegate {
 			isValid = false;
 		} else if (formVariables.get("password") == null ) {
 			isValid = false;
-		} else if (userService.findUserByEmail(formVariables.get("email").toString()) != null) {
-			isValid = false;
-		} 
-		if(formVariables.get("email") != null) {
-		String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-		Pattern pattern = Pattern.compile(regex);	
-		Matcher matcher = pattern.matcher(formVariables.get("email").toString());
-		if(!matcher.matches()) {
+		} else if (formVariables.get("genres") == null) {
 			isValid = false;
 		}
+		if (formVariables.get("genres") != null) {
+			String genres = formVariables.get("genres").toString();
+			String str[] = genres.split(",");
+			List<String> genresListIds = new ArrayList<String>();
+			genresListIds = Arrays.asList(str);
+			if (genresListIds.isEmpty()) {
+				isValid = false;
+			}
+		}
+		
+		if(formVariables.get("email") != null) {
+			isValid = checkEmail(formVariables.get("email").toString());
 		}
 		System.out.println("VALID? : "+isValid);
 		if(!isValid) {
@@ -62,6 +69,23 @@ public class ValidateUser implements JavaDelegate {
 		}
 		System.out.println("VariableValid: "+execution.getVariable("isValid"));
 		
+	}
+	
+	public boolean checkEmail(String email) {
+		String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		
+		Pattern pattern = Pattern.compile(regex);	
+		Matcher matcher = pattern.matcher(email);
+		
+		if(!matcher.matches()) {
+			return false;
+		}
+		
+		if (userService.findUserByEmail(email) == null) {
+			return false;
+		}
+		
+		return true;
 	}
 
 }

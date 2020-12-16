@@ -107,9 +107,14 @@ public class CamundaController {
 	
 		System.out.println(dto);
 		runtimeService.setVariable(processInstanceId, "registration", dto);
-		formService.submitTaskForm(taskId, map);
+		try {
+			formService.submitTaskForm(taskId, map);
+		} catch (Exception e) {
+			return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		//System.out.println("DAJ TU VARIJABLU :D :D : " + runtimeService.getVariable(processInstanceId, "registration"));
-        return new ResponseEntity<>(HttpStatus.OK);
+        
+		return new ResponseEntity<>(HttpStatus.OK);
     }
 	
 	@SuppressWarnings("unused")

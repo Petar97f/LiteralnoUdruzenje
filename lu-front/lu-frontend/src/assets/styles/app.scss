@@ -29,3 +29,12 @@
     opacity: 0.9;
     min-height: calc(100vh - 72px - 64px);
   }
+
+  
+.form-group.required .control-label:before{
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -15px;
+  }
+  
