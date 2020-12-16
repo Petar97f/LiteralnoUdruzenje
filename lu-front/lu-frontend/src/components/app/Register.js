@@ -21,25 +21,6 @@ class Register extends Component {
 	}
 
   async componentDidMount () {
-		/*try {
-      let response = await (await fetch('http://localhost:8081/getGenres', {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
-        },
-      })).json();
-      console.log(response)
-      this.setState({
-        genres: response
-      })
-
-    } catch (err) {
-      this.setState({
-        errors: err.toString()
-      });
-		}*/
 		try {
       let response = await (await fetch('http://localhost:8081/start/Process_reg', {
         method: 'get',
@@ -49,7 +30,7 @@ class Register extends Component {
 					'Access-Control-Allow-Origin': '*',
         },
       })).json();
-      console.log(response)
+      console.log(response.formFields[0].validationConstraints[0].name)
       this.setState({
          formFields: response.formFields,
          taskId: response.taskId
@@ -95,18 +76,16 @@ class Register extends Component {
   onSubmitRegister = async () => {
     try {
       let returnDto = [];
-      let formFields = this.state.formFields.filter(item => {
-        if (item.id !== "genres") {
-          return item;
-        } 
-      })
-      returnDto = formFields.map( item => {
+      returnDto = this.state.formFields.map( item => {
           let res = {};
-          if (item.id !== "genres") {
+          if (item.id === "genres") {
             res.fieldId = item.id;
-            res.fieldValue = this.state.user[item.id];
+            res.fieldValue = this.state.selectedGenres.toString();
             return res;
-          } 
+          }
+          res.fieldId = item.id;
+          res.fieldValue = this.state.user[item.id];
+          return res;
           
       }) 
       console.log(returnDto);
@@ -121,12 +100,20 @@ class Register extends Component {
           dto: returnDto
         })
       })).json();
+      if (response != 'fail') {
+        alert('Registration successful, we will send you email to confirm registration');
+        this.props.onClose();
+      } else {
+        alert('Something went wrong.');
+        this.props.onClose();
+      }
     } catch (err) {
       this.setState({
         errors: err.toString()
       });
     }
   }
+
 
   render () {
     return (
@@ -156,7 +143,7 @@ class Register extends Component {
 								return(
 									<Form.Group>
 										<Form.Label className="font-weight-bold">{item.label}</Form.Label>
-										<Form.Control type={item.type.name} placeholder={item.label} value={this.state.user[item.id]} onChange={e => this.onInputChange(item.id, e.target.value)} />
+										<Form.Control type={item.type.name} placeholder={item.label} value={this.state.user[item.id]} onChange={e => this.onInputChange(item.id, e.target.value)}/>
 									</Form.Group>
 								)
 							})
