@@ -29,8 +29,7 @@ class Register extends Component {
 					'Content-Type': 'application/json',
 					'Access-Control-Allow-Origin': '*',
         },
-      })).json();
-      console.log(response.formFields[0].validationConstraints[0].name)
+      })).text();
       this.setState({
          formFields: response.formFields,
          taskId: response.taskId
