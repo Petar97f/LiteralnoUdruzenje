@@ -65,20 +65,30 @@
       <bpmn:outgoing>Flow_06ka4b9</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_06ka4b9" sourceRef="Gateway_0u1prqc" targetRef="reg_1" />
-    <bpmn:sequenceFlow id="Flow_0r7tb8p" name="Valid data" sourceRef="Gateway_169qbkz" targetRef="Event_135s83u">
+    <bpmn:sequenceFlow id="Flow_0r7tb8p" name="Valid data" sourceRef="Gateway_169qbkz" targetRef="saveUser">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isValid == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="Event_135s83u">
-      <bpmn:incoming>Flow_0r7tb8p</bpmn:incoming>
+      <bpmn:incoming>Flow_00xp2gd</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1kjy0tu" sourceRef="saveUser" targetRef="sendEmail" />
+    <bpmn:serviceTask id="saveUser" name="SaveUser" camunda:class="upp.backend.handlers.SaveUserService">
+      <bpmn:incoming>Flow_0r7tb8p</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kjy0tu</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_00xp2gd" sourceRef="sendEmail" targetRef="Event_135s83u" />
+    <bpmn:serviceTask id="sendEmail" name="SendEmail" camunda:class="upp.backend.handlers.SendEmailService">
+      <bpmn:incoming>Flow_1kjy0tu</bpmn:incoming>
+      <bpmn:outgoing>Flow_00xp2gd</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_reg">
       <bpmndi:BPMNEdge id="Flow_0r7tb8p_di" bpmnElement="Flow_0r7tb8p">
         <di:waypoint x="685" y="330" />
-        <di:waypoint x="1092" y="330" />
+        <di:waypoint x="790" y="330" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="865" y="312" width="48" height="14" />
+          <dc:Bounds x="692" y="323" width="48" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_06ka4b9_di" bpmnElement="Flow_06ka4b9">
@@ -106,6 +116,14 @@
         <di:waypoint x="148" y="330" />
         <di:waypoint x="195" y="330" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kjy0tu_di" bpmnElement="Flow_1kjy0tu">
+        <di:waypoint x="890" y="330" />
+        <di:waypoint x="940" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00xp2gd_di" bpmnElement="Flow_00xp2gd">
+        <di:waypoint x="1040" y="330" />
+        <di:waypoint x="1092" y="330" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="112" y="312" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -123,6 +141,12 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_135s83u_di" bpmnElement="Event_135s83u">
         <dc:Bounds x="1092" y="312" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05p2fnb_di" bpmnElement="saveUser">
+        <dc:Bounds x="790" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0aj8v1q_di" bpmnElement="sendEmail">
+        <dc:Bounds x="940" y="290" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

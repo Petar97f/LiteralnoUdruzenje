@@ -143,7 +143,13 @@ public class User {
 	public void setGenres(Set<Genre> genres) {
 		this.genres = genres;
 	}
-	
-    
-    
+
+
+	public Boolean getActivated() {
+		return activated;
+	}
+
+	public void setActivated(Boolean activated) {
+		this.activated = activated;
+	}
 }

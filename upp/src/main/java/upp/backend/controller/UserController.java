@@ -1,6 +1,7 @@
 package upp.backend.controller;
 
 import org.camunda.bpm.engine.task.Task;
+import org.springframework.web.bind.annotation.*;
 import upp.backend.dto.GenreDTO;
 import upp.backend.dto.RegistrationDTO;
 import upp.backend.dto.UserDTO;
@@ -17,14 +18,6 @@ import org.camunda.bpm.engine.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -122,7 +115,24 @@ public class UserController {
 		System.out.println(u);
 		return new ResponseEntity<>("success", HttpStatus.CREATED);
 	}
-	
+
+	@GetMapping("/confirm-account")
+	public ResponseEntity<String> confirmUserAccount(@RequestParam("token")String email)
+	{
+
+		if(userService.findUserByEmail(email) != null)
+		{
+			User user = userService.findUserByEmail(email);
+			user.setActivated(true);
+			userService.save(user);
+		}
+		else
+		{
+			return new ResponseEntity<String>("Account is not active", HttpStatus.CONFLICT);
+		}
+
+		return new ResponseEntity<String>("User account is active", HttpStatus.CREATED);
+	}
 	
 	
 	
