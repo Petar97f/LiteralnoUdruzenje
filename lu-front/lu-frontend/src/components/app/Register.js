@@ -99,7 +99,8 @@ class Register extends Component {
         body: JSON.stringify({
           dto: returnDto
         })
-      })).json();
+      })).text();
+      
       if (response != 'fail') {
         alert('Registration successful, we will send you email to confirm registration');
         this.props.onClose();
@@ -108,6 +109,7 @@ class Register extends Component {
         this.props.onClose();
       }
     } catch (err) {
+     
       this.setState({
         errors: err.toString()
       });

@@ -30,7 +30,7 @@ public class ValidateUser implements JavaDelegate {
 		//List<RegistrationDTO> registration = (List<RegistrationDTO>)execution.getVariable("registration");
 		boolean isValid = true;
 		
-		System.out.println("form: "+formVariables.get("email").toString());
+		
 		
 		if (formVariables.get("name") == null ) {
 			isValid = false;
@@ -45,6 +45,7 @@ public class ValidateUser implements JavaDelegate {
 		} else if (formVariables.get("password") == null ) {
 			isValid = false;
 		} else if (formVariables.get("genres") == null) {
+			System.out.println("ovdeee1");
 			isValid = false;
 		}
 		if (formVariables.get("genres") != null) {
@@ -53,11 +54,13 @@ public class ValidateUser implements JavaDelegate {
 			List<String> genresListIds = new ArrayList<String>();
 			genresListIds = Arrays.asList(str);
 			if (genresListIds.isEmpty()) {
+				System.out.println("ovdeee2");
 				isValid = false;
 			}
 		}
 		
 		if(formVariables.get("email") != null) {
+			System.out.println("ovdeee3" + checkEmail(formVariables.get("email").toString()));
 			isValid = checkEmail(formVariables.get("email").toString());
 		}
 		System.out.println("VALID? : "+isValid);
@@ -81,7 +84,7 @@ public class ValidateUser implements JavaDelegate {
 			return false;
 		}
 		
-		if (userService.findUserByEmail(email) == null) {
+		if (userService.findUserByEmail(email) != null) {
 			return false;
 		}
 		

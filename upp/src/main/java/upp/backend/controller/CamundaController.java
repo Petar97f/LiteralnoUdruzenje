@@ -112,9 +112,8 @@ public class CamundaController {
 		} catch (Exception e) {
 			return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		//System.out.println("DAJ TU VARIJABLU :D :D : " + runtimeService.getVariable(processInstanceId, "registration"));
-        
-		return new ResponseEntity<>(HttpStatus.OK);
+		System.out.println("TEST");
+		return new ResponseEntity<>("success",HttpStatus.OK);
     }
 	
 	@SuppressWarnings("unused")
