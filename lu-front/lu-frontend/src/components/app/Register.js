@@ -29,7 +29,7 @@ class Register extends Component {
 					'Content-Type': 'application/json',
 					'Access-Control-Allow-Origin': '*',
         },
-      })).text();
+      })).json();
       this.setState({
          formFields: response.formFields,
          taskId: response.taskId

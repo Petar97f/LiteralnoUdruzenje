@@ -110,7 +110,18 @@ public class RegistrationDTO {
 	public void setGenres(List<GenreDTO> genres) {
 		this.genres = genres;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "RegistrationDTO{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", surname='" + surname + '\'' +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", city='" + city + '\'' +
+				", country='" + country + '\'' +
+				", genres=" + genres +
+				'}';
+	}
 }

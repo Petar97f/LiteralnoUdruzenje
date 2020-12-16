@@ -1,8 +1,6 @@
 package upp.backend.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,6 +30,7 @@ import upp.backend.dto.RegistrationDTO;
 import upp.backend.dto.RegistrationFormDTO;
 import upp.backend.dto.UserDTO;
 import upp.backend.model.FormFieldsDTO;
+import upp.backend.model.GenresEnum;
 import upp.backend.model.User;
 
 @CrossOrigin("*")
@@ -105,8 +104,12 @@ public class CamundaController {
 		System.out.println(task.getName());
 		System.out.println(processInstanceId);
 	
-		System.out.println(dto);
+		System.out.println(dto.toString());
+
 		runtimeService.setVariable(processInstanceId, "registration", dto);
+
+
+
 		try {
 			formService.submitTaskForm(taskId, map);
 		} catch (Exception e) {
