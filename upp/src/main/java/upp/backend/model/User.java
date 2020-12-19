@@ -29,13 +29,15 @@ public class User {
     private Boolean activated;
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     private Set<Genre> genres;
-   
+
+    @Column
+	private UserRole userRole;
 
     public User() {
     }
     
     
-    public User(Long id, String name, String surname, String email, String password, String city, String country) {
+    public User(Long id, String name, String surname, String email, String password, String city, String country, UserRole userRole) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -46,6 +48,7 @@ public class User {
 		this.country = country;
 		this.activated = false;
 		this.genres = new HashSet<Genre>();
+		this.userRole = userRole;
 	}
 
 
@@ -151,5 +154,13 @@ public class User {
 
 	public void setActivated(Boolean activated) {
 		this.activated = activated;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 }

@@ -2,9 +2,9 @@ package upp.backend.model;
 
 public enum UserRole {
 	SYS_ADMIN,
-	REDER,
+	READER,
 	BETA_READER,
-	WRITTER,
+	WRITER,
 	LECTOR,
 	EDITOR,
 	BOARD_MEMBER,
