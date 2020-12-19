@@ -1,5 +1,7 @@
 package upp.backend.handlers;
 
+import com.netflix.discovery.converters.Auto;
+import upp.backend.model.ConfirmationToken;
 import upp.backend.model.FormFieldDTO;
 import org.camunda.bpm.engine.IdentityService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
@@ -7,6 +9,10 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.identity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import upp.backend.model.UserRole;
+import upp.backend.repository.ConfirmationTokenRepository;
+import upp.backend.repository.UserRepository;
+import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
 
 import java.util.ArrayList;
@@ -21,7 +27,13 @@ public class SaveUserService implements JavaDelegate {
     IdentityService identityService;
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    private ConfirmationTokenRepository confirmationTokenRepository;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
@@ -45,6 +57,7 @@ public class SaveUserService implements JavaDelegate {
         userModel.setPassword(formVariables.get("password").toString());
         userModel.setCity(formVariables.get("city").toString());
         userModel.setCountry(formVariables.get("country").toString());
+        userModel.setUserRole(UserRole.WRITER);
         userModel.setActivated(false);
 
 
@@ -59,9 +72,12 @@ public class SaveUserService implements JavaDelegate {
         }
         System.out.println(genresListIds);
 
-        userService.save(userModel);
 
-        user.setId(userService.findUserByEmail(userModel.getEmail()).getId().toString());
+        userDetailsService.createUser(userModel);
+        ConfirmationToken confirmationToken= new ConfirmationToken(userModel);
+        confirmationTokenRepository.save(confirmationToken);
+
+        user.setId(userRepository.findByEmail(userModel.getEmail()).getId().toString());
         identityService.saveUser(user);
     }
 }

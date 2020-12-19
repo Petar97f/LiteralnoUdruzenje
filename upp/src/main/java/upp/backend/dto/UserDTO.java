@@ -93,6 +93,14 @@ public class UserDTO {
 		this.country = country;
 	}
 
+	public Boolean getActivated() {
+		return activated;
+	}
+
+	public void setActivated(Boolean activated) {
+		this.activated = activated;
+	}
+
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", password="

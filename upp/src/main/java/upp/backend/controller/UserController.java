@@ -1,16 +1,26 @@
 package upp.backend.controller;
 
 import org.camunda.bpm.engine.task.Task;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import upp.backend.dto.GenreDTO;
+import upp.backend.dto.LoginDTO;
 import upp.backend.dto.RegistrationDTO;
 import upp.backend.dto.UserDTO;
+import upp.backend.model.ConfirmationToken;
 import upp.backend.model.User;
+import upp.backend.repository.ConfirmationTokenRepository;
+import upp.backend.repository.UserRepository;
+import upp.backend.security.TokenUtils;
 import upp.backend.service.GenreService;
+import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
@@ -18,6 +28,8 @@ import org.camunda.bpm.engine.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import java.io.IOException;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -35,6 +47,23 @@ public class UserController {
 	
 	@Autowired
 	FormService formService;
+
+
+	@Autowired
+	AuthenticationManager authenticationManager;
+
+
+	@Autowired
+	private UserDetailsServiceImpl userDetailsService;
+
+	@Autowired
+	TokenUtils tokenUtils;
+
+	@Autowired
+	private ConfirmationTokenRepository confirmationTokenRepository;
+
+	@Autowired
+	private UserRepository userRepository;
     
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
@@ -59,72 +88,79 @@ public class UserController {
 //	}
 //
 
-    
-    
-	@PostMapping(value="/login")
-	public ResponseEntity<?> loginUser(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){
-		System.out.println("u:" + user.toString());
-		System.out.println("u:" + user.getEmail());
-		
-		User logged = userService.findUserByEmail(user.getEmail());
-		
-		if(logged!=null ){
-			HttpSession newSession = request.getSession();
-			newSession.setAttribute("logged", logged);
-			System.out.println("u:" + logged.getEmail());
-			return new ResponseEntity<>(logged, HttpStatus.OK);
+
+
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@Valid @RequestBody LoginDTO loginDTO) throws IOException {
+		try {
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+					loginDTO.getEmail(), loginDTO.getPassword());
+			System.out.println(loginDTO.getEmail());
+			System.out.println(loginDTO.getPassword());
+			authenticationManager.authenticate(token);
+			UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getEmail());
+			System.out.println(details);
+			User userr=userDetailsService.findUserByEmail(loginDTO.getEmail());
+			System.out.println(userr);
+			if(!userr.getActivated()){
+				return new ResponseEntity<>("account is not active", HttpStatus.UNAUTHORIZED);
+			}
+			return new ResponseEntity<String>(tokenUtils.generateToken(details), HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<String>("Invalid login", HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
 	
 
-	@RequestMapping(value="/register/{taskId}",method=RequestMethod.POST)
-	public ResponseEntity<?> register(@RequestBody RegistrationDTO user, @PathVariable String taskId, HttpSession session, HttpServletRequest request){
-		System.out.println("u:" + user.toString());
-		System.out.println("u:" + user.getEmail());
-		//to-do
-		//to complete task
-		//Task taskTemp = taskService.createTaskQuery().taskId(taskId).singleResult();
-		//check if task exists
-		//if(taskTemp == null) {
-		//	return new ResponseEntity<>("The task doesn't exist!", HttpStatus.NOT_FOUND);
-		//}
-		//taskService.complete(taskId);
-		
-		//processEngine().getTaskService() .complete("someTaskIdHere");
-		
-		System.out.println("Submiting the form values.");
-		
-		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
-		
-		if(task == null) {
-			return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
-		}
-		
-		//List<FormField> properties = ;
-		//formService.submitTaskForm(taskId, properties);
-		
-		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getCountry());
-		userService.save(u);
-		for(GenreDTO g : user.getGenres()) {
-			System.out.println(g);
-			System.out.println(u.getGenres());
-			u.getGenres().add(genreService.convertFromDTO(g));
-			genreService.findById(g.getId()).getUsers().add(u);
-		}
-		System.out.println(u);
-		return new ResponseEntity<>("success", HttpStatus.CREATED);
-	}
+//	@RequestMapping(value="/register/{taskId}",method=RequestMethod.POST)
+//	public ResponseEntity<?> register(@RequestBody RegistrationDTO user, @PathVariable String taskId, HttpSession session, HttpServletRequest request){
+//		System.out.println("u:" + user.toString());
+//		System.out.println("u:" + user.getEmail());
+//		//to-do
+//		//to complete task
+//		//Task taskTemp = taskService.createTaskQuery().taskId(taskId).singleResult();
+//		//check if task exists
+//		//if(taskTemp == null) {
+//		//	return new ResponseEntity<>("The task doesn't exist!", HttpStatus.NOT_FOUND);
+//		//}
+//		//taskService.complete(taskId);
+//
+//		//processEngine().getTaskService() .complete("someTaskIdHere");
+//
+//		System.out.println("Submiting the form values.");
+//
+//		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
+//
+//		if(task == null) {
+//			return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
+//		}
+//
+//		//List<FormField> properties = ;
+//		//formService.submitTaskForm(taskId, properties);
+//
+//		User u = new User(user.getId(),user.getName(),user.getSurname(),user.getEmail(),user.getPassword(),user.getCity(),user.getCountry());
+//		userService.save(u);
+//		for(GenreDTO g : user.getGenres()) {
+//			System.out.println(g);
+//			System.out.println(u.getGenres());
+//			u.getGenres().add(genreService.convertFromDTO(g));
+//			genreService.findById(g.getId()).getUsers().add(u);
+//		}
+//		System.out.println(u);
+//		return new ResponseEntity<>("success", HttpStatus.CREATED);
+//	}
 
 	@GetMapping("/confirm-account")
-	public ResponseEntity<String> confirmUserAccount(@RequestParam("token")String email)
+	public ResponseEntity<String> confirmUserAccount(@RequestParam("token")String confirmationToken)
 	{
 
-		if(userService.findUserByEmail(email) != null)
+		ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+
+		if(token != null)
 		{
-			User user = userService.findUserByEmail(email);
+			User user = userRepository.findByEmail(token.getUser().getEmail());
 			user.setActivated(true);
-			userService.save(user);
+			userRepository.save(user);
 		}
 		else
 		{
