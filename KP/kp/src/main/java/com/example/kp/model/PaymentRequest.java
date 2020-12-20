@@ -1,47 +1,29 @@
 package com.example.kp.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class PaymentRequest {
-
-    private String merchantId;
-    private String merchantPassword;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
+    @Column
     private Double amount;
+    @Column
     private Long merchantOrderId;
+    @Column
     private Date merchantTimestamp;
-    private String successUrl;
-    private String failedUrl;
-    private String errorUrl;
+
+    @ManyToOne(cascade = CascadeType.DETACH,fetch = FetchType.EAGER)
+    private Merchant merchant;
+
 
     public PaymentRequest() {
     }
 
-    public PaymentRequest(String merchantId, String merchantPassword, Double amount, Long merchantOrderId, Date merchantTimestamp, String successUrl, String failedUrl, String errorUrl) {
-        this.merchantId = merchantId;
-        this.merchantPassword = merchantPassword;
-        this.amount = amount;
-        this.merchantOrderId = merchantOrderId;
-        this.merchantTimestamp = merchantTimestamp;
-        this.successUrl = successUrl;
-        this.failedUrl = failedUrl;
-        this.errorUrl = errorUrl;
-    }
 
-    public String getMerchantId() {
-        return merchantId;
-    }
-
-    public void setMerchantId(String merchantId) {
-        this.merchantId = merchantId;
-    }
-
-    public String getMerchantPassword() {
-        return merchantPassword;
-    }
-
-    public void setMerchantPassword(String merchantPassword) {
-        this.merchantPassword = merchantPassword;
-    }
 
     public Double getAmount() {
         return amount;
@@ -67,27 +49,19 @@ public class PaymentRequest {
         this.merchantTimestamp = merchantTimestamp;
     }
 
-    public String getSuccessUrl() {
-        return successUrl;
+    public Long getId() {
+        return id;
     }
 
-    public void setSuccessUrl(String successUrl) {
-        this.successUrl = successUrl;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getFailedUrl() {
-        return failedUrl;
+    public Merchant getMerchant() {
+        return merchant;
     }
 
-    public void setFailedUrl(String failedUrl) {
-        this.failedUrl = failedUrl;
-    }
-
-    public String getErrorUrl() {
-        return errorUrl;
-    }
-
-    public void setErrorUrl(String errorUrl) {
-        this.errorUrl = errorUrl;
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
     }
 }
