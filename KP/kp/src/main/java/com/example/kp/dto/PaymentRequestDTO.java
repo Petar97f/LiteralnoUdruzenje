@@ -23,8 +23,25 @@ public class PaymentRequestDTO {
 
     public PaymentRequestDTO() {
     }
+    
+    
 
-    public Double getAmount() {
+    public PaymentRequestDTO(Double amount, Long merchantOrderId, Date merchantTimestamp, String successUrl,
+			String failedUrl, String errorUrl, String merchantId, String merchantPassword) {
+		super();
+		this.amount = amount;
+		this.merchantOrderId = merchantOrderId;
+		this.merchantTimestamp = merchantTimestamp;
+		this.successUrl = successUrl;
+		this.failedUrl = failedUrl;
+		this.errorUrl = errorUrl;
+		this.merchantId = merchantId;
+		this.merchantPassword = merchantPassword;
+	}
+
+
+
+	public Double getAmount() {
         return amount;
     }
 
