@@ -3,6 +3,11 @@ package upp.backend.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import upp.backend.dto.UserDTO;
+import upp.backend.model.User;
+import upp.backend.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -19,6 +24,9 @@ public class TokenUtils {
 
     @Value("18000")
     private Long expiration;
+    
+    @Autowired
+    private UserService userService;
 
     public String getUsernameFromToken(String token) {
         String username;
@@ -64,7 +72,9 @@ public class TokenUtils {
     }
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<String, Object>();
-        claims.put("sub", userDetails.getUsername());
+        User u = userService.findUserByEmail(userDetails.getUsername());
+        UserDTO user = userService.convertToDTO(u);
+        claims.put("sub", user);
         claims.put("created", new Date(System.currentTimeMillis()));
         claims.put("roles", userDetails.getAuthorities());
         return Jwts.builder().setClaims(claims).setExpiration(new Date(System.currentTimeMillis() + expiration * 1000)).signWith(SignatureAlgorithm.HS512, secret).compact();

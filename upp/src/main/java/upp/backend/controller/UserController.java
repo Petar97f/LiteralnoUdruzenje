@@ -103,11 +103,11 @@ public class UserController {
 			User userr=userDetailsService.findUserByEmail(loginDTO.getEmail());
 			System.out.println(userr);
 			if(!userr.getActivated()){
-				return new ResponseEntity<>("account is not active", HttpStatus.UNAUTHORIZED);
+				return new ResponseEntity<>("fail", HttpStatus.UNAUTHORIZED);
 			}
 			return new ResponseEntity<String>(tokenUtils.generateToken(details), HttpStatus.OK);
 		} catch (Exception ex) {
-			return new ResponseEntity<String>("Invalid login", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 		}
 	}
 	
