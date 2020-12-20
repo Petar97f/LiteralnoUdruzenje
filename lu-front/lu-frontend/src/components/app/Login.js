@@ -3,6 +3,7 @@ import { Form, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import User from '.././user/User';
+import jwt from 'jwt-decode' 
 
 class Login extends Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ class Login extends Component {
 			email: '',
 			password: '',
 			errors: [],
+			error: ''
 		}
 	}
 
@@ -29,11 +31,19 @@ class Login extends Component {
 					password: this.state.password
         })
       })).text();
-			console.log("SMTH");
 			console.log(response);
+			localStorage.setItem('token', response);
+			let user = jwt(response);
+			console.log(user);
+			console.log("here");
 			if (response != 'fail') {
 				User.isLoggedIn = true;
-				User.name = response.name;
+				User.name = user.sub.name;
+				User.surname = user.sub.surname;
+				User.email = user.sub.email;
+				User.city= user.sub.city;
+				User.country = user.sub.country;
+				User.role = user.roles[0].authority;
 			} else {
 				this.setState({
 					error: 'Invalid username or password'
