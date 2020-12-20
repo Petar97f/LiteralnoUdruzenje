@@ -23,13 +23,12 @@ class Login extends Component {
         headers: {
           'Accept': 'application/json',
 					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify({
 					email: this.state.email,
 					password: this.state.password
         })
-      })).json();
+      })).text();
 			console.log("SMTH");
 			console.log(response);
 			if (response != 'fail') {
