@@ -3,7 +3,7 @@ package com.bankaservice.backend.dto;
 import java.util.Date;
 
 public class PaymentRequestDTO {
-    private Double amount;
+    private Float amount;
 
     private Long merchantOrderId;
 
@@ -23,11 +23,11 @@ public class PaymentRequestDTO {
     public PaymentRequestDTO() {
     }
 
-    public Double getAmount() {
+    public Float getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 

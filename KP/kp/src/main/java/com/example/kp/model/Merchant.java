@@ -8,8 +8,11 @@ import java.util.Set;
 
 @Entity
 public class Merchant {
-
-    @Id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Long idLong;
+    
     @Column
     private String id;
 
