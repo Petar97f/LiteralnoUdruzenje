@@ -26,8 +26,7 @@ class Register extends Component {
         method: 'get',
         headers: {
           'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
+					'Content-Type': 'application/json'
         },
       })).json();
       this.setState({
@@ -64,7 +63,6 @@ class Register extends Component {
   }
 
   onInputChange = (name, value) => {
-    console.log(name, value);
     let user = {...this.state.user};
     user[name] = value;
     this.setState({

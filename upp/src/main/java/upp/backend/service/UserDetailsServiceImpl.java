@@ -31,6 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String email){
         User user = userRepository.findByEmail(email);
+        System.out.println("34"+user.getUserRole());
         if(user == null){
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", email));
         } else{
