@@ -17,5 +17,7 @@ public class CardService {
     public Card findByMerchantId(String merchantId) {
     	return cardRepository.findByMerchantId(merchantId);    }
 
+    public Card findCardById(Long id){return cardRepository.findCardById(id);}
+    public void save(Card card){cardRepository.save(card);}
 
 }

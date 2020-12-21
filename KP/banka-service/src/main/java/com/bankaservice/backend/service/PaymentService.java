@@ -16,4 +16,5 @@ public class PaymentService {
     public List<Payment> findAll(){return paymentRepository.findAll();}
     public Payment findPaymentById(Long id){return paymentRepository.findPaymentById(id);}
     public void save(Payment payment){paymentRepository.save(payment);}
+
 }
