@@ -2,10 +2,9 @@ package com.example.kp.controller;
 
 
 import com.example.kp.client.BankClient;
-import com.example.kp.dto.PaymentDTO;
-import com.example.kp.dto.PaymentRequestDTO;
-import com.example.kp.dto.PaymentTypesDTO;
-import com.example.kp.dto.RequestDTO;
+import com.example.kp.dto.*;
+import com.example.kp.model.Log;
+import com.example.kp.model.LogType;
 import com.example.kp.model.Merchant;
 import com.example.kp.model.PaymentRequest;
 import com.example.kp.repository.MerchantRepository;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 @CrossOrigin("*")
@@ -44,6 +44,13 @@ public class PaymentController {
         PaymentTypesDTO paymentTypesDTO = new PaymentTypesDTO();
         paymentTypesDTO.setPaymentTypes(merchant.getPaymentTypes());
         return paymentTypesDTO;
+    }
+
+    @GetMapping(value = "/getMerchantData/{merchantId}")
+    public IssuerDTO getIsserData(@PathVariable("merchantId") String merchantId){
+        List<PaymentRequest> reqs=paymentRequestService.findAllByMerchant(merchantService.findMerchantById(merchantId));
+        IssuerDTO issuerDTO= new IssuerDTO(Long.valueOf(reqs.size()),new Date());
+        return issuerDTO;
     }
 
     @PostMapping(value="/PaymentBank")
@@ -77,12 +84,26 @@ public class PaymentController {
             paymentRequestDTO.setMerchantOrderId(max++);
         }
         paymentRequest.setMerchantOrderId(paymentRequestDTO.getMerchantOrderId());
-        paymentRequest.setMerchantTimestamp(paymentRequestDTO.getMerchantTimestamp());
-        paymentRequestService.save(paymentRequest);
+        paymentRequest.setMerchantTimestamp(new Date());
 
+
+        Log log = new Log(LogType.INFO, requestDTO.getId(), 1, "Send request to kp");
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        log.setTimestamp(calendar.getTime());
+        System.out.println(log);
+
+
+        paymentRequestService.save(paymentRequest);
         PaymentDTO paymentDTO=bankClient.BankPay(paymentRequestDTO);
 
 
         return paymentDTO.getPaymentUrl();
+    }
+
+    @PostMapping(value = "/TrasactionDone")
+    public String Transaction(@RequestBody TransactionDTO transactionDTO){
+        return transactionDTO.getPaymentUrl();
     }
 }
