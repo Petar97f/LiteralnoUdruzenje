@@ -5,6 +5,7 @@ class User {
     extendObservable(this, {
       isLoggedIn: false,
       isAdmin: false,
+      role: '',
       userId: '',
       username: '',
       email: '',
