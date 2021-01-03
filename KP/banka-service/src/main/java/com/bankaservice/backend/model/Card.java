@@ -31,10 +31,36 @@ public class Card {
     @Column
     private String securityCode;
 
+    @Column
+    private String merchantId;
+
+    @Column
+    private String merchantPassword;
+    @ManyToOne( fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    private Bank bank;
+
     public Card() {
     }
+    
 
-    public Long getId() {
+    public Card(Long id, Long clientId, String cardNumber, String expirationDate, String cvc, Float availableMoney,
+			String pan, String securityCode, String merchantId, String merchantPassword, Bank bank) {
+		super();
+		this.id = id;
+		this.clientId = clientId;
+		this.cardNumber = cardNumber;
+		this.expirationDate = expirationDate;
+		this.cvc = cvc;
+		this.availableMoney = availableMoney;
+		this.pan = pan;
+		this.securityCode = securityCode;
+		this.merchantId = merchantId;
+		this.merchantPassword = merchantPassword;
+		this.bank = bank;
+	}
+
+
+	public Long getId() {
         return id;
     }
 
@@ -80,6 +106,46 @@ public class Card {
 
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
+	}
+
+    public String getPan() {
+        return pan;
+    }
+
+    public void setPan(String pan) {
+        this.pan = pan;
+    }
+
+    public String getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
+    }
+
+    public String getMerchantId() {
+        return merchantId;
+    }
+
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
+    }
+
+    public String getMerchantPassword() {
+        return merchantPassword;
+    }
+
+    public void setMerchantPassword(String merchantPassword) {
+        this.merchantPassword = merchantPassword;
+    }
+
+	public Bank getBank() {
+		return bank;
+	}
+
+	public void setBank(Bank bank) {
+		this.bank = bank;
 	}
     
 }
