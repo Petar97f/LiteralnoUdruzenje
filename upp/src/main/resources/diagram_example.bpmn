@@ -18,6 +18,9 @@
             </camunda:validation>
           </camunda:formField>
           <camunda:formField id="email" label="Email" type="string">
+            <camunda:properties>
+              <camunda:property id="email" value="email" />
+            </camunda:properties>
             <camunda:validation>
               <camunda:constraint name="required" />
             </camunda:validation>
@@ -33,11 +36,18 @@
             </camunda:validation>
           </camunda:formField>
           <camunda:formField id="password" label="Password" type="string">
+            <camunda:properties>
+              <camunda:property id="password" value="password" />
+            </camunda:properties>
             <camunda:validation>
               <camunda:constraint name="required" />
             </camunda:validation>
           </camunda:formField>
-          <camunda:formField id="genres" label="Genres" type="enum" />
+          <camunda:formField id="genres" label="Genres" type="enum">
+            <camunda:properties>
+              <camunda:property id="multiselect" value="multiselect" />
+            </camunda:properties>
+          </camunda:formField>
         </camunda:formData>
         <camunda:taskListener class="upp.backend.handlers.RegisterService" event="create" />
       </bpmn:extensionElements>
@@ -84,6 +94,14 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_reg">
+      <bpmndi:BPMNEdge id="Flow_00xp2gd_di" bpmnElement="Flow_00xp2gd">
+        <di:waypoint x="1040" y="330" />
+        <di:waypoint x="1092" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kjy0tu_di" bpmnElement="Flow_1kjy0tu">
+        <di:waypoint x="890" y="330" />
+        <di:waypoint x="940" y="330" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0r7tb8p_di" bpmnElement="Flow_0r7tb8p">
         <di:waypoint x="685" y="330" />
         <di:waypoint x="790" y="330" />
@@ -115,14 +133,6 @@
       <bpmndi:BPMNEdge id="Flow_0rfqzp9_di" bpmnElement="Flow_0rfqzp9">
         <di:waypoint x="148" y="330" />
         <di:waypoint x="195" y="330" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1kjy0tu_di" bpmnElement="Flow_1kjy0tu">
-        <di:waypoint x="890" y="330" />
-        <di:waypoint x="940" y="330" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_00xp2gd_di" bpmnElement="Flow_00xp2gd">
-        <di:waypoint x="1040" y="330" />
-        <di:waypoint x="1092" y="330" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="112" y="312" width="36" height="36" />

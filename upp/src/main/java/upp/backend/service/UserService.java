@@ -1,5 +1,8 @@
 package upp.backend.service;
 
+import upp.backend.dto.GenreDTO;
+import upp.backend.dto.UserDTO;
+import upp.backend.model.Genre;
 import upp.backend.model.User;
 import upp.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +28,17 @@ public class UserService {
     public User findById(Long id) {
     	return userRepository.findUserById(id);
     }
+    
+    
+    public UserDTO convertToDTO(User u){
+ 	   UserDTO userDTO = new UserDTO();
+ 	   userDTO.setId(u.getId());
+ 	   userDTO.setName(u.getName());
+ 	   userDTO.setSurname(u.getSurname());
+ 	   userDTO.setEmail(u.getEmail());
+ 	   userDTO.setPassword(u.getPassword());
+ 	   userDTO.setCity(u.getCity());
+ 	   userDTO.setCountry(u.getCountry());
+ 	   return userDTO;
+ 	}
 }
