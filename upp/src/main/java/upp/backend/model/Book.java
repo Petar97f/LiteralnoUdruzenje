@@ -1,6 +1,7 @@
 package upp.backend.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Book {
@@ -14,14 +15,42 @@ public class Book {
     private String name;
 
     @Column
+    private String authorId;
+
+    @Column
+    private String publisherId;
+
+    @Column
+    private String genre;
+
+    @Column
+    private Date yearOfIssue;
+
+    @Column
+    private String editors;
+
+    @Column
+    private String lectors;
+
+    @Column
+    private Integer numOfPages;
+
+    @Column
     private Double price;
 
     public Book() {
     }
 
-    public Book(Long id, String name, Double price) {
+    public Book(Long id, String name, String authorId, String publisherId, String genre, Date yearOfIssue, String editors, String lectors, Integer numOfPages, Double price) {
         this.id = id;
         this.name = name;
+        this.authorId = authorId;
+        this.publisherId = publisherId;
+        this.genre = genre;
+        this.yearOfIssue = yearOfIssue;
+        this.editors = editors;
+        this.lectors = lectors;
+        this.numOfPages = numOfPages;
         this.price = price;
     }
 
@@ -47,5 +76,61 @@ public class Book {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
+    }
+
+    public String getPublisherId() {
+        return publisherId;
+    }
+
+    public void setPublisherId(String publisherId) {
+        this.publisherId = publisherId;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Date getYearOfIssue() {
+        return yearOfIssue;
+    }
+
+    public void setYearOfIssue(Date yearOfIssue) {
+        this.yearOfIssue = yearOfIssue;
+    }
+
+    public String getEditors() {
+        return editors;
+    }
+
+    public void setEditors(String editors) {
+        this.editors = editors;
+    }
+
+    public String getLectors() {
+        return lectors;
+    }
+
+    public void setLectors(String lectors) {
+        this.lectors = lectors;
+    }
+
+    public Integer getNumOfPages() {
+        return numOfPages;
+    }
+
+    public void setNumOfPages(Integer numOfPages) {
+        this.numOfPages = numOfPages;
     }
 }
