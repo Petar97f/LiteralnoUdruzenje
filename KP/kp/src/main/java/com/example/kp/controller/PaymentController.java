@@ -1,7 +1,7 @@
 package com.example.kp.controller;
 
 
-import com.example.kp.client.Bank2Client;
+
 import com.example.kp.client.BankClient;
 import com.example.kp.dto.*;
 import com.example.kp.model.Log;
@@ -38,8 +38,6 @@ public class PaymentController {
     @Autowired
     private BankClient bankClient;
 
-    @Autowired
-    private Bank2Client bank2Client;
 
     @GetMapping(value = "/getTypes/{merchantId}")
     public PaymentTypesDTO getUser(@PathVariable("merchantId") String merchantId) {
@@ -99,11 +97,10 @@ public class PaymentController {
 
 
         paymentRequestService.save(paymentRequest);
-        PaymentDTO paymentDTO;
-        if(merchant.getBankID() == 1)
-            paymentDTO=bankClient.BankPay(paymentRequestDTO);
-        else
-            paymentDTO= bank2Client.Bank2Pay(paymentRequestDTO);
+
+        PaymentDTO paymentDTO=bankClient.BankPay(paymentRequestDTO);
+
+
 
         return paymentDTO.getPaymentUrl();
     }

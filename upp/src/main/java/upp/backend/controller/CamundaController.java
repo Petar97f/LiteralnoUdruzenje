@@ -101,25 +101,16 @@ public class CamundaController {
 		}
 		//Daj mi koji je to proces instance (registration)
 		String processInstanceId = task.getProcessInstanceId();
-		System.out.println(task.getName());
-		System.out.println(processInstanceId);
-	
-		System.out.println(dto.toString());
 
 		runtimeService.setVariable(processInstanceId, "registration", dto);
-
-
-
 		try {
 			formService.submitTaskForm(taskId, map);
 		} catch (Exception e) {
 			return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		System.out.println("TEST");
 		return new ResponseEntity<>("success",HttpStatus.OK);
     }
 	
-	@SuppressWarnings("unused")
 	private HashMap<String, Object> mapListToDto(ArrayList<FormSubmissionDTO> list) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		for(FormSubmissionDTO temp : list){

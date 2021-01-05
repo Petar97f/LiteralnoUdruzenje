@@ -3,6 +3,7 @@ package upp.backend.model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 public class Book {
 
@@ -15,6 +16,7 @@ public class Book {
     private String name;
 
     @Column
+
     private String authorId;
 
     @Column
@@ -41,19 +43,6 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String name, String authorId, String publisherId, String genre, Date yearOfIssue, String editors, String lectors, Integer numOfPages, Double price) {
-        this.id = id;
-        this.name = name;
-        this.authorId = authorId;
-        this.publisherId = publisherId;
-        this.genre = genre;
-        this.yearOfIssue = yearOfIssue;
-        this.editors = editors;
-        this.lectors = lectors;
-        this.numOfPages = numOfPages;
-        this.price = price;
-    }
-
     public Long getId() {
         return id;
     }
@@ -77,6 +66,7 @@ public class Book {
     public void setPrice(Double price) {
         this.price = price;
     }
+
 
     public String getAuthorId() {
         return authorId;
@@ -133,4 +123,5 @@ public class Book {
     public void setNumOfPages(Integer numOfPages) {
         this.numOfPages = numOfPages;
     }
+
 }

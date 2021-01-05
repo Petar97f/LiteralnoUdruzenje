@@ -31,6 +31,7 @@ public class Merchant {
     @Column
     private String errorUrl;
 
+
     @Column
     private Long bankID;
 
@@ -40,12 +41,14 @@ public class Merchant {
 
     public Merchant(Long idLong, String id, String password, String successUrl, String failedUrl, String errorUrl, Long bankID) {
         this.idLong = idLong;
+    }
+
+    public Merchant(String id, String password, String successUrl, String failedUrl, String errorUrl) {
         this.id = id;
         this.password = password;
         this.successUrl = successUrl;
         this.failedUrl = failedUrl;
         this.errorUrl = errorUrl;
-        this.bankID = bankID;
     }
 
     public String getId() {
@@ -96,6 +99,7 @@ public class Merchant {
         this.errorUrl = errorUrl;
     }
 
+
     public Long getIdLong() {
         return idLong;
     }
@@ -111,4 +115,5 @@ public class Merchant {
     public void setBankID(Long bankID) {
         this.bankID = bankID;
     }
+
 }
