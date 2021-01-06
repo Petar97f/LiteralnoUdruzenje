@@ -47,6 +47,9 @@ class UserPage extends Component {
         Books
         <button className="btn btn-primary" onClick={this.onBuy}>Buy</button>
         </div>
+        <div>
+        <button className="btn btn-primary" >Upload your book</button>
+        </div>
       </div>
     );
   }

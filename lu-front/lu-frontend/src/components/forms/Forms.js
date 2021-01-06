@@ -77,7 +77,6 @@ class Forms extends Component {
                 </Form.Group>
               );
             } else if (item.properties['email'] !== undefined) {
-              console.log()
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
@@ -95,7 +94,7 @@ class Forms extends Component {
           } else if (item.type.name === 'boolean') {
             return (
               <Form.Group key={item.id}>
-                <Form.Check type="checkbox" label="Check me out" />
+                <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(item.id, e.target.checked)} />
               </Form.Group>
             ); 
           }

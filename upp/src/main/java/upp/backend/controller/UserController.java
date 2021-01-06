@@ -23,8 +23,10 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.camunda.bpm.engine.FormService;
+import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
+import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,6 +67,8 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
     
+	@Autowired
+    ProcessEngine processEngine;
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
 		
@@ -153,24 +157,22 @@ public class UserController {
 	@GetMapping("/confirm-account")
 	public ResponseEntity<String> confirmUserAccount(@RequestParam("token")String confirmationToken)
 	{
+		//da nekako pozovem taj user task
+		// da li on da cuva token na formi
+		// servisni task 
 
 		ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
-		if(token != null)
-		{
+		if(token != null) {
 			User user = userRepository.findByEmail(token.getUser().getEmail());
 			user.setActivated(true);
 			userRepository.save(user);
 		}
-		else
-		{
-			return new ResponseEntity<String>("Account is not active", HttpStatus.CONFLICT);
+		else {
+			return new ResponseEntity<String>("fail", HttpStatus.CONFLICT);
 		}
-
-		return new ResponseEntity<String>("User account is active", HttpStatus.CREATED);
+		return new ResponseEntity<String>("success", HttpStatus.CREATED);
 	}
-	
-	
 	
 	@RequestMapping(value="/register-reader",method=RequestMethod.POST)
 	public ResponseEntity<?> registerReader(@RequestBody UserDTO user, HttpSession session, HttpServletRequest request){

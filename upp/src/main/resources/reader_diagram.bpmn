@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1j6954j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="Reader_register" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1jljjea</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1jljjea" sourceRef="StartEvent_1" targetRef="Activity_0lrrd4s" />
+    <bpmn:userTask id="Activity_0lrrd4s" name="RegisterForm">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="name" label="First Name" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="lastName" label="Last Name" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="city" label="City" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="country" label="Country" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="isBeta" label="Beta reader?" type="boolean" defaultValue="true" />
+          <camunda:formField id="email" label="Email" type="string">
+            <camunda:properties>
+              <camunda:property id="email" value="email" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="password" label="Password" type="string">
+            <camunda:properties>
+              <camunda:property id="password" value="password" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1jljjea</bpmn:incoming>
+      <bpmn:outgoing>Flow_148qz0h</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0fcxffg" name="ValidateUser" camunda:class="upp.backend.handlers.ValidateUser">
+      <bpmn:incoming>Flow_0co8x7n</bpmn:incoming>
+      <bpmn:incoming>Flow_14kwycj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1epgoz6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1fgj8t5">
+      <bpmn:incoming>Flow_1epgoz6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1epgoz6" sourceRef="Activity_0fcxffg" targetRef="Event_1fgj8t5" />
+    <bpmn:exclusiveGateway id="Gateway_1h5bbw1">
+      <bpmn:incoming>Flow_05f2pfk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0co8x7n</bpmn:outgoing>
+      <bpmn:outgoing>Flow_058mtab</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0co8x7n" name="notBeta" sourceRef="Gateway_1h5bbw1" targetRef="Activity_0fcxffg">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isBeta == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_058mtab" name="isBeta" sourceRef="Gateway_1h5bbw1" targetRef="genres">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isBeta == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_14kwycj" sourceRef="genres" targetRef="Activity_0fcxffg" />
+    <bpmn:userTask id="genres" name="genres">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="genres" label="genres" type="enum">
+            <camunda:properties>
+              <camunda:property id="multiselect" value="multiselect" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener class="upp.backend.handlers.RegisterService" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_058mtab</bpmn:incoming>
+      <bpmn:outgoing>Flow_14kwycj</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_148qz0h" sourceRef="Activity_0lrrd4s" targetRef="Activity_1dyoih7" />
+    <bpmn:sequenceFlow id="Flow_05f2pfk" sourceRef="Activity_1dyoih7" targetRef="Gateway_1h5bbw1" />
+    <bpmn:serviceTask id="Activity_1dyoih7" name="checkBeta" camunda:class="upp.backend.handlers.CheckBeta">
+      <bpmn:incoming>Flow_148qz0h</bpmn:incoming>
+      <bpmn:outgoing>Flow_05f2pfk</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Reader_register">
+      <bpmndi:BPMNEdge id="Flow_1jljjea_di" bpmnElement="Flow_1jljjea">
+        <di:waypoint x="188" y="100" />
+        <di:waypoint x="250" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1epgoz6_di" bpmnElement="Flow_1epgoz6">
+        <di:waypoint x="910" y="117" />
+        <di:waypoint x="1152" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0co8x7n_di" bpmnElement="Flow_0co8x7n">
+        <di:waypoint x="565" y="100" />
+        <di:waypoint x="703" y="100" />
+        <di:waypoint x="703" y="90" />
+        <di:waypoint x="810" y="90" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="694" y="92" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_058mtab_di" bpmnElement="Flow_058mtab">
+        <di:waypoint x="540" y="125" />
+        <di:waypoint x="540" y="230" />
+        <di:waypoint x="620" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="540" y="175" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14kwycj_di" bpmnElement="Flow_14kwycj">
+        <di:waypoint x="720" y="230" />
+        <di:waypoint x="777" y="230" />
+        <di:waypoint x="777" y="117" />
+        <di:waypoint x="810" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_148qz0h_di" bpmnElement="Flow_148qz0h">
+        <di:waypoint x="350" y="100" />
+        <di:waypoint x="390" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05f2pfk_di" bpmnElement="Flow_05f2pfk">
+        <di:waypoint x="490" y="100" />
+        <di:waypoint x="515" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_1h5bbw1_di" bpmnElement="Gateway_1h5bbw1" isMarkerVisible="true">
+        <dc:Bounds x="515" y="75" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0uyk1xv_di" bpmnElement="genres">
+        <dc:Bounds x="620" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14v4o7s_di" bpmnElement="Activity_0fcxffg">
+        <dc:Bounds x="810" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1fgj8t5_di" bpmnElement="Event_1fgj8t5">
+        <dc:Bounds x="1152" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ojknk9_di" bpmnElement="Activity_0lrrd4s">
+        <dc:Bounds x="250" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1l75i9s_di" bpmnElement="Activity_1dyoih7">
+        <dc:Bounds x="390" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

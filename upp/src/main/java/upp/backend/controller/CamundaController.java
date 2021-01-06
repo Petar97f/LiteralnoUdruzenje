@@ -67,6 +67,17 @@ public class CamundaController {
 		return new FormFieldsDTO(task.getId(), pi.getId(),properties);
 	}
 	
+	@GetMapping(value = "getFormFields/{taskName}")
+	public @ResponseBody FormFieldsDTO getForm(@PathVariable("taskName") String taskName) {
+		Task task = taskService.createTaskQuery().taskName(taskName).singleResult();
+		String processInstanceId = task.getProcessInstanceId();
+		
+		TaskFormData tfd = formService.getTaskFormData(task.getId());
+		List<FormField> properties = tfd.getFormFields();
+		
+		return new FormFieldsDTO(task.getId(), processInstanceId, properties);
+	}
+	
 	/*@RequestMapping(value="/submitForm/{taskId}",method=RequestMethod.POST)
 	public ResponseEntity<?> onSubmit(@RequestBody RegistrationDTO user, @PathVariable String taskId, HttpSession session, HttpServletRequest request){
 		System.out.println("Submiting the form values.");
@@ -108,6 +119,8 @@ public class CamundaController {
 		} catch (Exception e) {
 			return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		
+		
 		return new ResponseEntity<>("success",HttpStatus.OK);
     }
 	

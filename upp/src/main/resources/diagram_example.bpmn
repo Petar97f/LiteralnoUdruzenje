@@ -79,25 +79,34 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isValid == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="Event_135s83u">
-      <bpmn:incoming>Flow_00xp2gd</bpmn:incoming>
+      <bpmn:incoming>Flow_12n2470</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1kjy0tu" sourceRef="saveUser" targetRef="sendEmail" />
     <bpmn:serviceTask id="saveUser" name="SaveUser" camunda:class="upp.backend.handlers.SaveUserService">
       <bpmn:incoming>Flow_0r7tb8p</bpmn:incoming>
       <bpmn:outgoing>Flow_1kjy0tu</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_00xp2gd" sourceRef="sendEmail" targetRef="Event_135s83u" />
     <bpmn:serviceTask id="sendEmail" name="SendEmail" camunda:class="upp.backend.handlers.SendEmailService">
       <bpmn:incoming>Flow_1kjy0tu</bpmn:incoming>
-      <bpmn:outgoing>Flow_00xp2gd</bpmn:outgoing>
+      <bpmn:outgoing>Flow_10fexic</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_10fexic" sourceRef="sendEmail" targetRef="userAproved" />
+    <bpmn:userTask id="userAproved" name="userAproved">
+      <bpmn:extensionElements>
+        <camunda:taskListener class="upp.backend.handlers.ConfirmedEmail" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10fexic</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vffq27</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1vffq27" sourceRef="userAproved" targetRef="Activity_09lx94i" />
+    <bpmn:sequenceFlow id="Flow_12n2470" sourceRef="Activity_09lx94i" targetRef="Event_135s83u" />
+    <bpmn:serviceTask id="Activity_09lx94i" name="ProcessEmail" camunda:class="upp.backend.handlers.ConfirmEmail">
+      <bpmn:incoming>Flow_1vffq27</bpmn:incoming>
+      <bpmn:outgoing>Flow_12n2470</bpmn:outgoing>
     </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_reg">
-      <bpmndi:BPMNEdge id="Flow_00xp2gd_di" bpmnElement="Flow_00xp2gd">
-        <di:waypoint x="1040" y="330" />
-        <di:waypoint x="1092" y="330" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1kjy0tu_di" bpmnElement="Flow_1kjy0tu">
         <di:waypoint x="890" y="330" />
         <di:waypoint x="940" y="330" />
@@ -134,6 +143,18 @@
         <di:waypoint x="148" y="330" />
         <di:waypoint x="195" y="330" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10fexic_di" bpmnElement="Flow_10fexic">
+        <di:waypoint x="1040" y="330" />
+        <di:waypoint x="1090" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vffq27_di" bpmnElement="Flow_1vffq27">
+        <di:waypoint x="1190" y="330" />
+        <di:waypoint x="1270" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12n2470_di" bpmnElement="Flow_12n2470">
+        <di:waypoint x="1370" y="330" />
+        <di:waypoint x="1532" y="330" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="112" y="312" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -150,13 +171,19 @@
         <dc:Bounds x="195" y="305" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_135s83u_di" bpmnElement="Event_135s83u">
-        <dc:Bounds x="1092" y="312" width="36" height="36" />
+        <dc:Bounds x="1532" y="312" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_05p2fnb_di" bpmnElement="saveUser">
         <dc:Bounds x="790" y="290" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0aj8v1q_di" bpmnElement="sendEmail">
         <dc:Bounds x="940" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0y0koa2_di" bpmnElement="userAproved">
+        <dc:Bounds x="1090" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0d4gvui_di" bpmnElement="Activity_09lx94i">
+        <dc:Bounds x="1270" y="290" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

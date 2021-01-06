@@ -1,3 +1,4 @@
+
 package upp.backend.handlers;
 
 import java.util.ArrayList;
@@ -44,7 +45,6 @@ public class RegisterService implements TaskListener {
 	        TaskFormData taskFormData = formService.getTaskFormData(taskId);
 
 	        List<FormField> properties = taskFormData.getFormFields();
-	 
 	        
 	        if (properties != null) {
 

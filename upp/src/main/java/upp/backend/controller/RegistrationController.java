@@ -3,6 +3,7 @@ package upp.backend.controller;
 
 import upp.backend.model.FormFieldDTO;
 import org.camunda.bpm.engine.FormService;
+import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
@@ -25,15 +26,14 @@ public class RegistrationController {
     TaskService taskService;
     @Autowired
     FormService formService;
+    @Autowired
+    ProcessEngine processEngine;
 
     @PostMapping(path = "/post/{taskId}", produces = "application/json")
     public @ResponseBody
-    ResponseEntity<?> post(
-            @RequestBody List<FormFieldDTO> formFields,
-            @PathVariable String taskId) {
+    ResponseEntity<?> post( @RequestBody List<FormFieldDTO> formFields, @PathVariable String taskId) {
 
-        ProcessInstance pi =
-                runtimeService.startProcessInstanceByKey("registration_process");
+        ProcessInstance pi =runtimeService.startProcessInstanceByKey("registration_process");
         HashMap<String, Object> map = this.mapListToDto(formFields);
 
         Task task = taskService.createTaskQuery().taskId(taskId).singleResult();

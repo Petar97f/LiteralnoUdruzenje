@@ -29,9 +29,7 @@ public class ValidateUser implements JavaDelegate {
 		System.out.println(formVariables);
 		//List<RegistrationDTO> registration = (List<RegistrationDTO>)execution.getVariable("registration");
 		boolean isValid = true;
-		
-		
-		
+	
 		if (formVariables.get("name") == null ) {
 			isValid = false;
 		} else if (formVariables.get("surname") == null ) {
