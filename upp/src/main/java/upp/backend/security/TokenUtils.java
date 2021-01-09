@@ -39,6 +39,11 @@ public class TokenUtils {
         return username;
 
     }
+    
+    public String getProcessIdFromToken(String token) {
+		final Claims claims = this.getClaimsFromToken(token);
+		return (String) claims.getOrDefault("processId", -1);
+	}
 
     private Claims getClaimsFromToken(String token) {
         Claims claims;
@@ -79,6 +84,21 @@ public class TokenUtils {
         claims.put("roles", userDetails.getAuthorities());
         return Jwts.builder().setClaims(claims).setExpiration(new Date(System.currentTimeMillis() + expiration * 1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
+    
+	public String generateTokenRegistration(UserDetails userDetails, String processId) {
+		Map<String, Object> claims = new HashMap<String, Object>();
+		claims.put("processId", processId);
+        User u = userService.findUserByEmail(userDetails.getUsername());
+        UserDTO user = userService.convertToDTO(u);
+        claims.put("sub", user);
+        claims.put("created", new Date(System.currentTimeMillis()));
+        
+        claims.put("roles", userDetails.getAuthorities());
+        return Jwts.builder().setClaims(claims).setExpiration(new Date(System.currentTimeMillis() + expiration * 1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
+	}
+    
+	
+
 }
 
 

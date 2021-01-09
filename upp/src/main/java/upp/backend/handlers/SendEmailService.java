@@ -14,7 +14,7 @@ import upp.backend.service.EmailService;
 import upp.backend.service.UserService;
 
 import java.util.List;
-
+import java.util.logging.Logger;
 @Service
 public class SendEmailService implements JavaDelegate {
     @Autowired
@@ -25,9 +25,13 @@ public class SendEmailService implements JavaDelegate {
 
     @Autowired
     private EmailService emailService;
+    
+    private final Logger LOGGER = Logger.getLogger(SendEmailService.class.getName());
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
+    	
+    	LOGGER.info("\n\n Send email " + execution.getId() + "\n\n");
 
   //     List<RegistrationDTO> fields= (List<RegistrationDTO>) execution.getVariable("registration");
    //    System.out.println(fields);
@@ -37,11 +41,9 @@ public class SendEmailService implements JavaDelegate {
         List<FormSubmissionDTO> fields=registrationFormDTO.getDto();
         System.out.println("lista formSubmisionDto");
         System.out.println(fields);
-        for (FormSubmissionDTO f: fields
-             ) {
+        for (FormSubmissionDTO f: fields) {
             if(f.getFieldId().equals("email"))
                 user=userService.findUserByEmail(f.getFieldValue());
-
         }
 
        emailService.send("Registration link",user,"w");

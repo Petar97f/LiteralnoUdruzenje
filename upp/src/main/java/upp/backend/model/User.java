@@ -18,6 +18,9 @@ public class User {
     @Column
     private String surname;
     @Column
+    private String username;
+    
+    @Column
     private String email;
     @Column
     private String password;
@@ -30,6 +33,9 @@ public class User {
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     private Set<Genre> genres;
 
+    @Column
+    private Boolean isBeta;
+    
     @Column
 	private UserRole userRole;
 
@@ -47,6 +53,7 @@ public class User {
 		this.city = city;
 		this.country = country;
 		this.activated = false;
+		this.isBeta = false;
 		this.genres = new HashSet<Genre>();
 		this.userRole = userRole;
 	}
@@ -63,6 +70,7 @@ public class User {
 		this.city = city;
 		this.country = country;
 		this.activated = false;
+		this.isBeta = false;
 		this.genres = genres;
 	}
 
@@ -77,10 +85,48 @@ public class User {
 		this.city = city;
 		this.country = country;
 		this.activated = activate;
+		this.isBeta = false;
 		this.genres = new HashSet<Genre>();
 	}
 
+	
 
+	public User(Long id, String name, String surname, String username, String email, String password, String city,
+			String country, Set<Genre> genres, Boolean isBeta, UserRole userRole) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.country = country;
+		this.genres = genres;
+		this.isBeta = isBeta;
+		this.activated = false;
+		this.userRole = userRole;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public Boolean getIsBeta() {
+		return isBeta;
+	}
+
+
+	public void setIsBeta(Boolean isBeta) {
+		this.isBeta = isBeta;
+	}
 
 
 	public Long getId() {

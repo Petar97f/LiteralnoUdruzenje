@@ -41,16 +41,16 @@ public class SaveUserService implements JavaDelegate {
         Map<String,Object> formVariables = execution.getVariables();
         System.out.println("validate user usao u save servis" );
 
-      //  System.out.println(formVariables);
+        System.out.println(formVariables);
         User user = identityService.newUser("");
         upp.backend.model.User userModel = new upp.backend.model.User();
-
 
         user.setFirstName(formVariables.get("name").toString());
         user.setLastName(formVariables.get("surname").toString());
         user.setEmail(formVariables.get("email").toString());
         user.setPassword(formVariables.get("password").toString());
 
+        
         userModel.setName(formVariables.get("name").toString());
         userModel.setSurname(formVariables.get("surname").toString());
         userModel.setEmail(formVariables.get("email").toString());
@@ -59,22 +59,32 @@ public class SaveUserService implements JavaDelegate {
         userModel.setCountry(formVariables.get("country").toString());
         userModel.setUserRole(UserRole.WRITER);
         userModel.setActivated(false);
-
-
-
-
-        String genres = formVariables.get("genres").toString();
-        String str[] = genres.split(",");
-        List<String> genresListIds = new ArrayList<String>();
-        genresListIds = Arrays.asList(str);
-        if (genresListIds.isEmpty()) {
-            System.out.println("ovdeee2");
+        userModel.setUsername(formVariables.get("username").toString());
+        
+        if (formVariables.get("isBeta") != null) {
+        	String isBeta = formVariables.get("isBeta").toString();
+        	
+        	if (isBeta.equals("false")) {
+        		userModel.setIsBeta(false);
+        	} else if (isBeta.equals("true")) {
+        		userModel.setIsBeta(true);
+        	}
+        
         }
-        System.out.println(genresListIds);
 
-
+        if (formVariables.get("genres") != null) {
+    	 String genres = formVariables.get("genres").toString();
+         String str[] = genres.split(",");
+         List<String> genresListIds = new ArrayList<String>();
+         genresListIds = Arrays.asList(str);
+         if (genresListIds.isEmpty()) {
+             System.out.println("ovdeee2");
+         }
+         System.out.println(genresListIds);
+        }
+       
         userDetailsService.createUser(userModel);
-        ConfirmationToken confirmationToken= new ConfirmationToken(userModel);
+        ConfirmationToken confirmationToken= new ConfirmationToken(userModel, execution.getProcessInstanceId());
         confirmationTokenRepository.save(confirmationToken);
 
         user.setId(userRepository.findByEmail(userModel.getEmail()).getId().toString());

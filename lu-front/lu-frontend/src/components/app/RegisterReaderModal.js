@@ -65,15 +65,20 @@ class RegisterReaderModal extends Component {
         body: JSON.stringify({
           dto: returnDto
         })
-      })).text();
-      if (response != 'fail') {
-        if (response === 'isBeta') {
-          this.getGenres();
-        } else {
+      })).json();
+      console.log(response);
+      if (response.status != 'fail') {
+        console.log(response);
+        console.log(response.formFields);
+        if (response.formFields) {
+          this.setState({
+            formFields: response.formFields,
+            taskId: response.taskId
+         })
+        } else if (response.status === 'success') {
           alert('Registration successful, we will send you email to confirm registration');
           this.props.onClose();
         }
-        
       } else {
         alert('Something went wrong.');
         this.props.onClose();
@@ -83,27 +88,6 @@ class RegisterReaderModal extends Component {
         errors: err.toString()
       });
     }
-  }
-
-  getGenres = async () => {
-    try {
-      let response = await (await fetch('http://localhost:8081/getFormFields/genres', {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-					'Content-Type': 'application/json'
-        },
-      })).json();
-      this.setState({
-         formFields: response.formFields,
-         taskId: response.taskId
-      })
-    } catch (err) {
-      this.setState({
-        errors: err.toString()
-      });
-    }
-
   }
 
   render () {
@@ -120,7 +104,7 @@ class RegisterReaderModal extends Component {
               {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} />}
             </Modal.Body>
             <Modal.Footer>
-              <button className="btn btn-primary" type="submit">Register</button>
+              <button className="btn btn-primary" type="submit">{this.state.formFields.filter(item => item.id === 'isBeta')[0] && this.state.form.isBeta  ? 'Next' : 'Register'}</button>
               <button className="btn btn-primary"  onClick={this.props.onClose}>Cancel</button>
             </Modal.Footer>
           </Form>

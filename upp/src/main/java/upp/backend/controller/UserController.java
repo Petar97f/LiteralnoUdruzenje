@@ -1,6 +1,7 @@
 package upp.backend.controller;
 
 import org.camunda.bpm.engine.task.Task;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +22,7 @@ import upp.backend.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.springframework.http.HttpHeaders;
 
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.ProcessEngine;
@@ -69,6 +71,7 @@ public class UserController {
     
 	@Autowired
     ProcessEngine processEngine;
+	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
 		
@@ -155,23 +158,26 @@ public class UserController {
 //	}
 
 	@GetMapping("/confirm-account")
-	public ResponseEntity<String> confirmUserAccount(@RequestParam("token")String confirmationToken)
+	public ResponseEntity<?> confirmUserAccount(@RequestParam("token")String confirmationToken)
 	{
-		//da nekako pozovem taj user task
-		// da li on da cuva token na formi
-		// servisni task 
-
 		ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-
+	
 		if(token != null) {
-			User user = userRepository.findByEmail(token.getUser().getEmail());
-			user.setActivated(true);
-			userRepository.save(user);
+			String processId = token.getProcesInstanceId();
+			System.out.println("token process instance id: "+ processId);
+			runtimeService.setVariable(processId, "confirm", true);
 		}
 		else {
 			return new ResponseEntity<String>("fail", HttpStatus.CONFLICT);
 		}
-		return new ResponseEntity<String>("success", HttpStatus.CREATED);
+		//String processId = this.jwtProvider.getProcessIdFromToken(token);
+		//runtimeService.setVariable(processId, "confirm", true);
+		//redirect na login
+		HttpHeaders headersRedirect = new HttpHeaders();
+		headersRedirect.add("Location", "http://localhost:3000");
+		headersRedirect.add("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+		//return new ResponseEntity<String>("success", HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/register-reader",method=RequestMethod.POST)

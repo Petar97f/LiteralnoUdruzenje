@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.camunda.bpm.engine.FormService;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.form.FormField;
@@ -47,14 +49,13 @@ public class CamundaController {
 	@Autowired
 	private FormService formService;
 	
-	@GetMapping(value = "/{taskId}")
-	public  ResponseEntity<?> getTask(@PathVariable("taskId") String taskId) {
-
-    	//Service which provides access to Deployments, ProcessDefinitions and ProcessInstances.
-				
-    	return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
-	}
+	@Autowired
+	private ProcessEngine processEngine;
 	
+	@Autowired
+	private IdentityService identityService;
+	
+
 	@GetMapping(value = "start/{processName}")
 	public @ResponseBody FormFieldsDTO startProcess(@PathVariable("processName") String processName) {
 		ProcessInstance pi = runtimeService.startProcessInstanceByKey(processName);
@@ -67,44 +68,22 @@ public class CamundaController {
 		return new FormFieldsDTO(task.getId(), pi.getId(),properties);
 	}
 	
-	@GetMapping(value = "getFormFields/{taskName}")
-	public @ResponseBody FormFieldsDTO getForm(@PathVariable("taskName") String taskName) {
-		Task task = taskService.createTaskQuery().taskName(taskName).singleResult();
-		String processInstanceId = task.getProcessInstanceId();
-		
+
+	
+	@GetMapping(path = "/{taskId}", produces = "application/json")
+	public @ResponseBody FormFieldsDTO getTask(@PathVariable String taskId) {
+		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
 		TaskFormData tfd = formService.getTaskFormData(task.getId());
 		List<FormField> properties = tfd.getFormFields();
-		
-		return new FormFieldsDTO(task.getId(), processInstanceId, properties);
+		return new FormFieldsDTO(task.getId(), task.getProcessInstanceId(),properties);
 	}
+
 	
-	/*@RequestMapping(value="/submitForm/{taskId}",method=RequestMethod.POST)
-	public ResponseEntity<?> onSubmit(@RequestBody RegistrationDTO user, @PathVariable String taskId, HttpSession session, HttpServletRequest request){
-		System.out.println("Submiting the form values.");
-		//get task by Id
-		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();	
-		
-		if(task == null) {
-			return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
-		}
-		//get process instance from task
-		String processInstanceId = task.getProcessInstanceId();
-		//set values to variables
-		runtimeService.setVariable(processInstanceId, "data", user);
-		
-		HashMap<String, Object> formFields = new HashMap<String, Object>();
-		
-		//submit form
-		formService.submitTaskForm(task.getId(), formFields);
-		
-		
-		
-		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
-	}*/
 	
 	@PostMapping(value="/submitForm/{taskId}", produces = "application/json")
     public @ResponseBody ResponseEntity<?> submitForm(@RequestBody RegistrationFormDTO dto, @PathVariable String taskId) {
 		HashMap<String, Object> map = this.mapListToDto(dto.getDto());
+		HashMap<String, String> message = new HashMap<String, String>();
 		//daj mi task RegisterForm
 		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
 		if (task == null) {
@@ -117,16 +96,61 @@ public class CamundaController {
 		try {
 			formService.submitTaskForm(taskId, map);
 		} catch (Exception e) {
-			return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+			
+			message.put("message", "fail");
+			return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		System.out.println("////submit form ////");
+		String username = this.identityService.getCurrentAuthentication().getUserId();
+		System.out.println("-----> username =>>>>"+username);
+		//String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		//System.out.println("currentUsrt"+username);
+		ProcessInstance pi=runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
+	    if(pi!=null) {
+	    	if (runtimeService.getVariable(processInstanceId, "isValid") != null) {
+	    		boolean isValid = (boolean) runtimeService.getVariable(processInstanceId, "isValid");
+		    	if(!isValid) {
+		    		message.put("message", "Invaid email or username");
+		    		message.put("status", "fail");
+					return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
+		    	}
+	    	}
+	    	
+	    }
+		System.out.println("tASK LIST IF NEXTASK ID SEND");
+		
+		if (username != null) {
+			List<Task> nextTasks = taskService.createTaskQuery().processInstanceId(task.getProcessInstanceId()).list();
+			System.out.println("nextTasks ===> "+nextTasks);
+			if (!nextTasks.isEmpty()) {
+				System.out.println("nextTasks"+nextTasks);
+				Task nextTask = null;
+				for (Task t : nextTasks) {
+					if (t.getAssignee() != null && t.getAssignee().equals(username)) {
+						nextTask = t;
+						break;
+					}
+				}
+				if (nextTask == null) {
+					message.put("message", "success");
+					message.put("status", "success");
+					return new ResponseEntity<>(message,HttpStatus.OK);
+				}
+				TaskFormData taskFormData = formService.getTaskFormData(nextTask.getId());
+				List<FormField> formFieldsList = taskFormData.getFormFields();
+				return new ResponseEntity<>( new FormFieldsDTO(nextTask.getId(), nextTask.getProcessInstanceId(),formFieldsList) ,HttpStatus.OK);
+			}
 		}
 		
-		
-		return new ResponseEntity<>("success",HttpStatus.OK);
+
+		message.put("message", "success");
+		message.put("status", "success");
+		return new ResponseEntity<>(message,HttpStatus.OK);
     }
 	
 	private HashMap<String, Object> mapListToDto(ArrayList<FormSubmissionDTO> list) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		for(FormSubmissionDTO temp : list){
+		for(FormSubmissionDTO temp : list) {
 			map.put(temp.getFieldId(), temp.getFieldValue());
 		}
 		return map;

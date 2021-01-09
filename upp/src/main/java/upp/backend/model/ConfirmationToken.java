@@ -20,6 +20,9 @@ public class ConfirmationToken {
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
+    
+    @Column(name="procesInstanceId")
+    private String procesInstanceId;
 
     public ConfirmationToken() {
     }
@@ -30,6 +33,13 @@ public class ConfirmationToken {
         confirmationToken = UUID.randomUUID().toString();
     }
 
+    public ConfirmationToken(User user, String procesInstanceId) {
+        this.user = user;
+        this.procesInstanceId = procesInstanceId;
+        createdDate = new Date();
+        confirmationToken = UUID.randomUUID().toString();
+    }
+    
     public String getConfirmationToken() {
         return confirmationToken;
     }
@@ -61,4 +71,16 @@ public class ConfirmationToken {
     public void setId(long id) {
         this.id = id;
     }
+
+	public String getProcesInstanceId() {
+		return procesInstanceId;
+	}
+
+	public void setProcesInstanceId(String procesInstanceId) {
+		this.procesInstanceId = procesInstanceId;
+	}
+    
+    
+    
+    
 }

@@ -20,7 +20,6 @@ public class ValidateUser implements JavaDelegate {
     @Autowired
     private UserService userService;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
 		// TODO Auto-generated method stub
@@ -44,6 +43,9 @@ public class ValidateUser implements JavaDelegate {
 			isValid = false;
 		} else if (formVariables.get("genres") == null) {
 			System.out.println("ovdeee1");
+			isValid = false;
+		} else if (formVariables.get("username") == null) {
+			System.out.println("Username is invalid");
 			isValid = false;
 		}
 		if (formVariables.get("genres") != null) {
@@ -89,4 +91,10 @@ public class ValidateUser implements JavaDelegate {
 		return true;
 	}
 
+	public boolean checkUsername(String username) {
+		if (userService.findByUsername(username) != null) {
+			return false;
+		}
+		return true;
+	}
 }

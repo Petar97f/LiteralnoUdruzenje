@@ -18,6 +18,11 @@ public class UserService {
     public User findUserByEmail(String em){
         return userRepository.findByEmail(em);
     }
+    
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+    
     public User save(User user){
         return userRepository.save(user);
     }

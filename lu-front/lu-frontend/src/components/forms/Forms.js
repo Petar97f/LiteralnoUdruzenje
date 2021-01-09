@@ -73,21 +73,21 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type={item.properties.password} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name=="required")[0].name}/>
+                  <Form.Control type={item.properties.password} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               );
             } else if (item.properties['email'] !== undefined) {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.email} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name=="required")[0].name} />
+                  <Form.Control id="validationDefault02" type={item.properties.email} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               )
             } else {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name=="required")[0].name}/>
+                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               )
             }
