@@ -5,12 +5,16 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.paypal.client.PayPalClient;
+import com.example.paypal.client.UppClient;
+import com.example.paypal.dto.UserDTO;
 
 @RestController
 @RequestMapping(value = "/paypal")
@@ -21,9 +25,12 @@ public class PapPalController {
     PapPalController(PayPalClient payPalClient){
         this.payPalClient = payPalClient;
     }
+    @Autowired
+    private UppClient uppClient;
 
-    @PostMapping(value = "/make/payment")
+    @PostMapping(value = "/make/payment/{userId}")
     public Map<String, Object> makePayment(@RequestParam("sum") String sum){
+    	//UserDTO user =uppClient.getUser(userId);
         return payPalClient.createPayment(sum);
     }
     

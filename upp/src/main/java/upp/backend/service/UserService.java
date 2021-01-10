@@ -40,6 +40,7 @@ public class UserService {
  	   userDTO.setId(u.getId());
  	   userDTO.setName(u.getName());
  	   userDTO.setSurname(u.getSurname());
+ 	   userDTO.setUsername(u.getUsername());
  	   userDTO.setEmail(u.getEmail());
  	   userDTO.setPassword(u.getPassword());
  	   userDTO.setCity(u.getCity());

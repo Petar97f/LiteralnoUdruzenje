@@ -1,4 +1,4 @@
-package upp.backend.dto;
+package com.example.paypal.dto;
 
 
 public class UserDTO {

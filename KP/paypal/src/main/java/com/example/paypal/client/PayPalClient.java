@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Component;
 
+import com.example.paypal.dto.UserDTO;
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payer;
@@ -24,6 +25,8 @@ public class PayPalClient {
 	String clientId = "AUA-zBTB_QZE-GomJW8hZFJ1w9WYgfD-sJIWQbrvgvrbwfE19kRGDSEnEAbJWg4HEhM0wr9fgUXg17JL";
 	String clientSecret = "EOOwNSJz_kVkrPKBx9o671sksf49UqTQ29KiKD6zp5jtsqgWbznpY0Z2ecnCM_ON6nF3sxA6qi3ByVqB";
 	public Map<String, Object> createPayment(String sum){
+		//this.clientId = user.getId().toString();
+		//this.clientSecret = user.getPassword();
 	    Map<String, Object> response = new HashMap<String, Object>();
 	    Amount amount = new Amount();
 	    amount.setCurrency("USD");
@@ -87,6 +90,26 @@ public class PayPalClient {
 	        System.err.println(e.getDetails());
 	    }
 	    return response;
+	}
+
+
+	public String getClientId() {
+		return clientId;
+	}
+
+
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+
+
+	public String getClientSecret() {
+		return clientSecret;
+	}
+
+
+	public void setClientSecret(String clientSecret) {
+		this.clientSecret = clientSecret;
 	}
 	
 	
