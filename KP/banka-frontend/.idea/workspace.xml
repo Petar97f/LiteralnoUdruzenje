@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/PaymentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/PccRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/dto/PccRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/Bank2Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/Bank2Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/dto/PaymentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/KpApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/KpApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/client/BankClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/client/BankClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/IssuerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/IssuerDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentTypesDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentTypesDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/RequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/RequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/TransactionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/TransactionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/LogType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/LogType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/MerchantRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/MerchantRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/MerchantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/PaymentRequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/PaymentRequestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/test-classes/com/example/kp/KpApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/test-classes/com/example/kp/KpApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/PccApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/PccApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/controller/PccController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/controller/PccController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/dto/PccRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/dto/PccRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pcc/src/main/java/com/example/pcc/model/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1mtKOgWF8XNE3aTkpFyRvMuQn9H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\stefan\Documents\GitHub\LiteralnoUdruzenje\KP\banka-frontend\banka-frontend\node_modules\typescript\lib" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="" />
+      <created>1610307416729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610307416729</updated>
+      <workItem from="1610307418287" duration="5566000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
