@@ -49,7 +49,7 @@ class PaymentsMethods extends Component {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            requestDTO: { id: this.state.id, amount: this.state.amount}
+            requestDTO: { id: this.state.merchantId, amount: this.state.amount}
           })
         })).text();
         console.log(response);
