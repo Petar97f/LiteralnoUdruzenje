@@ -8,3 +8,6 @@ VALUES ('horor');
 
 INSERT INTO genre (name)
 VALUES ('comedy');
+
+INSERT INTO book (id,name,authorId,publisherId,genre,yearOfIssue,editors,lectors,numOfPages,price)
+VALUES (1L,'Mali princ','1','1','knjiga','2020-11-11','nema','nema',33,100.00);
