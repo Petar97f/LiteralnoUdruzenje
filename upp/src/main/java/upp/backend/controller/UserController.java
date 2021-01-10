@@ -76,7 +76,7 @@ public class UserController {
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
 		
     	User u = userService.findById(userId);
-    	UserDTO userDTO = new UserDTO(u.getId(),u.getName(),u.getSurname(),u.getEmail(),u.getPassword(),u.getCity(),u.getCountry());
+    	UserDTO userDTO = new UserDTO(u.getId(),u.getName(),u.getSurname(),u.getUsername(),u.getEmail(),u.getPassword(),u.getCity(),u.getCountry(),u.getActivated());
     	return userDTO;
 		
 	}
