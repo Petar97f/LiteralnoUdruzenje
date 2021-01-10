@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b89623d-97cf-4c24-9fe6-197adc04a6ee" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/banka-frontend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/modules.xml" afterDir="false" />
@@ -266,19 +267,27 @@
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/misc.xml" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/PaymentDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/PccRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/PccRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/model/Payment.java" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp-front/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp-front/.idea/misc.xml" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/client/Bank2Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/client/Bank2Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/controller/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/src/main/java/com/example/kp/dto/PaymentDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/src/main/resources/data.sql" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/application.properties" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/KpApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/KpApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/client/BankClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/client/BankClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
@@ -297,7 +306,10 @@
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/service/MerchantService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/service/PaymentRequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/com/example/kp/service/PaymentRequestService.class" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/data.sql" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/test-classes/com/example/kp/KpApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/test-classes/com/example/kp/KpApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/pcc/src/main/java/com/example/pcc/PccApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/pcc/src/main/java/com/example/pcc/PccApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/pcc/src/main/java/com/example/pcc/controller/PccController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/pcc/src/main/java/com/example/pcc/controller/PccController.java" afterDir="false" />
