@@ -9,7 +9,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +21,8 @@ import upp.backend.service.MembershipService;
 import upp.backend.service.UserService;
 
 @CrossOrigin("*")
-@RequestMapping("")
 @RestController
+@RequestMapping("/membership")
 public class MembershipController {
 
 	@Autowired
@@ -62,12 +61,14 @@ public class MembershipController {
 		message.put("message", "payment created");
 		message.put("status", "success");
 		//redirect headers here
-		//HttpHeaders headersRedirect = new HttpHeaders();
+		HttpHeaders headersRedirect = new HttpHeaders();
 		//CHANGE HERE TO PAYPAL FRONT
-		//headersRedirect.add("Location", "http://localhost:3000");
-		//headersRedirect.add("Access-Control-Allow-Origin", "*");
-		//return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
-		return new ResponseEntity<>(message, HttpStatus.OK);
+		String url = "http://localhost:8085/paypal/make/payment/1?sum=" + price;
+		System.out.println();
+		headersRedirect.add("Location", url);
+		headersRedirect.add("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+		//return new ResponseEntity<>(message, HttpStatus.OK);
 	}
 
 }

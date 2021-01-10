@@ -9,9 +9,29 @@ class UserPage extends Component {
     }
   }
 
-  componentDidMount () {
-    console.log(User)
-  }
+ 
+	async componentDidMount () {
+		try {
+      let response = await (await fetch('http://localhost:8081/getBooks', {
+        method: 'get',
+        headers: {
+          'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*',
+        },
+      })).json();
+      console.log(response)
+      this.setState({
+        books: response
+      })
+
+    } catch (err) {
+      this.setState({
+        errors: err.toString()
+      });
+    }
+	}
+  
   onBuy = async () => {
     //now we need to redirect on new app
     try {
@@ -43,11 +63,19 @@ class UserPage extends Component {
   render () {
     return (
       <div className="margin-top-page">
-        <div className="d-flex flex-row mt-2 ml-3">
-        Books
-        <button className="btn btn-primary" onClick={this.onBuy}>Buy</button>
+        <div className="d-flex flex-row mt-2 ml-3 pt-4">
+          <div className="mt-2">
+            {this.state.books && this.state.books.map(item => {
+              return (
+                <div style={{border: '1px solid grey', padding: '12px', margin: '5px'}}>
+                  <p><label>Book name: {item.name}</label></p>
+                  <a className="text-decoration-none" target="_blank" href={`http://localhost:3005/${item.publisherId}/${item.price}`}><button className="btn btn-primary" style={{width: '150px'}}>Buy</button></a>
+                </div>
+              )
+            })}
+          </div>
         </div>
-        <div>
+        <div className="d-flex flex-row mt-2 ml-3">
         <button className="btn btn-primary" >Upload your book</button>
         </div>
       </div>

@@ -11,7 +11,9 @@ class PaymentsMethods extends Component {
     this.state={
       paymentsMethods: ['paypal', 'bitcoin', 'bank'], 
       error: '',
-      merchantId: props.match.params.merchantId,
+      merchantId: props.match.params.id,
+      amount: props.match.params.amount,
+      paymentsMethodsList: []
     }
   } 
 
@@ -26,7 +28,7 @@ class PaymentsMethods extends Component {
         },
       })).json();
       this.setState({
-        paymentsMethods: response,
+        paymentsMethodsList: response,
       })
     } catch (err) {
       this.setState({
@@ -63,7 +65,7 @@ class PaymentsMethods extends Component {
         <header className="App-header">
         <div className="main-container">
           <div><h4>Choose payment method</h4></div>
-          {this.state.paymentsMethods.map(item => {
+          {this.state.paymentsMethods && this.state.paymentsMethods.map(item => {
             let src = '';
             if (item === 'bitcoin') {
               src = bitcoin;

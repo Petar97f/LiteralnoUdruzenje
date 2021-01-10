@@ -11,19 +11,20 @@ class Membership extends Component {
   }
 
   componentDidMount () { 
-  
+    //get membership by id if activated = true
+    //ako je null isto ostaviti pay Membership
+    // skoloniti i napisati placeno ako je membership payed
   }
 
   payMembership = async (e) => {
     e.preventDefault();
     console.log("user email", User.email);
     try {
-      let response = await (await fetch(`http://localhost:8081/payBill/${User.username}`, {
+      let response = await (await fetch(`http://localhost:8081/membership/payBill/${User.username}`, {
         method: 'post',
         headers: {
           'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
+					'Content-Type': 'application/json'
         }
       })).json();
       console.log(response)
@@ -45,7 +46,7 @@ class Membership extends Component {
         <div className="margin-top-page">
           <div className="d-flex flex-row mt-2 ml-3">
             <div className="p-3" >
-              <p><label>Membership price: </label></p>
+              <p><label>Membership price: 1200</label></p>
               <br/>
               <button className="btn btn-primary" onClick={this.payMembership}>Pay Membership</button>
             </div>
