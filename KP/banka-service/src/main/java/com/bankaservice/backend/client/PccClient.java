@@ -9,7 +9,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name="pcc")
 public interface PccClient {
     @PostMapping(value = "/PccRequest")
-    public PccRequestDTO SendPccRequest(@RequestBody PccRequestDTO pccRequestDTO);
-    @PostMapping(value = "/PccRequest2")
-    public PccRequest2DTO SendPccRequest2(@RequestBody PccRequest2DTO pccRequest2DTO);
+    public PccRequest2DTO SendPccRequest(@RequestBody PccRequestDTO pccRequestDTO);
 }

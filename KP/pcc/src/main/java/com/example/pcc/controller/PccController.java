@@ -1,5 +1,7 @@
 package com.example.pcc.controller;
 
+import com.example.pcc.client.Bank2Client;
+import com.example.pcc.client.BankClient;
 import com.example.pcc.dto.PccRequest2DTO;
 import com.example.pcc.dto.PccRequestDTO;
 import com.example.pcc.model.Request;
@@ -18,15 +20,36 @@ public class PccController {
     @Autowired
     private RequestService requestService;
 
+    @Autowired
+    private BankClient bankClient;
+
+    @Autowired
+    private Bank2Client bank2Client;
+
     @PostMapping(value = "/PccRequest")
-    public PccRequestDTO SendPccRequest(@RequestBody PccRequestDTO pccRequestDTO){
+    public PccRequest2DTO SendPccRequest(@RequestBody PccRequestDTO pccRequestDTO){
 
         Request request = new Request();
         request.setCardId(pccRequestDTO.getCardDTO().getId());
         request.setAcquierOrderId(pccRequestDTO.getAcquierOrderId());
         request.setAcquierTimestamp(pccRequestDTO.getAcquierTimestamp());
+        request.setAmount(pccRequestDTO.getAmount());
         requestService.save(request);
-        return pccRequestDTO;
+
+        Long bankId;
+        Long banka1=bankClient.getBankId(pccRequestDTO.getCardDTO().getPan());
+        Long banka2=bankClient.getBankId(pccRequestDTO.getCardDTO().getPan());
+        if(banka1==1L)
+            bankId=0L;
+        else bankId=1L;
+
+        PccRequest2DTO pccRequest2DTO;
+        if(bankId==0L){
+           pccRequest2DTO=bankClient.ClientBank(pccRequestDTO);
+        }else pccRequest2DTO=bank2Client.ClientBank(pccRequestDTO);
+
+
+        return pccRequest2DTO;
     }
 
     @PostMapping(value = "/PccRequest2")
