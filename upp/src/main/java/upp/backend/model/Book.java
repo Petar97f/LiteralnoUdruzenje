@@ -16,7 +16,6 @@ public class Book {
     private String name;
 
     @Column
-
     private String authorId;
 
     @Column

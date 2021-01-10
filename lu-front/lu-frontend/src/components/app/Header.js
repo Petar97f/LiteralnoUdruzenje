@@ -78,6 +78,7 @@ class Header extends Component {
               <h4 href="#" className="ml-3" >User: {User.name}</h4>
             </div>
             <div className="d-flex flex-row justify-content-end align-self-center">
+              {User.role === "ROLE_WRITER" && <Link to={`/membership`} className="text-decoration-none mr-5" >Membership</Link>}
               <Link to={`/user`} className="text-decoration-none mr-5" >Home</Link>
               <Link to={`/about`} className="text-decoration-none mr-5" >About</Link>
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onLogout}>Logout</Link>

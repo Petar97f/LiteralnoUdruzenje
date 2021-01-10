@@ -39,6 +39,7 @@ class Login extends Component {
 			if (response != 'fail') {
 				User.isLoggedIn = true;
 				User.name = user.sub.name;
+				User.username = user.sub.username;
 				User.surname = user.sub.surname;
 				User.email = user.sub.email;
 				User.city= user.sub.city;
