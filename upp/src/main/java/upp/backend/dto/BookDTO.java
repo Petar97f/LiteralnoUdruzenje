@@ -1,45 +1,31 @@
-package upp.backend.model;
+package upp.backend.dto;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import java.util.Date;
 
+public class BookDTO {
 
-@Entity
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
 
-    @Column
     private String name;
 
-    @Column
     private String authorId;
 
-    @Column
     private String publisherId;
 
-    @Column
     private String genre;
 
-    @Column
     private Date yearOfIssue;
 
-    @Column
     private String editors;
 
-    @Column
     private String lectors;
 
-    @Column
     private Integer numOfPages;
 
-    @Column
     private Double price;
 
-    public Book() {
+    public BookDTO() {
     }
 
     public Long getId() {
@@ -57,15 +43,6 @@ public class Book {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
 
     public String getAuthorId() {
         return authorId;
@@ -123,4 +100,11 @@ public class Book {
         this.numOfPages = numOfPages;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
