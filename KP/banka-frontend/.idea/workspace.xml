@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp-front/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/KpApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/KpApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/client/BankClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/client/BankClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/IssuerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/IssuerDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentTypesDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/PaymentTypesDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/RequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/RequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/TransactionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/dto/TransactionDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/LogType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/LogType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/PaymentType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/MerchantRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/MerchantRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/repository/PaymentRequestRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/MerchantService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/PaymentRequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/service/PaymentRequestService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/test-classes/com/example/kp/KpApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/test-classes/com/example/kp/KpApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +35,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610307416729</updated>
-      <workItem from="1610307418287" duration="7174000" />
+      <workItem from="1610307418287" duration="7442000" />
     </task>
     <servers />
   </component>
