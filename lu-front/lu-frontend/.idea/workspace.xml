@@ -10,6 +10,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/banka-frontend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../KP/banka-frontend/.idea/modules.xml" afterDir="false" />
@@ -290,6 +291,8 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/client/PccClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/dto/CardDTO.java" afterDir="false" />
@@ -304,7 +307,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp-front/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp-front/.idea/misc.xml" afterDir="false" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -334,7 +340,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/application.properties" afterDir="false" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -377,7 +386,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../../KP/kp/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/target/classes/data.sql" afterDir="false" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
