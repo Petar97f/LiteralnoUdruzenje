@@ -31,6 +31,9 @@ public class Membership {
 	@ManyToOne(fetch = FetchType.LAZY)
     private User user;
 	
+	@Column
+	private boolean isActive;
+	
 	public Membership() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -52,14 +55,6 @@ public class Membership {
 		this.name = name;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 	public Date getPayedUntil() {
 		return payedUntil;
 	}
@@ -76,11 +71,29 @@ public class Membership {
 		this.user = user;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		return "Membership [id=" + id + ", name=" + name + ", price=" + price + ", payedUntil=" + payedUntil + ", user="
-				+ user + "]";
+				+ user + ", isActive=" + isActive + "]";
 	}
-	
+
+
 	
 }

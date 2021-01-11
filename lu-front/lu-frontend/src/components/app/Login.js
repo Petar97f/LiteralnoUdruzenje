@@ -16,6 +16,10 @@ class Login extends Component {
 		}
 	}
 
+	componentDidMount () {
+		
+	}
+
 	onLogin = async (e) => {
 		e.preventDefault();
 		console.log("clicked button login");
