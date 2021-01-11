@@ -42,6 +42,7 @@ class Header extends Component {
     this.setState({
       isLoggedIn: false
     })
+    sessionStorage.removeItem("jwt");
   }
 
   onRegisterReader = (e) => {

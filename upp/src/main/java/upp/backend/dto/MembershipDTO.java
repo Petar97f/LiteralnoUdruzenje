@@ -1,40 +1,28 @@
-package upp.backend.model;
+package upp.backend.dto;
 
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import javax.persistence.ManyToOne;
 
-@Entity
-public class Membership {
+import upp.backend.model.User;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Long id;
+public class MembershipDTO {
+	
+	private Long id;
 
-    @Column
     private String name;
     
-    @Column
     private double price;
     
-    @Column
     private Date payedUntil;
     
-	@ManyToOne(fetch = FetchType.LAZY)
     private User user;
 	
-	@Column
 	private boolean isActive;
-	
-	public Membership() {
+
+	public MembershipDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -53,6 +41,14 @@ public class Membership {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public Date getPayedUntil() {
@@ -79,21 +75,11 @@ public class Membership {
 		this.isActive = isActive;
 	}
 
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	@Override
 	public String toString() {
-		return "Membership [id=" + id + ", name=" + name + ", price=" + price + ", payedUntil=" + payedUntil + ", user="
-				+ user + ", isActive=" + isActive + "]";
+		return "MembershipDTO [id=" + id + ", name=" + name + ", price=" + price + ", payedUntil=" + payedUntil
+				+ ", user=" + user + ", isActive=" + isActive + "]";
 	}
-
-
+	
 	
 }
