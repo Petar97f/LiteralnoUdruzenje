@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +14,18 @@ export class AppComponent {
   cardForm: FormGroup;
   loading = false;
   submitted = false;
-
+  paymentId: number;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private activatedRoute: ActivatedRoute
   ) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      let date = params['paymentId'];
+      console.log(date);
+      this.paymentId=date;// Print the parameter to the console.
+    });
   }
 
   ngOnInit() {
@@ -45,9 +51,9 @@ export class AppComponent {
     if (this.cardForm.invalid) {
       return;
     }
-
+    console.log(this.paymentId);
     this.loading = true;
-    this.login(this.f.pan.value, this.f.securityCode.value,this.f.cardHolderName.value,this.f.expirationDate.value)
+    this.login(this.f.pan.value, this.f.securityCode.value,this.f.cardHolderName.value,this.f.expirationDate.value,this.paymentId)
       .subscribe(
         data => {
           alert('success');
@@ -58,8 +64,8 @@ export class AppComponent {
   }
 
 
-  login(pan,securityCode,cardHolderName,expirationDate) {
-    return this.http.post<any>('localhost:8082/check', { pan, securityCode,cardHolderName,expirationDate })
+  login(pan,securityCode,cardHolderName,expirationDate,paymentId) {
+    return this.http.post<any>('http://localhost:8082/check', { pan, securityCode,cardHolderName,expirationDate,paymentId})
       .pipe();
   }
 }

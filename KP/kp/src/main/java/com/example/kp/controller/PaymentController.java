@@ -55,24 +55,6 @@ public class PaymentController {
         return paymentTypesDTO;
     }
 
-    @GetMapping(value = "/proba")
-    public ResponseEntity<?> proba() {
-        HttpHeaders headersRedirect = new HttpHeaders();
-        headersRedirect.add("Location", "http://localhost:4200/?amount=55");
-        headersRedirect.add("Access-Control-Allow-Origin", "*");
-        return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
-//        MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
-//
-//        body.add("amount", "55");
-//
-//
-//
-//        // Note the body object as first parameter!
-//        HttpEntity<?> httpEntity = new HttpEntity<Object>(body, headersRedirect);
-//        RestTemplate restTemplate= new RestTemplate();
-//        ResponseEntity<String> response=restTemplate.exchange("http://localhost:4200", HttpMethod.POST, httpEntity,String.class);
-//        return restTemplate.toString();
-    }
 
     @GetMapping(value = "/getMerchantData/{merchantId}")
     public IssuerDTO getIsserData(@PathVariable("merchantId") String merchantId){
@@ -82,7 +64,7 @@ public class PaymentController {
     }
 
     @PostMapping(value="/PaymentBank")
-    public String BankPay( @RequestBody RequestDTO requestDTO){
+    public ResponseDTO BankPay( @RequestBody RequestDTO requestDTO){
         PaymentRequest paymentRequest= new PaymentRequest();
         PaymentRequestDTO paymentRequestDTO=new PaymentRequestDTO();
 
@@ -131,23 +113,10 @@ public class PaymentController {
         if(merchant.getBankId() == 1)
             paymentDTO=bankClient.BankPay(paymentRequestDTO);
         else paymentDTO= bank2Client.Bank2Pay(paymentRequestDTO);
-
-        HttpHeaders headersRedirect = new HttpHeaders();
-        headersRedirect.add("Location", "http://localhost:4200");
-        headersRedirect.add("Access-Control-Allow-Origin", "*");
-
-        MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
-
-        body.add("amount", requestDTO.getAmount().toString());
-
-        // Note the body object as first parameter!
-        HttpEntity<?> httpEntity = new HttpEntity<Object>(body, headersRedirect);
-        RestTemplate restTemplate= new RestTemplate();
-       ResponseEntity<String> response=restTemplate.exchange("http://localhost:4200", HttpMethod.POST, httpEntity,String.class);
-
+        String link = "http://localhost:4201/"+paymentDTO.getPaymentId().toString();
         if(paymentDTO.getSuccess())
-            return paymentDTO.getPaymentUrl();
-        else return "";
+            return new ResponseDTO("success",link);
+        else return new ResponseDTO("fail",link);
     }
 
     @PostMapping(value = "/TrasactionDone")

@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="cardHolderName">Card holder name</label>
-    <input type="text" formControlName="cardHolderName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+    <input type="text" formControlName="cardHolderName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardHolderName.errors }" />
     <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
       <div *ngIf="f.cardHolderName.errors.required">Card holder name is required</div>
     </div>
