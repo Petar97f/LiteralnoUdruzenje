@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/banka-frontend.iml" afterDir="false" />
@@ -306,6 +307,9 @@
       <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" afterDir="false" />
     </list>
+=======
+    <list default="true" id="6f90be4e-ca43-4908-91b6-8980e15e00a3" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -339,7 +343,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610307416729</updated>
+<<<<<<< Updated upstream
       <workItem from="1610307418287" duration="5969000" />
+=======
+      <workItem from="1610307418287" duration="6348000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

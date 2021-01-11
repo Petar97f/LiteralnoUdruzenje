@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="3a590d9a-b637-4c40-9db1-fe932a0cbc0a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../banka-frontend/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../banka-frontend/.idea/banka-frontend.iml" afterDir="false" />
@@ -306,6 +307,9 @@
       <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" afterDir="false" />
     </list>
+=======
+    <list default="true" id="3a590d9a-b637-4c40-9db1-fe932a0cbc0a" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
