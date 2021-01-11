@@ -6,8 +6,13 @@ import About from './components/app/About';
 import './App.scss';
 import User from './components/user/User';
 import Membership  from './components/user/Membership';
+import jwt from 'jwt-decode' 
 
 class AppRoutes extends Component {
+	
+	componentDidMount () {
+	}
+
   render () {
 		if (User.isLoggedIn) {
 			if(User.role === "SYS_ADMIN") {
