@@ -76,6 +76,11 @@ class PaymentsMethods extends Component {
         });
       }
     } else if (selectedPayment === "CRYPTO") {
+      let res='http://localhost:4042/?amount='+this.state.amount;
+      window.open(
+          res,
+          '_blank'
+      );
 
     } else if (selectedPayment === "PAYPAL") {
       try {

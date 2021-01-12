@@ -27,4 +27,12 @@ public class RequestDTO {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "RequestDTO{" +
+                "amount='" + amount + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
