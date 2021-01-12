@@ -1,0 +1,17 @@
+<h2>Bitcoin</h2>
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="address">ADDRESS</label>
+    <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+      <div *ngIf="f.address.errors.required">PAN is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Send
+    </button>
+  </div>
+</form>

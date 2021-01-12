@@ -5,12 +5,10 @@ import com.bankaservice.backend.client.LuClient;
 import com.bankaservice.backend.client.PccClient;
 import com.bankaservice.backend.dto.*;
 import com.bankaservice.backend.model.*;
-import com.bankaservice.backend.service.BankService;
 import com.bankaservice.backend.service.CardService;
 
 
 import com.bankaservice.backend.service.PaymentService;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +16,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin("*")
 public class BankController {
-    @Autowired
-    private BankService bankService;
+
     @Autowired
     private CardService cardService;
     @Autowired
@@ -38,13 +35,17 @@ public class BankController {
     
     @GetMapping(value = "/getCardOwner")
 	public UserDTO getUser(@RequestBody Card card) {
-		
     	return luClient.getUser(card.getClientId());
-
-		
 	}
 
-	@GetMapping(value="/getBankId")
+    @GetMapping(value = "/getCardData/{pan}")
+    public Long getCardId(@PathVariable("pan") String pan){
+        if(cardService.findByPan(pan)!=null)
+            return cardService.findByPan(pan).getBankId();
+        else return null;
+    }
+
+	@PostMapping(value="/getBankId")
     public Long getBankId(@RequestBody String pan){
         if(cardService.findByPan(pan)!=null)
             return 1L;
@@ -93,31 +94,31 @@ public class BankController {
     }
     @PostMapping(value = "/check")
     public String BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
+        System.out.println(securityCheckDTO.toString());
         Payment payment = paymentService.findPaymentById(securityCheckDTO.getPaymentId());
         System.out.println("Payment: "+payment);
         Long clientId = luClient.getUser(cardService.findByPan(securityCheckDTO.getPan()).getClientId()).getId();
         System.out.println("CliendId: " +clientId);
         //Long sellerId = securityCheckDTO.getPaymentId();
+        System.out.println(payment.getMerchantId());
         Card card = cardService.findByMerchantId(payment.getMerchantId());
         Long sellerId = card.getClientId();
         System.out.println("SellerId: "+sellerId);
-        Long bankId = 0L;
-        Long bankId2 = 0L;
         Card cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
 
-        if(card.getBank() == cardBuyer.getBank()) {
+        if(card.getBankId() == cardBuyer.getBankId()) {
             if(cardBuyer.getAvailableMoney() - payment.getAmount() >= 0){
                 cardBuyer.setAvailableMoney(cardBuyer.getAvailableMoney() - payment.getAmount());
                 card.setAvailableMoney(card.getAvailableMoney()+payment.getAmount());
                 cardService.save(cardBuyer);
                 cardService.save(card);
-                Log log = new Log(LogType.INFO, card.getBank().getName(), 1, "Same bank, buy success");
+                Log log = new Log(LogType.INFO, card.getBankId().toString(), 1, "Same bank, buy success");
                 Date date = new Date();
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
                 log.setTimestamp(calendar.getTime());
                 System.out.println(log);
-                return null;
+                return "uspesno";
             }
             Log log1 = new Log(LogType.ERROR, cardBuyer.getCardNumber(), 1, "Not enough money on card");
             Date date = new Date();

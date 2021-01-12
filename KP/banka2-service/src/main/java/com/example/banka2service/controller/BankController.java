@@ -1,5 +1,6 @@
 package com.example.banka2service.controller;
 
+import com.example.banka2service.client.BankClient;
 import com.example.banka2service.client.KpClient;
 import com.example.banka2service.client.LuClient;
 import com.example.banka2service.client.PccClient;
@@ -8,20 +9,19 @@ import com.example.banka2service.model.Card;
 import com.example.banka2service.model.Log;
 import com.example.banka2service.model.LogType;
 import com.example.banka2service.model.Payment;
-import com.example.banka2service.service.BankService;
 import com.example.banka2service.service.CardService;
 import com.example.banka2service.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
 import java.util.Date;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin("*")
 public class BankController {
-    @Autowired
-    private BankService bankService;
     @Autowired
     private CardService cardService;
     @Autowired
@@ -34,6 +34,9 @@ public class BankController {
 
     @Autowired
     private KpClient kpClient;
+
+    @Autowired
+    private BankClient bankClient;
     
     
     @GetMapping(value = "/getCardOwner")
@@ -44,7 +47,7 @@ public class BankController {
 		
 	}
 
-    @GetMapping(value="/getBankId")
+    @PostMapping(value="/getBankId")
     public Long getBankId(@RequestBody String pan){
         if(cardService.findByPan(pan)!=null)
             return 1L;
@@ -92,32 +95,41 @@ public class BankController {
         return paymentDTO;
     }
     @PostMapping(value = "/check")
-    public String BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
+    public ResponseEntity<ResponseDTO> BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
     	Payment payment = paymentService.findPaymentById(securityCheckDTO.getPaymentId());
     	System.out.println("Payment: "+payment);
-    	Long clientId = luClient.getUser(cardService.findByPan(securityCheckDTO.getPan()).getClientId()).getId();
-    	System.out.println("CliendId: " +clientId);
+        Long clientId;
+        Long bankId;
+        Card cardBuyer;
+    	if(cardService.findByPan(securityCheckDTO.getPan())!=null) {
+            bankId =cardService.findByPan(securityCheckDTO.getPan()).getBankId();
+            cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
+        } else {
+    	    bankId = bankClient.getCardId(securityCheckDTO.getPan());
+    	    if(bankId == null){
+    	        return null;
+            }
+    	    cardBuyer = new Card();
+        }
+
     	//Long sellerId = securityCheckDTO.getPaymentId();
     	Card card = cardService.findByMerchantId(payment.getMerchantId());
     	Long sellerId = card.getClientId();
     	System.out.println("SellerId: "+sellerId);
-    	Long bankId = 0L;
-    	Long bankId2 = 0L;
-    	Card cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
 
-    	if(card.getBank() == cardBuyer.getBank()) {
+    	if(card.getBankId() == bankId) {
     	    if(cardBuyer.getAvailableMoney() - payment.getAmount() >= 0){
     		cardBuyer.setAvailableMoney(cardBuyer.getAvailableMoney() - payment.getAmount());
     		card.setAvailableMoney(card.getAvailableMoney()+payment.getAmount());
     		cardService.save(cardBuyer);
     		cardService.save(card);
-            Log log = new Log(LogType.INFO, card.getBank().getName(), 1, "Same bank, buy success");
+            Log log = new Log(LogType.INFO, card.getBankId().toString(), 1, "Same bank, buy success");
             Date date = new Date();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             log.setTimestamp(calendar.getTime());
             System.out.println(log);
-            return null;
+            return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
     	    }
             Log log1 = new Log(LogType.ERROR, cardBuyer.getCardNumber(), 1, "Not enough money on card");
             Date date = new Date();
@@ -125,7 +137,7 @@ public class BankController {
             calendar.setTime(date);
             log1.setTimestamp(calendar.getTime());
             System.out.println(log1);
-    		return null;
+            return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
     		
     	}
     	else {
@@ -133,13 +145,13 @@ public class BankController {
     	    PccRequest2DTO response=pccClient.SendPccRequest(new PccRequestDTO(payment.getId(),new Date(),cardDTO,payment.getAmount()));
 
     	    if(response==null)
-    	        return null;
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
     	    else{
     	        card.setAvailableMoney(card.getAvailableMoney()+ payment.getAmount());
     	        cardService.save(card);
                 TransactionDTO transactionDTO=new TransactionDTO(true,response.getAcquierOrderId(),response.getAcquierTimestamp(),response.getIssuerOrderId(),payment.getId(),payment.getPaymentUrl());
                 String returnString=kpClient.Transaction(transactionDTO);
-                return returnString;
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
             }
     	}
     }

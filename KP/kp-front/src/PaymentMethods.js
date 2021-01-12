@@ -41,18 +41,35 @@ class PaymentsMethods extends Component {
   getMethod = async (e, selectedPayment)  => {
     console.log(selectedPayment);
     if (selectedPayment === "BANK") {
+      console.log('tu sam');
+      console.log(this.state.merchantId);
+      console.log(this.state.amount);
+      let requestDTO = {};
+      requestDTO.id = this.state.merchantId;
+      requestDTO.amount = this.state.amount;
       try {
       let response = await (await fetch('http://localhost:8084/PaymentBank', {
-          method: 'get',
+          method: 'post',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            requestDTO: { id: this.state.merchantId, amount: this.state.amount}
+            id: this.state.merchantId, amount: this.state.amount
           })
-        })).text();
-        console.log(response);
+        })).json();
+        console.log(response)
+        if (response.status === 'fail') {
+          alert('Something went wrong');
+        } else if (response.status === "success") {
+          if (response.data) {
+            window.close();
+            window.open(
+                response.data,
+                '_blank'
+            );
+          }
+        }
       } catch (err) {
         this.setState({
           errors: err.toString()

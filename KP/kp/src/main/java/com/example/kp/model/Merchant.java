@@ -11,10 +11,10 @@ public class Merchant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Long idLong;
+	private Long id;
     
     @Column
-    private String id;
+    private String merchantId;
 
     @Column
     private String password;
@@ -39,24 +39,22 @@ public class Merchant {
     public Merchant() {
     }
 
-    public Merchant(Long idLong, String id, String password, String successUrl, String failedUrl, String errorUrl, Long bankId) {
-        this.idLong = idLong;
-    }
-
-    public Merchant(String id, String password, String successUrl, String failedUrl, String errorUrl) {
+    public Merchant(Long id, String merchantId, String password, String successUrl, String failedUrl, String errorUrl, Long bankId) {
         this.id = id;
+        this.merchantId = merchantId;
         this.password = password;
         this.successUrl = successUrl;
         this.failedUrl = failedUrl;
         this.errorUrl = errorUrl;
+        this.bankId = bankId;
     }
 
-    public String getId() {
-        return id;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
     public String getPassword() {
@@ -100,12 +98,12 @@ public class Merchant {
     }
 
 
-    public Long getIdLong() {
-        return idLong;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdLong(Long idLong) {
-        this.idLong = idLong;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getBankId() {

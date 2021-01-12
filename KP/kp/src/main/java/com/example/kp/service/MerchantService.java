@@ -12,8 +12,8 @@ public class MerchantService {
     @Autowired
     private MerchantRepository merchantRepository;
 
-    public Merchant findMerchantById(String id){
-        return merchantRepository.findMerchantById(id);
+    public Merchant findMerchantByMerchantId(String id){
+        return merchantRepository.findMerchantByMerchantId(id);
     }
     public Merchant save(Merchant merchant){
         return merchantRepository.save(merchant);

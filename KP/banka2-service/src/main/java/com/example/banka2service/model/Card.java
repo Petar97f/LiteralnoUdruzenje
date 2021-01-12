@@ -36,15 +36,15 @@ public class Card {
 
     @Column
     private String merchantPassword;
-    @ManyToOne( fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    private Bank bank;
+    @Column
+    private Long bankId;
 
     public Card() {
     }
     
 
     public Card(Long id, Long clientId, String cardNumber, String expirationDate, String cvc, Float availableMoney,
-			String pan, String securityCode, String merchantId, String merchantPassword, Bank bank) {
+			String pan, String securityCode, String merchantId, String merchantPassword, Long bankId) {
 		super();
 		this.id = id;
 		this.clientId = clientId;
@@ -56,7 +56,7 @@ public class Card {
 		this.securityCode = securityCode;
 		this.merchantId = merchantId;
 		this.merchantPassword = merchantPassword;
-		this.bank = bank;
+		this.bankId = bankId;
 	}
 
 
@@ -140,12 +140,11 @@ public class Card {
         this.merchantPassword = merchantPassword;
     }
 
-	public Bank getBank() {
-		return bank;
-	}
+    public Long getBankId() {
+        return bankId;
+    }
 
-	public void setBank(Bank bank) {
-		this.bank = bank;
-	}
-    
+    public void setBankId(Long bankId) {
+        this.bankId = bankId;
+    }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(name="banka")
 public interface BankClient {
-    @GetMapping(value = "/getBankId")
+    @PostMapping(value = "/getBankId")
     public Long getBankId(@RequestBody String pan);
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO);

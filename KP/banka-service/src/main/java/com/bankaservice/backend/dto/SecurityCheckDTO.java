@@ -71,10 +71,16 @@ public class SecurityCheckDTO {
 	public void setPaymentId(Long paymentId) {
 		this.paymentId = paymentId;
 	}
-	
-	
-	
-	
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "SecurityCheckDTO{" +
+				"pan='" + pan + '\'' +
+				", securityCode='" + securityCode + '\'' +
+				", cardHolderName='" + cardHolderName + '\'' +
+				", expirationDate='" + expirationDate + '\'' +
+				", paymentId=" + paymentId +
+				'}';
+	}
 }

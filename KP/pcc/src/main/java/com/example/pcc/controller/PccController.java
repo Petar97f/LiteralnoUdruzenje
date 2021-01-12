@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin("*")
 public class PccController {
 
     @Autowired
@@ -35,16 +35,15 @@ public class PccController {
         request.setAcquierTimestamp(pccRequestDTO.getAcquierTimestamp());
         request.setAmount(pccRequestDTO.getAmount());
         requestService.save(request);
-
+        System.out.println(pccRequestDTO.getCardDTO().getPan());
         Long bankId;
         Long banka1=bankClient.getBankId(pccRequestDTO.getCardDTO().getPan());
-        Long banka2=bankClient.getBankId(pccRequestDTO.getCardDTO().getPan());
         if(banka1==1L)
-            bankId=0L;
-        else bankId=1L;
+            bankId=1L;
+        else bankId=2L;
 
         PccRequest2DTO pccRequest2DTO;
-        if(bankId==0L){
+        if(bankId==1L){
            pccRequest2DTO=bankClient.ClientBank(pccRequestDTO);
         }else pccRequest2DTO=bank2Client.ClientBank(pccRequestDTO);
 

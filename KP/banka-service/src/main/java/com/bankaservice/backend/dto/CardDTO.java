@@ -1,9 +1,5 @@
 package com.bankaservice.backend.dto;
 
-import com.bankaservice.backend.model.Bank;
-
-import javax.persistence.*;
-
 public class CardDTO {
 
     private String pan;
