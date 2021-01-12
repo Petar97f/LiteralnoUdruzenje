@@ -19,6 +19,9 @@ public class Payment {
     @Column 
     private Float amount;
 
+    @Column
+	private Boolean success;
+
     public Payment() {
     }
     
@@ -82,6 +85,12 @@ public class Payment {
 		return "Payment [id=" + id + ", MerchantId=" + MerchantId + ", paymentUrl=" + paymentUrl + ", amount=" + amount
 				+ "]";
 	}
-	
-    
+
+	public Boolean getSuccess() {
+		return success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
 }

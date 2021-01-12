@@ -36,31 +36,31 @@ public class Card {
 
     @Column
     private String merchantPassword;
-    @ManyToOne( fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    private Bank bank;
+    @Column
+    private Long bankId;
 
     public Card() {
     }
-    
+
 
     public Card(Long id, Long clientId, String cardNumber, String expirationDate, String cvc, Float availableMoney,
-			String pan, String securityCode, String merchantId, String merchantPassword, Bank bank) {
-		super();
-		this.id = id;
-		this.clientId = clientId;
-		this.cardNumber = cardNumber;
-		this.expirationDate = expirationDate;
-		this.cvc = cvc;
-		this.availableMoney = availableMoney;
-		this.pan = pan;
-		this.securityCode = securityCode;
-		this.merchantId = merchantId;
-		this.merchantPassword = merchantPassword;
-		this.bank = bank;
-	}
+                String pan, String securityCode, String merchantId, String merchantPassword, Long bankId) {
+        super();
+        this.id = id;
+        this.clientId = clientId;
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
+        this.cvc = cvc;
+        this.availableMoney = availableMoney;
+        this.pan = pan;
+        this.securityCode = securityCode;
+        this.merchantId = merchantId;
+        this.merchantPassword = merchantPassword;
+        this.bankId = bankId;
+    }
 
 
-	public Long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -100,13 +100,13 @@ public class Card {
         this.availableMoney = availableMoney;
     }
 
-	public Long getClientId() {
-		return clientId;
-	}
+    public Long getClientId() {
+        return clientId;
+    }
 
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
-	}
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
 
     public String getPan() {
         return pan;
@@ -140,12 +140,11 @@ public class Card {
         this.merchantPassword = merchantPassword;
     }
 
-	public Bank getBank() {
-		return bank;
-	}
+    public Long getBankId() {
+        return bankId;
+    }
 
-	public void setBank(Bank bank) {
-		this.bank = bank;
-	}
-    
+    public void setBankId(Long bankId) {
+        this.bankId = bankId;
+    }
 }

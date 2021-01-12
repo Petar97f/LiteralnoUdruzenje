@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface MerchantRepository extends JpaRepository<Merchant,Long> {
-    Merchant findById(String id);
-
-    Merchant findMerchantById(String id);
+    Merchant findMerchantById(Long id);
+    Merchant findMerchantByMerchantId(String id);
 
     List<Merchant> findAll();
 }

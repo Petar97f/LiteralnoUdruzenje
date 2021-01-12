@@ -6,10 +6,11 @@ public class PccRequestDTO {
 	private Long acquierOrderId;
 	private Date acquierTimestamp;
 	private CardDTO cardDTO;
-	
-	
+	private Float amount;
+
+
 	public PccRequestDTO() {
-		
+
 	}
 
 
@@ -23,6 +24,13 @@ public class PccRequestDTO {
 		this.acquierOrderId = acquierOrderId;
 		this.acquierTimestamp = acquierTimestamp;
 		this.cardDTO = cardDTO;
+	}
+
+	public PccRequestDTO(Long acquierOrderId, Date acquierTimestamp, CardDTO cardDTO, Float amount) {
+		this.acquierOrderId = acquierOrderId;
+		this.acquierTimestamp = acquierTimestamp;
+		this.cardDTO = cardDTO;
+		this.amount = amount;
 	}
 
 	public CardDTO getCardDTO() {
@@ -53,6 +61,11 @@ public class PccRequestDTO {
 	}
 
 
-	
-	
+	public Float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Float amount) {
+		this.amount = amount;
+	}
 }

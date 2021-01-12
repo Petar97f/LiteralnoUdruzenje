@@ -2,14 +2,16 @@ package com.example.kp.dto;
 
 public class PaymentDTO {
     private String paymentUrl;
-    private String paymentId;
+    private Long paymentId;
+    private Boolean success;
 
     public PaymentDTO() {
     }
 
-    public PaymentDTO(String paymentUrl, String paymentId) {
+    public PaymentDTO(String paymentUrl, Long paymentId, Boolean success) {
         this.paymentUrl = paymentUrl;
         this.paymentId = paymentId;
+        this.success = success;
     }
 
     public String getPaymentUrl() {
@@ -20,11 +22,20 @@ public class PaymentDTO {
         this.paymentUrl = paymentUrl;
     }
 
-    public String getPaymentId() {
+    public Long getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(String paymentId) {
+    public void setPaymentId(Long paymentId) {
         this.paymentId = paymentId;
     }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
 }
+

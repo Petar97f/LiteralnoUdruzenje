@@ -1,0 +1,37 @@
+<h2>Bank</h2>
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="pan">PAN</label>
+    <input type="text" formControlName="pan" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pan.errors }" />
+    <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
+      <div *ngIf="f.pan.errors.required">PAN is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="securityCode">Security-code</label>
+    <input type="text" formControlName="securityCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.securityCode.errors }" />
+    <div *ngIf="submitted && f.securityCode.errors" class="invalid-feedback">
+      <div *ngIf="f.securityCode.errors.required">Security code is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardHolderName">Card holder name</label>
+    <input type="text" formControlName="cardHolderName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardHolderName.errors }" />
+    <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
+      <div *ngIf="f.cardHolderName.errors.required">Card holder name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="expirationDate">Expiration date</label>
+    <input type="text" formControlName="expirationDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
+    <div *ngIf="submitted && f.expirationDate.errors" class="invalid-feedback">
+      <div *ngIf="f.expirationDate.errors.required">Expiration date is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Send
+    </button>
+  </div>
+</form>

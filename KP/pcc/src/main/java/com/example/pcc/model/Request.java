@@ -16,6 +16,8 @@ public class Request {
     private Date acquierTimestamp;
     @Column
     private Long cardId;
+    @Column
+    private Float amount;
 
     public Request() {
     }
@@ -57,5 +59,13 @@ public class Request {
 
     public void setCardId(Long cardId) {
         this.cardId = cardId;
+    }
+
+    public Float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Float amount) {
+        this.amount = amount;
     }
 }

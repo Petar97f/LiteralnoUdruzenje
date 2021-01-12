@@ -2,6 +2,7 @@ package com.example.kp.controller;
 
 
 
+import com.example.kp.client.Bank2Client;
 import com.example.kp.client.BankClient;
 import com.example.kp.client.PaypalClient;
 import com.example.kp.dto.*;
@@ -13,13 +14,11 @@ import com.example.kp.repository.MerchantRepository;
 import com.example.kp.service.MerchantService;
 import com.example.kp.service.PaymentRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.util.Calendar;
@@ -27,7 +26,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 @CrossOrigin("*")
-@RequestMapping("")
 @RestController
 public class PaymentController {
 
@@ -42,37 +40,45 @@ public class PaymentController {
     @Autowired 
     private PaypalClient paypalClient;
 
+    @Autowired
+    private Bank2Client bank2Client;
+
 
     @GetMapping(value = "/getTypes/{merchantId}")
     public PaymentTypesDTO getUser(@PathVariable("merchantId") String merchantId) {
-        Merchant merchant = merchantService.findMerchantById(merchantId);
+        Merchant merchant = merchantService.findMerchantByMerchantId(merchantId);
         PaymentTypesDTO paymentTypesDTO = new PaymentTypesDTO();
         paymentTypesDTO.setPaymentTypes(merchant.getPaymentTypes());
         return paymentTypesDTO;
     }
 
+
     @GetMapping(value = "/getMerchantData/{merchantId}")
     public IssuerDTO getIsserData(@PathVariable("merchantId") String merchantId){
-        List<PaymentRequest> reqs=paymentRequestService.findAllByMerchant(merchantService.findMerchantById(merchantId));
+        List<PaymentRequest> reqs=paymentRequestService.findAllByMerchant(merchantService.findMerchantByMerchantId(merchantId));
         IssuerDTO issuerDTO= new IssuerDTO(Long.valueOf(reqs.size()),new Date());
         return issuerDTO;
     }
 
-    @PostMapping(value="/PaymentBank")
-    public String BankPay( @RequestBody RequestDTO requestDTO){
+    @PostMapping(value="/PaymentBank", produces="application/json")
+    public @ResponseBody ResponseDTO BankPay(@RequestBody RequestDTO requestDTO){
+        System.out.println(requestDTO.toString());
+        System.out.println(requestDTO.getAmount());
+        System.out.println(requestDTO.getId());
         PaymentRequest paymentRequest= new PaymentRequest();
         PaymentRequestDTO paymentRequestDTO=new PaymentRequestDTO();
+        System.out.println(requestDTO.getAmount());
+        System.out.println(requestDTO.getId());
+        paymentRequest.setAmount(Double.valueOf(requestDTO.getAmount()));
+        paymentRequestDTO.setAmount(Double.valueOf(requestDTO.getAmount()));
 
-        paymentRequest.setAmount(requestDTO.getAmount());
-        paymentRequestDTO.setAmount(requestDTO.getAmount());
-
-        Merchant merchant=merchantService.findMerchantById(requestDTO.getId());
+        Merchant merchant=merchantService.findMerchantByMerchantId(requestDTO.getId());
         paymentRequest.setMerchant(merchant);
-
+        System.out.println(merchant.toString());
         paymentRequestDTO.setErrorUrl(merchant.getErrorUrl());
         paymentRequestDTO.setFailedUrl(merchant.getFailedUrl());
         paymentRequestDTO.setSuccessUrl(merchant.getSuccessUrl());
-        paymentRequestDTO.setMerchantId(merchant.getId());
+        paymentRequestDTO.setMerchantId(merchant.getMerchantId());
         paymentRequestDTO.setMerchantPassword(merchant.getPassword());
         paymentRequestDTO.setMerchantTimestamp(new Date());
 
@@ -102,11 +108,18 @@ public class PaymentController {
 
         paymentRequestService.save(paymentRequest);
 
-        PaymentDTO paymentDTO=bankClient.BankPay(paymentRequestDTO);
+        PaymentDTO paymentDTO;
 
-
-
-        return paymentDTO.getPaymentUrl();
+        String link;
+        if(merchant.getBankId() == 1){
+            paymentDTO=bankClient.BankPay(paymentRequestDTO);
+            link = "http://localhost:4200/?paymentId="+paymentDTO.getPaymentId().toString();}
+        else {paymentDTO= bank2Client.Bank2Pay(paymentRequestDTO);
+            link = "http://localhost:4201/?paymentId="+paymentDTO.getPaymentId().toString();
+        }
+        if(paymentDTO.getSuccess())
+            return new ResponseDTO("success",link);
+        else return new ResponseDTO("fail",link);
     }
 
     @PostMapping(value = "/TrasactionDone")
