@@ -78,7 +78,30 @@ class PaymentsMethods extends Component {
     } else if (selectedPayment === "CRYPTO") {
 
     } else if (selectedPayment === "PAYPAL") {
-
+      try {
+        let response = await (await fetch('http://localhost:8084/PaymentPaypal', {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: this.state.amount
+            })
+          })).json();
+          console.log(response);
+          if (response.status === "success"){
+              if(response.redirect_url){
+                window.open(response.redirect_url,"_blank")
+              }
+          }else{
+            alert("something went wrong ");
+          }
+        } catch (err) {
+          this.setState({
+            errors: err.toString()
+          });
+        }
     }
     
   }

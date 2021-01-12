@@ -4,6 +4,7 @@ package com.example.kp.controller;
 
 import com.example.kp.client.Bank2Client;
 import com.example.kp.client.BankClient;
+import com.example.kp.client.PaypalClient;
 import com.example.kp.dto.*;
 import com.example.kp.model.Log;
 import com.example.kp.model.LogType;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 @CrossOrigin("*")
 @RestController
 public class PaymentController {
@@ -35,6 +37,8 @@ public class PaymentController {
 
     @Autowired
     private BankClient bankClient;
+    @Autowired 
+    private PaypalClient paypalClient;
 
     @Autowired
     private Bank2Client bank2Client;
@@ -122,4 +126,11 @@ public class PaymentController {
     public String Transaction(@RequestBody TransactionDTO transactionDTO){
         return transactionDTO.getPaymentUrl();
     }
+    
+    @PostMapping(value="/PaymentPaypal")
+    public Map<String, Object> PaypalPay( @RequestBody RequestDTO requestDTO) {
+    	return paypalClient.makePayment(requestDTO.getAmount().toString());
+    }
+    
+    
 }

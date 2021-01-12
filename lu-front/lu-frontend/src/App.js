@@ -18,7 +18,8 @@ class App extends Component {
 
   componentDidMount () {
     let response = localStorage.getItem("token");
-		let user = jwt(response);
+    if (response){
+      let user = jwt(response);
 		console.log(user)
 		if (user) {
 			User.isLoggedIn = true;
@@ -31,6 +32,8 @@ class App extends Component {
 			User.role = user.roles[0].authority;
       this.props.history.push('/user');
 		}
+    }
+	
   }
   
   render () {

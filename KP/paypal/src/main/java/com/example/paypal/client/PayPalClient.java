@@ -10,13 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 import com.example.paypal.dto.UserDTO;
-import com.paypal.api.payments.Amount;
-import com.paypal.api.payments.Links;
-import com.paypal.api.payments.Payer;
-import com.paypal.api.payments.Payment;
-import com.paypal.api.payments.PaymentExecution;
-import com.paypal.api.payments.RedirectUrls;
-import com.paypal.api.payments.Transaction;
+import com.paypal.api.payments.*;
+
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 
@@ -46,7 +41,7 @@ public class PayPalClient {
 
 	    RedirectUrls redirectUrls = new RedirectUrls();
 	    redirectUrls.setCancelUrl("http://localhost:4200/cancel");
-	    redirectUrls.setReturnUrl("http://localhost:3000/user");
+	    redirectUrls.setReturnUrl("http://localhost:3005/confirmationPaypal");
 	    payment.setRedirectUrls(redirectUrls);
 	    Payment createdPayment;
 	    try {
@@ -81,6 +76,7 @@ public class PayPalClient {
 	    try {
 	        APIContext context = new APIContext(clientId, clientSecret, "sandbox");
 	        System.out.println(paymentExecution.getPayerId());
+	        System.out.println(context);
 	        Payment createdPayment = payment.execute(context, paymentExecution);
 	        if(createdPayment!=null){
 	            response.put("status", "success");
