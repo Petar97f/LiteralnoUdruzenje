@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import PaymentsMethods from './PaymentMethods';
-
+import ConfirmationPaypal from './ConfirmationPaypal';
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" /> 
           <Route exact path="/:id/:amount" component={PaymentsMethods} />
+          <Route path="/confirmationPaypal" component={ConfirmationPaypal} />
         </Switch>
         </div>
       </Router>

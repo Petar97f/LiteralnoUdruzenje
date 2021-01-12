@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,8 @@ import com.example.paypal.dto.UserDTO;
 import com.paypal.base.rest.PayPalRESTException;
 
 @RestController
-@RequestMapping(value = "/paypal")
+@CrossOrigin("*")
+//@RequestMapping(value = "localhost:8085/paypal")
 public class PapPalController {
 
     private PayPalClient payPalClient = new PayPalClient();
@@ -30,7 +32,7 @@ public class PapPalController {
     @Autowired
     private UppClient uppClient;
 
-    @PostMapping(value = "/make/payment/{userId}")
+    @PostMapping(value = "/make/payment")
     public Map<String, Object> makePayment(@RequestParam("sum") String sum){
     	//UserDTO user =uppClient.getUser(userId);
         return payPalClient.createPayment(sum);

@@ -41,7 +41,7 @@ public class PayPalClient {
 
 	    RedirectUrls redirectUrls = new RedirectUrls();
 	    redirectUrls.setCancelUrl("http://localhost:4200/cancel");
-	    redirectUrls.setReturnUrl("http://localhost:8085/paypal/complete/payment");
+	    redirectUrls.setReturnUrl("http://localhost:3005/confirmationPaypal");
 	    payment.setRedirectUrls(redirectUrls);
 	    Payment createdPayment;
 	    try {

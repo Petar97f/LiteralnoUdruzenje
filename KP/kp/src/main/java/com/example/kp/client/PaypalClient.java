@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "paypal")
 public interface PaypalClient {
-	 @PostMapping(value = "/make/payment/{userId}")
+	 @PostMapping(value = "/make/payment")
 	    public Map<String, Object> makePayment(@RequestParam("sum") String sum);
 	 @PostMapping(value = "/complete/payment")
 	    public Map<String, Object> completePayment(HttpServletRequest request);
