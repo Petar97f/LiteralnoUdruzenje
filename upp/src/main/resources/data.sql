@@ -1,16 +1,43 @@
-INSERT INTO user (name,surname,email,password, activated, user_role)
-VALUES ('User1','Prezime1','user1@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6', true, 0);
-INSERT INTO user (name,surname,email,password, activated, user_role)
-VALUES ('User2','Prezime2','user2@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6', true, 0);
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User1','Prezime1','user1@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad1','Country1', true, true, 0,'user1');
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User2','Prezime2','user2@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad2','Country2', true, true, 0,'user2');
 
-INSERT INTO user (name,surname,email,password, activated, user_role, username)
-VALUES ('User3','Prezime3','user3@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6', true, 3, 'user3');
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User3','Prezime3','user3@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad3','Country3', true, true, 3,'user3');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User4','Prezime4','user4@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad4','Country1', true, true, 4,'user4');
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User5','Prezime5','user5@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad5','Country2', true, true, 5,'user5');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User6','Prezime6','user6@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'user6');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User7','Prezime7','user7@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad7','Country3', true, true, 7,'user7');
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User8','Prezime8','user8@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad8','Country2', true, true, 1,'user8');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('User9','Prezime9','user9@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad9','Country2', true, true, 2,'user9');
+
+
+
+
+
 
 INSERT INTO genre (name)
 VALUES ('horor');
 
 INSERT INTO genre (name)
 VALUES ('comedy');
+
+INSERT INTO user_genres (user_id, genre_id) VALUES (8, 1);
+INSERT INTO user_genres (user_id, genre_id) VALUES (3, 2);
+
+
+
 
 INSERT INTO book (id,name,author_id,publisher_id,genre,year_of_issue,editors,lectors,num_of_pages,price)
 VALUES (1,'Mali princ','1','1','knjiga','2020-11-11','nema','nema',33,100.00);
