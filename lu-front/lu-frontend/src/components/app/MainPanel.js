@@ -1,4 +1,6 @@
 import React, { Component} from 'react'
+import { withRouter } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 class MainPanel extends Component {
 
@@ -11,4 +13,4 @@ class MainPanel extends Component {
   
 }
 
-export default MainPanel;
+export default observer(withRouter(MainPanel));

@@ -78,7 +78,40 @@ public class CamundaController {
 		return new FormFieldsDTO(task.getId(), task.getProcessInstanceId(),properties);
 	}
 
-	
+	@GetMapping(path = "/getTask", produces = "application/json")
+	public @ResponseBody ResponseEntity<?> getTasks() {
+		HashMap<String, String> message = new HashMap<String, String>();
+		String username = this.identityService.getCurrentAuthentication().getUserId();
+		System.out.println("Username"+username);
+		if (username != null) {
+			System.out.println("Username"+username);
+			List<Task> nextTasks =  taskService.createTaskQuery().taskAssignee(username).active().list();
+			System.out.println("nextTasks ===> "+nextTasks);
+			if (!nextTasks.isEmpty()) {
+				System.out.println("nextTasks"+nextTasks);
+				Task nextTask = null;
+				for (Task t : nextTasks) {
+					if (t.getAssignee() != null && t.getAssignee().equals(username)) {
+						nextTask = t;
+						break;
+					}
+				}
+				if (nextTask == null) {
+					message.put("message", "success");
+					message.put("status", "success");
+					return new ResponseEntity<>(message,HttpStatus.OK);
+				}
+				TaskFormData taskFormData = formService.getTaskFormData(nextTask.getId());
+				List<FormField> formFieldsList = taskFormData.getFormFields();
+				return new ResponseEntity<>( new FormFieldsDTO(nextTask.getId(), nextTask.getProcessInstanceId(),formFieldsList) ,HttpStatus.OK);
+			}
+		}
+		
+		message.put("message", "not found");
+		message.put("status", "error");
+		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
+		
+	}
 	
 	@PostMapping(value="/submitForm/{taskId}", produces = "application/json")
     public @ResponseBody ResponseEntity<?> submitForm(@RequestBody RegistrationFormDTO dto, @PathVariable String taskId) {

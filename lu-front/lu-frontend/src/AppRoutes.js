@@ -6,11 +6,13 @@ import About from './components/app/About';
 import './App.scss';
 import User from './components/user/User';
 import Membership  from './components/user/Membership';
+import SubmitBook  from './components/user/SubmitBook';
 import jwt from 'jwt-decode' 
 
 class AppRoutes extends Component {
 	
 	componentDidMount () {
+		//console.log(User)
 	}
 
   render () {
@@ -32,6 +34,7 @@ class AppRoutes extends Component {
 							<Route exact path="/user" component={UserPage} />
 							<Route exact path="/about" component={About} />
 							<Route exact path="/membership" component={Membership} />
+							<Route exact path="/submitBook" component={SubmitBook} />
 							<Redirect to="/user" />
 						</Switch>
 					</Suspense>
@@ -54,6 +57,7 @@ class AppRoutes extends Component {
 							<Route exact path="/user" component={UserPage} />
 							<Route exact path="/about" component={About} />
 							<Route exact path="/membership" component={Membership} />
+							<Route exact path="/submitBook" component={SubmitBook} />
 							<Redirect to="/user" />
 						</Switch>
 					</Suspense>

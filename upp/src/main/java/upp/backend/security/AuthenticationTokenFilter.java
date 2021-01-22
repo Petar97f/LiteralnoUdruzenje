@@ -8,6 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+
+import upp.backend.model.User;
 import upp.backend.service.UserDetailsServiceImpl;
 import org.camunda.bpm.engine.identity.Group;
 
@@ -37,12 +39,24 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        System.out.println("request"+ request);
         String authToken = httpRequest.getHeader("X-Auth-Token");
+        
+        httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+        httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        httpResponse.setHeader("Access-Control-Max-Age", "3600");
+        httpResponse.setHeader("Access-Control-Allow-Headers",
+				"Origin, X-Requested-With, Content-Type, Accept, x-requested-with, authorization,  X-Auth-Token");
+        System.out.println("authToken"+ authToken);
+     
         String username = tokenUtils.getUsernameFromToken(authToken);
-
+        System.out.println("user"+ username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-            if(tokenUtils.validateToken(authToken, userDetails)){
+            System.out.println("user"+ username);
+            if(tokenUtils.validateToken(authToken, userDetails)) {
+            	 System.out.println("validateToken"+ username);
             	List<Group> groups = this.identityService.createGroupQuery().groupMember(username).list();
 				List<String> userIds = groups.stream().map(Group::getId).collect(Collectors.toList());
             	Authentication auth = new Authentication(username, userIds);
@@ -61,7 +75,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 			this.identityService.setAuthenticatedUserId("guest");
 			this.identityService.setAuthentication(auth);
 		}
-        
+    	System.out.println("end");
         chain.doFilter(request, response);
     }
 }

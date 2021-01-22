@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import PaymentsMethods from './PaymentMethods';
 import ConfirmationPaypal from './ConfirmationPaypal';
+import RegisterSeller from './RegisterSeller';
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/" /> 
           <Route exact path="/:id/:amount" component={PaymentsMethods} />
           <Route path="/confirmationPaypal" component={ConfirmationPaypal} />
+          <Route path="/registration" component={RegisterSeller} />
         </Switch>
         </div>
       </Router>

@@ -1,4 +1,6 @@
 import React, { Component} from 'react'
+import { withRouter } from 'react-router-dom';
+import { observer } from 'mobx-react';
 import Login from './Login';
 import Register from './Register';
 import RegisterReaderModal from './RegisterReaderModal';
@@ -38,11 +40,13 @@ class Header extends Component {
   }
 
   onLogout = (e) => {
+    console.log("onLogout")
     e.preventDefault();
     this.setState({
       isLoggedIn: false
     })
-    sessionStorage.removeItem("jwt");
+    localStorage.removeItem("token");
+    window.location.replace("http:/localhost:3000");
   }
 
   onRegisterReader = (e) => {
@@ -82,6 +86,7 @@ class Header extends Component {
               {User.role === "ROLE_WRITER" && <Link to={`/membership`} className="text-decoration-none mr-5" >Membership</Link>}
               <Link to={`/user`} className="text-decoration-none mr-5" >Home</Link>
               <Link to={`/about`} className="text-decoration-none mr-5" >About</Link>
+              {User.role === "ROLE_WRITER" && <Link to={`/submitBook`} className="text-decoration-none mr-5" >Submit Book</Link>}
               <Link to={`!#`} className="text-decoration-none mr-5" onClick={this.onLogout}>Logout</Link>
             </div>
           </div>
@@ -92,4 +97,4 @@ class Header extends Component {
   
 }
 
-export default Header;
+export default withRouter(Header);

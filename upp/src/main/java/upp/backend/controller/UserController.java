@@ -29,6 +29,7 @@ import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,6 +73,8 @@ public class UserController {
 	@Autowired
     ProcessEngine processEngine;
 	
+	
+	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
 		
@@ -104,9 +107,10 @@ public class UserController {
 					loginDTO.getEmail(), loginDTO.getPassword());
 			System.out.println(loginDTO.getEmail());
 			System.out.println(loginDTO.getPassword());
+			//SecurityContextHolder.getContext().setAuthentication(token);
 			authenticationManager.authenticate(token);
 			UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getEmail());
-			System.out.println(details);
+			System.out.println("details"+details);
 			User userr=userDetailsService.findUserByEmail(loginDTO.getEmail());
 			System.out.println(userr);
 			if(!userr.getActivated()){
@@ -114,9 +118,12 @@ public class UserController {
 			}
 			return new ResponseEntity<String>(tokenUtils.generateToken(details), HttpStatus.OK);
 		} catch (Exception ex) {
+			System.out.println(ex.toString());
 			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	
 	
 
 //	@RequestMapping(value="/register/{taskId}",method=RequestMethod.POST)

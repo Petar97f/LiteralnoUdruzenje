@@ -18,20 +18,23 @@ class App extends Component {
 
   componentDidMount () {
     let response = localStorage.getItem("token");
-    if (response){
-      let user = jwt(response);
-		console.log(user)
-		if (user) {
-			User.isLoggedIn = true;
-			User.name = user.sub.name;
-			User.username = user.sub.username;
-			User.surname = user.sub.surname;
-			User.email = user.sub.email;
-			User.city= user.sub.city;
-			User.country = user.sub.country;
-			User.role = user.roles[0].authority;
-      this.props.history.push('/user');
-		}
+    if (response && response !== "fail"){
+      let token = jwt(response);
+      if (token && token !== "fail") {
+        User.isLoggedIn = true;
+        User.name = token.user.name;
+        User.username = token.user.username;
+        User.surname = token.user.surname;
+        User.email = token.user.email;
+        User.city= token.user.city;
+        User.country = token.user.country;
+        User.role = token.roles[0].authority;
+        this.props.history.push('/user');
+      } else {
+        this.props.history.push('/');
+      }
+    } else {
+      this.props.history.push('/');
     }
 	
   }

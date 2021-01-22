@@ -48,7 +48,9 @@ class Membership extends Component {
         method: 'post',
         headers: {
           'Accept': 'application/json',
-					'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          //'Authorization': 'Bearer ' + localStorage.getItem("token"),
+          'X-Auth-Token': localStorage.getItem("token")
         }
       })).json();
       console.log(response)

@@ -68,3 +68,11 @@ button {
   padding-bottom: 3px;
   width: 60px;
 }
+
+.font-12 {
+  font-size: 16px
+}
+
+.align-left {
+  text-align: left;
+}

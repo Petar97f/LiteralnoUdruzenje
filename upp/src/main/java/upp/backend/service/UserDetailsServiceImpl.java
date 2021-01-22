@@ -29,11 +29,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String email){
-        User user = userRepository.findByEmail(email);
+    public UserDetails loadUserByUsername(String username){
+    	User user = new User();
+    	if (userRepository.findByUsername(username) != null) {
+    	    user = userRepository.findByUsername(username);
+    	} else if (userRepository.findByEmail(username) != null) {
+    		 user = userRepository.findByEmail(username);
+    	}
+  
         System.out.println("34"+user.getUserRole());
         if(user == null){
-            throw new UsernameNotFoundException(String.format("No user found with username '%s'.", email));
+            throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else{
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
             if (user.getUserRole().equals(UserRole.READER)) {
@@ -59,6 +65,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
     }
 
+  
     public User createUser(User user){
         if (userRepository.findByEmail(user.getEmail()) != null) throw new UserAlreadyExistsException();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -68,6 +75,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public User findUserByEmail(String email){
         return userRepository.findByEmail(email);
     }
+    
+    public User findUserByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
 
     public User changePassword(User user, String password1, String password2) {
         if (!password1.equals(password2)){

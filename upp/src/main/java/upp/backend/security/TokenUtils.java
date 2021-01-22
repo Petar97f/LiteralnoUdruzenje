@@ -3,6 +3,7 @@ package upp.backend.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.DefaultClaims;
 import upp.backend.dto.UserDTO;
 import upp.backend.model.User;
 import upp.backend.service.UserService;
@@ -30,9 +31,13 @@ public class TokenUtils {
 
     public String getUsernameFromToken(String token) {
         String username;
+        System.out.println("getUsernameFromToken");
         try {
             Claims claims = this.getClaimsFromToken(token);
+            System.out.println(claims);
             username = claims.getSubject();
+            System.out.println(username);
+            
         } catch (Exception ex) {
             username = null;
         }
@@ -73,15 +78,17 @@ public class TokenUtils {
 
     public boolean validateToken(String token, UserDetails userDetails){
         final String username = getUsernameFromToken(token);
+        
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<String, Object>();
         User u = userService.findUserByEmail(userDetails.getUsername());
         UserDTO user = userService.convertToDTO(u);
-        claims.put("sub", user);
+        claims.put("sub", user.getUsername());
         claims.put("created", new Date(System.currentTimeMillis()));
         claims.put("roles", userDetails.getAuthorities());
+        claims.put("user", user);
         return Jwts.builder().setClaims(claims).setExpiration(new Date(System.currentTimeMillis() + expiration * 1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
     

@@ -22,13 +22,13 @@ class Login extends Component {
 
 	onLogin = async (e) => {
 		e.preventDefault();
-		console.log("clicked button login");
 		try {
       let response = await (await fetch('http://localhost:8081/login', {
         method: 'post',
         headers: {
           'Accept': 'application/json',
 					'Content-Type': 'application/json',
+					//'X-Auth-Token': localStorage.getItem("token")
         },
         body: JSON.stringify({
 					email: this.state.email,
@@ -37,18 +37,18 @@ class Login extends Component {
       })).text();
 			console.log(response);
 			localStorage.setItem('token', response);
-			let user = jwt(response);
-			console.log(user);
+			let token = jwt(response);
+			console.log(token);
 			console.log("here");
 			if (response != 'fail') {
 				User.isLoggedIn = true;
-				User.name = user.sub.name;
-				User.username = user.sub.username;
-				User.surname = user.sub.surname;
-				User.email = user.sub.email;
-				User.city= user.sub.city;
-				User.country = user.sub.country;
-				User.role = user.roles[0].authority;
+				User.name = token.user.name;
+				User.username = token.user.username;
+				User.surname = token.user.surname;
+				User.email = token.user.email;
+				User.city= token.user.city;
+				User.country = token.user.country;
+				User.role = token.roles[0].authority;
 			} else {
 				this.setState({
 					error: 'Invalid username or password'

@@ -17,7 +17,7 @@ class UserPage extends Component {
         headers: {
           'Accept': 'application/json',
 					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
+          'X-Auth-Token': localStorage.getItem("token")
         },
       })).json();
       console.log(response)
