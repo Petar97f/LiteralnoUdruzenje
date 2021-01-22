@@ -43,29 +43,32 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
         System.out.println("request"+ request);
         String authToken = httpRequest.getHeader("X-Auth-Token");
         
-        httpResponse.setHeader("Access-Control-Allow-Origin", "*");
-        httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        httpResponse.setHeader("Access-Control-Max-Age", "3600");
-        httpResponse.setHeader("Access-Control-Allow-Headers",
-				"Origin, X-Requested-With, Content-Type, Accept, x-requested-with, authorization,  X-Auth-Token");
+       
         System.out.println("authToken"+ authToken);
      
-        String username = tokenUtils.getUsernameFromToken(authToken);
-        System.out.println("user"+ username);
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+        if (authToken != null) {
+        	 httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+             httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+             httpResponse.setHeader("Access-Control-Max-Age", "3600");
+             httpResponse.setHeader("Access-Control-Allow-Headers",
+     				"Origin, X-Requested-With, Content-Type, Accept, x-requested-with, authorization,  X-Auth-Token");
+            String username = tokenUtils.getUsernameFromToken(authToken);
             System.out.println("user"+ username);
-            if(tokenUtils.validateToken(authToken, userDetails)) {
-            	 System.out.println("validateToken"+ username);
-            	List<Group> groups = this.identityService.createGroupQuery().groupMember(username).list();
-				List<String> userIds = groups.stream().map(Group::getId).collect(Collectors.toList());
-            	Authentication auth = new Authentication(username, userIds);
-				this.identityService.setAuthentication(auth);
-				this.identityService.setAuthenticatedUserId(username);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            }
+	        if (username != null /*&& SecurityContextHolder.getContext().getAuthentication() == null*/){
+	            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+	            System.out.println("user"+ username);
+	            if(tokenUtils.validateToken(authToken, userDetails)) {
+	            	 System.out.println("validateToken"+ username);
+	            	List<Group> groups = this.identityService.createGroupQuery().groupMember(username).list();
+					List<String> userIds = groups.stream().map(Group::getId).collect(Collectors.toList());
+	            	Authentication auth = new Authentication(username, userIds);
+					this.identityService.setAuthentication(auth);
+					this.identityService.setAuthenticatedUserId(username);
+	                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+	                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
+	                SecurityContextHolder.getContext().setAuthentication(authentication);
+	            }
+	        }
         }
         if (identityService.getCurrentAuthentication() == null) {
         	System.out.println("identtity service");

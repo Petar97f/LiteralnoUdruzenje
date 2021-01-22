@@ -36,8 +36,6 @@ public class TokenUtils {
             Claims claims = this.getClaimsFromToken(token);
             System.out.println(claims);
             username = claims.getSubject();
-            System.out.println(username);
-            
         } catch (Exception ex) {
             username = null;
         }
@@ -78,8 +76,8 @@ public class TokenUtils {
 
     public boolean validateToken(String token, UserDetails userDetails){
         final String username = getUsernameFromToken(token);
-        
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        User u = userService.findUserByEmail(userDetails.getUsername());
+        return username.equals(u.getUsername()) && !isTokenExpired(token);
     }
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<String, Object>();

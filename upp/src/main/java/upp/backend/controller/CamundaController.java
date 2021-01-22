@@ -108,7 +108,7 @@ public class CamundaController {
 		}
 		
 		message.put("message", "not found");
-		message.put("status", "error");
+		message.put("status", "fail");
 		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
 		
 	}

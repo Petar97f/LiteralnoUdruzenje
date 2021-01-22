@@ -5,7 +5,10 @@ import org.camunda.bpm.engine.task.Task;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import upp.backend.dto.GenreDTO;
 import upp.backend.dto.LoginDTO;
 import upp.backend.dto.RegistrationDTO;
@@ -35,6 +38,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -105,9 +109,9 @@ public class UserController {
 		try {
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
 					loginDTO.getEmail(), loginDTO.getPassword());
+			SecurityContextHolder.getContext().setAuthentication(token);
 			System.out.println(loginDTO.getEmail());
 			System.out.println(loginDTO.getPassword());
-			//SecurityContextHolder.getContext().setAuthentication(token);
 			authenticationManager.authenticate(token);
 			UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getEmail());
 			System.out.println("details"+details);
@@ -209,5 +213,19 @@ public class UserController {
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
 	
+	@PostMapping(value="/upload/{processInstanceId}", produces = "application/json")
+	public ResponseEntity<?> onFileUpload(@PathVariable String processInstanceId, @RequestBody MultipartFile file)  {
+		HashMap<String, String> message = new HashMap<String, String>();
+		System.out.println(processInstanceId);
+		System.out.println("File upload start");
+		String fileDownloadUrl = "";
+		String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		
+		System.out.println("username" + username);
+		System.out.println(file);
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		message.put("message", "success");
+		return new ResponseEntity<>(message, HttpStatus.CREATED);
+	}
     
 }

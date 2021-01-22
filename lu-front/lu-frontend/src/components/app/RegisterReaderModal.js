@@ -59,8 +59,7 @@ class RegisterReaderModal extends Component {
         method: 'post',
         headers: {
           'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Origin': '*',
+					'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           dto: returnDto

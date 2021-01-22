@@ -19,7 +19,6 @@ public class User {
     private String surname;
     @Column
     private String username;
-    
     @Column
     private String email;
     @Column

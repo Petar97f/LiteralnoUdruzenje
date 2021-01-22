@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { Form } from 'react-bootstrap';
-
+import axios from 'axios';
 class Forms extends Component {
 	constructor(props) {
 		super(props);
@@ -39,13 +39,47 @@ class Forms extends Component {
     this.props.onUpdate(form);
   }
 
-  onInputChange = (name, value) => {
+  onInputChange = (e, name, value) => {
+    console.log(e.target.files)
     let form = {...this.state.form};
     form[name] = value;
     this.setState({
       form: form
     });
     this.props.onUpdate(form);
+  }
+
+
+  onFileUpload = async (e, name) => {
+    let files = Array.from(e.target.files)
+    console.log(files)
+    let data = new FormData();
+    for (let i = 0; i < files.length; i++) 
+    {
+      let file = files[i];
+      let filename = files[i].name;
+      console.log(filename)
+      let ext = filename.split('.')[filename.split('.').length - 1];
+      let blob = file.slice(0, file.size, file.type); 
+      file = new File([blob], `${filename}.${ext}`, {type: file.type});
+      console.log(file);
+      data.append(`file`, file);
+    }
+    //let response = await axios.post(`http://localhost:8081/upload`, data);
+
+    let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
+      method: 'post',
+      headers: {
+        //'Accept': 'application/json',
+        //'Content-Type': 'application/json',
+        'X-Auth-Token': localStorage.getItem("token")
+      },
+      body: data
+    })).json();
+    if (response) {
+      console.log(response)
+    }
+    //this.props.onUpdate(form);
   }
 
   render () {
@@ -73,35 +107,35 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type={item.properties.password} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control type={item.properties.password} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               );
             } else if (item.properties['email'] !== undefined) {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.email} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control id="validationDefault02" type={item.properties.email} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               )
             } else if (item.properties['file'] !== undefined) {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
+                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onFileUpload(e, item.id)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
                 </Form.Group>
               )
             } else {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
                 </Form.Group>
               )
             }  
           } else if (item.type.name === 'boolean') {
             return (
               <Form.Group key={item.id}>
-                <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(item.id, e.target.checked)} />
+                <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(e, item.id, e.target.checked)} />
               </Form.Group>
             ); 
           }
@@ -109,7 +143,6 @@ class Forms extends Component {
       </div>
     );
   }
-
 }
 
 export default Forms;

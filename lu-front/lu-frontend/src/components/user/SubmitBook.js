@@ -25,7 +25,8 @@ class SubmitBook extends Component {
       console.log(response)
       this.setState({
         formFields: response.formFields,
-        taskId: response.taskId
+        taskId: response.taskId,
+        processInstanceId: response.processInstanceId
      })
 
     } catch (err) {
@@ -90,11 +91,14 @@ class SubmitBook extends Component {
       <div className="margin-top-page">
         <div className="d-flex flex-row mt-2 ml-3 pt-4">
           <div className="mt-2">
-            {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} />}
+            {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} processInstanceId={this.state.processInstanceId} />}
           </div>
         </div>
         <div className="d-flex flex-row mt-2 ml-3">
-        <button className="btn btn-primary" type="button" onClick={this.onSubmit}>Submit</button>
+        {this.state.formFields ?
+          <button className="btn btn-primary" type="button" onClick={this.onSubmit}>Submit</button>
+        : <p>Already submited works</p>
+        }
         </div>
       </div>
     );
