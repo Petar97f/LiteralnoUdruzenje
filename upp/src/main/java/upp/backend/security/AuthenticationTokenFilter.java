@@ -61,6 +61,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 	            	 System.out.println("validateToken"+ username);
 	            	List<Group> groups = this.identityService.createGroupQuery().groupMember(username).list();
 					List<String> userIds = groups.stream().map(Group::getId).collect(Collectors.toList());
+					System.out.println("userIds"+ userIds);
 	            	Authentication auth = new Authentication(username, userIds);
 					this.identityService.setAuthentication(auth);
 					this.identityService.setAuthenticatedUserId(username);

@@ -1,9 +1,12 @@
 package upp.backend.handlers;
 
+import java.util.List;
 import java.util.logging.Logger;
 
+import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.camunda.bpm.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +18,8 @@ public class ActivateUser implements JavaDelegate {
 
     @Autowired
     private UserService userService;
-    
+    @Autowired
+   	private TaskService taskService;
     private final Logger LOGGER = Logger.getLogger(ActivateUser.class.getName());
     
 	@Override
@@ -33,6 +37,7 @@ public class ActivateUser implements JavaDelegate {
 			user.setActivated(true);
 			LOGGER.info("\n\n User " + user.getId() + "is activated" + "\n\n");
 			this.userService.save(user);
+			execution.setVariable("isActivated", true);
 		}
 		
 	}
