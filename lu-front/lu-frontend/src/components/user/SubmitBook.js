@@ -7,7 +7,8 @@ class SubmitBook extends Component {
     super(props);
     this.state = {
       formFields: [],
-      form: {}
+      form: {},
+      data: []
     }
   }
 
@@ -40,7 +41,26 @@ class SubmitBook extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
-    try {
+    //first upload files then submit form
+
+       /*try {
+        
+       let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
+          method: 'post',
+          headers: {
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json',
+            'X-Auth-Token': localStorage.getItem("token")
+          },
+          body: this.state.data
+        })).json();
+      } catch (err) {
+        this.setState({
+          errors: err.toString()
+        });
+      }*/
+    
+   /* try {
       let returnDto = [];
       returnDto = Object.keys(this.state.form).map(value => {
         let res = {};
@@ -83,8 +103,10 @@ class SubmitBook extends Component {
       this.setState({
         errors: err.toString()
       });
-    }
+    }*/
   }
+
+
 
   render () {
     return (

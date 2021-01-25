@@ -5,7 +5,7 @@ import java.util.Map;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
-public class BookValidation implements JavaDelegate {
+public class ValidatePdf  implements JavaDelegate {
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
@@ -26,5 +26,4 @@ public class BookValidation implements JavaDelegate {
 		}
 
 	}
-
 }

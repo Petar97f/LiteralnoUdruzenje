@@ -1,6 +1,7 @@
 package upp.backend;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -11,6 +12,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -28,9 +32,21 @@ public class UppApplication {
 	private IdentityService identityService;
 	
 	public static void main(String[] args) {
+		createDirectory();
 		SpringApplication.run(UppApplication.class, args);
 	}
 
+	private static void createDirectory() {
+		try {
+			if (Files.exists(Paths.get("uploads"))) {
+				FileSystemUtils.deleteRecursively(Paths.get("uploads").toFile());
+			}
+			Files.createDirectory(Paths.get("uploads"));
+		} catch (IOException e) {
+			throw new RuntimeException();
+		}
+	}
+	
 	@Bean
 	public FilterRegistrationBean corsFilter() {
 		UrlBasedCorsConfigurationSource source =

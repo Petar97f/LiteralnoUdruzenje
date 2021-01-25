@@ -20,7 +20,7 @@ class App extends Component {
     let response = localStorage.getItem("token");
     if (response && response !== "fail"){
       let token = jwt(response);
-      if (token && token !== "fail") {
+      if (token && token.user && token !== "fail") {
         User.isLoggedIn = true;
         User.name = token.user.name;
         User.username = token.user.username;

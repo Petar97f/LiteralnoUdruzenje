@@ -1,12 +1,16 @@
 import React, { Component} from 'react';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
+
+const sleep = (seconds) => new Promise((resolve, reject) => setTimeout(resolve, seconds * 1000));
+
 class Forms extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
       form: {
-      }
+      },
+      errors: ''
     }
   }
 
@@ -49,36 +53,68 @@ class Forms extends Component {
   }
 
 
-  onFileUpload = async (e, name) => {
-    let files = Array.from(e.target.files)
-    console.log(files)
-    let data = new FormData();
-    for (let i = 0; i < files.length; i++) 
-    {
-      let file = files[i];
-      let filename = files[i].name;
-      console.log(filename)
-      //let ext = filename.split('.')[filename.split('.').length - 1];
-      let blob = file.slice(0, file.size, file.type); 
-      file = new File([blob], `${filename}`, {type: file.type});
-      console.log(file);
-      data.append(`file`, file);
+  onFileUpload = async (e, name, minLength) => {
+    if (minLength && Number(minLength) < 2) {
+      alert("Please submit more files");
     }
-    //let response = await axios.post(`http://localhost:8081/upload`, data);
+    try {
+      let form = {...this.state.form};
+      let files = Array.from(e.target.files)
+      
+      let listFilenames = [];
 
-    let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
-      method: 'post',
-      headers: {
-        //'Accept': 'application/json',
-        //'Content-Type': 'application/json',
-        'X-Auth-Token': localStorage.getItem("token")
-      },
-      body: data
-    })).json();
-    if (response) {
-      console.log(response)
-    }
-    //this.props.onUpdate(form);
+      let promises = await Promise.all(files.map(item => {
+          let data = new FormData();
+          let file = item;
+          let filename = item.name;
+          listFilenames.push(filename)
+          console.log(filename)
+          let blob = file.slice(0, file.size, file.type); 
+          file = new File([blob], `${filename}`, {type: file.type});
+          console.log(filename)
+          data.append(`file`, file);
+          return fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
+            method: 'post',
+            headers: {
+              'X-Auth-Token': localStorage.getItem("token")
+            },
+            body: data
+          });
+      }));
+
+     /* for (let i = 0; i < files.length; i++) 
+      {
+        let file = files[i];
+        let filename = files[i].name;
+        listFilenames.push(filename)
+        //let ext = filename.split('.')[filename.split('.').length - 1];
+        let blob = file.slice(0, file.size, file.type); 
+        file = new File([blob], `${filename}`, {type: file.type});
+        console.log(filename)
+        data.append(`file`, file);
+        let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
+          method: 'post',
+          headers: {
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json',
+            'X-Auth-Token': localStorage.getItem("token")
+          },
+          body: data
+        })).json();
+        console.log(response)
+        console.log("wait")
+      }*/
+
+      form[name] = listFilenames;
+      this.setState({
+        form: form
+      });
+      this.props.onUpdate(form);
+  } catch (err) {
+    this.setState({
+      errors: err.toString()
+    });
+  }
   }
 
   render () {
@@ -120,7 +156,7 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onFileUpload(e, item.id)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
+                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} onChange={e => this.onFileUpload(e, item.id, 2)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
                 </Form.Group>
               )
             } else {

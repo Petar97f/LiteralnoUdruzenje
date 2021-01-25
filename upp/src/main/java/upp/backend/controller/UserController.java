@@ -21,6 +21,7 @@ import upp.backend.security.TokenUtils;
 import upp.backend.service.GenreService;
 import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
+import upp.backend.service.WorksService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -80,6 +81,9 @@ public class UserController {
 	
 	@Autowired
 	private IdentityService identityService;
+	
+	@Autowired
+	private WorksService worksService;
 	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
@@ -220,14 +224,21 @@ public class UserController {
 		HashMap<String, String> message = new HashMap<String, String>();
 		System.out.println(processInstanceId);
 		System.out.println("File upload start");
+		System.out.println("File upload start" + file);
+
 		String fileDownloadUrl = "";
-		//String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
-		String username = this.identityService.getCurrentAuthentication().getUserId();
-		
-		System.out.println("username" + username);
-		System.out.println(file);
+		String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		//save file to dir
+		try {
+			fileDownloadUrl = worksService.upload(file, username, processInstanceId);
+		} catch (Exception e) {
+			message.put("message", "fail");
+			return new ResponseEntity<>(message, HttpStatus.CREATED);
+		}
+
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		System.out.println("Filename"+fileName);
+		runtimeService.setVariable(processInstanceId, "pdf", fileDownloadUrl);
 		message.put("message", "success");
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
 	}
