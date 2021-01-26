@@ -41,6 +41,9 @@ public class User {
     
     @Column
 	private UserRole userRole;
+    
+    @Column
+    private Boolean isApproved;
 
     public User() {
     }
@@ -57,6 +60,7 @@ public class User {
 		this.country = country;
 		this.activated = false;
 		this.isBeta = false;
+		this.isApproved = false;
 		this.genres = new HashSet<Genre>();
 		this.userRole = userRole;
 	}
@@ -75,6 +79,7 @@ public class User {
 		this.activated = false;
 		this.isBeta = false;
 		this.genres = genres;
+		this.isApproved = false;
 	}
 
 
@@ -89,6 +94,7 @@ public class User {
 		this.country = country;
 		this.activated = activate;
 		this.isBeta = false;
+		this.isApproved = false;
 		this.genres = new HashSet<Genre>();
 	}
 
@@ -109,6 +115,7 @@ public class User {
 		this.isBeta = isBeta;
 		this.activated = false;
 		this.userRole = userRole;
+		this.isApproved = false;
 	}
 
 
@@ -212,4 +219,15 @@ public class User {
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
 	}
+
+
+	public Boolean getIsApproved() {
+		return isApproved;
+	}
+
+
+	public void setIsApproved(Boolean isApproved) {
+		this.isApproved = isApproved;
+	}
+	
 }

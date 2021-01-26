@@ -113,7 +113,7 @@ class SubmitBook extends Component {
       <div className="margin-top-page">
         <div className="d-flex flex-row mt-2 ml-3 pt-4">
           <div className="mt-2">
-            {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} processInstanceId={this.state.processInstanceId} />}
+            {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} processInstanceId={this.state.processInstanceId} taskId={this.state.taskId} />}
           </div>
         </div>
         <div className="d-flex flex-row mt-2 ml-3">

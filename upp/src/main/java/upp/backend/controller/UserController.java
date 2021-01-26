@@ -40,7 +40,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -219,26 +222,45 @@ public class UserController {
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping(value="/upload/{processInstanceId}", produces = "application/json")
-	public ResponseEntity<?> onFileUpload(@PathVariable String processInstanceId, @RequestBody MultipartFile file)  {
+	@PostMapping(value="/upload/{processInstanceId}/{taskId}", consumes = { "multipart/form-data" })
+	public ResponseEntity<?> onFileUpload(@PathVariable String processInstanceId,@PathVariable String taskId, @RequestParam("files") MultipartFile[] files) throws Exception   {
 		HashMap<String, String> message = new HashMap<String, String>();
 		System.out.println(processInstanceId);
-		System.out.println("File upload start");
-		System.out.println("File upload start" + file);
-
-		String fileDownloadUrl = "";
+		System.out.println("File upload start" + files);
+		List<String> urls = new ArrayList<String>();
 		String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
-		//save file to dir
 		try {
-			fileDownloadUrl = worksService.upload(file, username, processInstanceId);
+			
+			System.out.println("hehre");
+			Arrays.asList(files).stream().forEach(file -> {
+				String fileDownloadUrl = worksService.upload(file, username, processInstanceId);
+				urls.add(fileDownloadUrl);
+				System.out.println("loop");
+				System.out.println("Filename 231"+file.getOriginalFilename());
+		      });
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    	message.put("message", "fail");
+			return new ResponseEntity<>(message, HttpStatus.CREATED);
+	       
+	     }
+		String joined = urls.toString().replace(", ", ",").replaceAll("[\\[.\\]]", "");
+		System.out.println(joined);
+		runtimeService.setVariable(processInstanceId, "pdf", joined);
+		taskService.complete(taskId);
+		//save file to dir
+		/*try {
+			fileDownloadUrl = worksService.upload(files[0], username, processInstanceId);
 		} catch (Exception e) {
+			e.printStackTrace();
 			message.put("message", "fail");
 			return new ResponseEntity<>(message, HttpStatus.CREATED);
 		}
 
-		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		String fileName = StringUtils.cleanPath(files[0].getOriginalFilename());
 		System.out.println("Filename"+fileName);
-		runtimeService.setVariable(processInstanceId, "pdf", fileDownloadUrl);
+		
+*/
 		message.put("message", "success");
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
 	}

@@ -41,7 +41,6 @@ public class WorksService {
 				e1.printStackTrace();
 			}
 		}
-		
 		try {
 	      Files.copy(file.getInputStream(), Paths.get("uploads/"+username+"/" + processInstanceId).resolve(file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
 	    } catch (Exception e) {
@@ -49,7 +48,7 @@ public class WorksService {
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 		}
 		
-		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
+		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/uploads/")
 				.path(username + "/" + processInstanceId+"/"+fileName).toUriString();
 		System.out.println("Filename"+fileDownloadUri);
 		return fileDownloadUri;

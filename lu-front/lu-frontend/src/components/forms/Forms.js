@@ -62,9 +62,32 @@ class Forms extends Component {
       let files = Array.from(e.target.files)
       
       let listFilenames = [];
+      let data = new FormData();
 
-      let promises = await Promise.all(files.map(item => {
-          let data = new FormData();
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        let filename = files[i].name;
+        listFilenames.push(filename)
+        //let ext = filename.split('.')[filename.split('.').length - 1];
+        let blob = file.slice(0, file.size, file.type); 
+        file = new File([blob], `${filename}`, {type: file.type});
+        console.log(filename)
+        data.append(`files`, file, filename);
+      }
+
+      let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}/${this.props.taskId}`, {
+        method: 'post',
+        headers: {
+          //'Accept': 'application/json',
+          //'Content-Type': 'application/json',
+          'X-Auth-Token': localStorage.getItem("token")
+        },
+        body: data
+      })).json();
+
+
+      /*let promises = await Promise.all(files.map(item => {
+         
           let file = item;
           let filename = item.name;
           listFilenames.push(filename)
@@ -80,30 +103,9 @@ class Forms extends Component {
             },
             body: data
           });
-      }));
+      }));*/
 
-     /* for (let i = 0; i < files.length; i++) 
-      {
-        let file = files[i];
-        let filename = files[i].name;
-        listFilenames.push(filename)
-        //let ext = filename.split('.')[filename.split('.').length - 1];
-        let blob = file.slice(0, file.size, file.type); 
-        file = new File([blob], `${filename}`, {type: file.type});
-        console.log(filename)
-        data.append(`file`, file);
-        let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
-          method: 'post',
-          headers: {
-            //'Accept': 'application/json',
-            //'Content-Type': 'application/json',
-            'X-Auth-Token': localStorage.getItem("token")
-          },
-          body: data
-        })).json();
-        console.log(response)
-        console.log("wait")
-      }*/
+
 
       form[name] = listFilenames;
       this.setState({
