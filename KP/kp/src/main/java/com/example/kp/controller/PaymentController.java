@@ -60,6 +60,15 @@ public class PaymentController {
         return issuerDTO;
     }
 
+    @PostMapping(value="/addMerchant", produces="application/json")
+    public Merchant addMerchant(@RequestBody MerchantDTO merchantDTO) {
+    	Merchant m = new Merchant(merchantDTO.getId(),merchantDTO.getMerchantId(),merchantDTO.getPassword(),merchantDTO.getAddress(),merchantDTO.getPhoneNumber(),
+    			merchantDTO.getPaymentTypes(),merchantDTO.getSuccessUrl(),merchantDTO.getFailedUrl(),merchantDTO.getErrorUrl(),merchantDTO.getBankId());
+    	merchantService.save(m);
+    	return m;
+    }
+    
+    
     @PostMapping(value="/PaymentBank", produces="application/json")
     public @ResponseBody ResponseDTO BankPay(@RequestBody RequestDTO requestDTO){
         System.out.println(requestDTO.toString());
