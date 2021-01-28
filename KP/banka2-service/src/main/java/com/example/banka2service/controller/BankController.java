@@ -54,6 +54,13 @@ public class BankController {
         else return 0L;
     }
 
+    @GetMapping(value = "/getCardData/{pan}")
+    public Long getCardId(@PathVariable("pan") String pan){
+        if(cardService.findByPan(pan)!=null){
+            return cardService.findByPan(pan).getBankId();
+        }else return null;
+    }
+
     @PostMapping(value = "/BankPay")
     public PaymentDTO BankPay(@RequestBody PaymentRequestDTO paymentRequestDTO){
         PaymentDTO paymentDTO=new PaymentDTO();

@@ -1,5 +1,6 @@
 package com.bankaservice.backend.controller;
 
+import com.bankaservice.backend.client.BankClient;
 import com.bankaservice.backend.client.KpClient;
 import com.bankaservice.backend.client.LuClient;
 import com.bankaservice.backend.client.PccClient;
@@ -10,6 +11,8 @@ import com.bankaservice.backend.service.CardService;
 
 import com.bankaservice.backend.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
@@ -18,7 +21,6 @@ import java.util.Date;
 @RestController
 @CrossOrigin("*")
 public class BankController {
-
     @Autowired
     private CardService cardService;
     @Autowired
@@ -31,21 +33,27 @@ public class BankController {
 
     @Autowired
     private KpClient kpClient;
-    
-    
+
+    @Autowired
+    private BankClient bankClient;
+
+
     @GetMapping(value = "/getCardOwner")
-	public UserDTO getUser(@RequestBody Card card) {
-    	return luClient.getUser(card.getClientId());
-	}
+    public UserDTO getUser(@RequestBody Card card) {
+
+        return luClient.getUser(card.getClientId());
+
+
+    }
 
     @GetMapping(value = "/getCardData/{pan}")
     public Long getCardId(@PathVariable("pan") String pan){
-        if(cardService.findByPan(pan)!=null)
+        if(cardService.findByPan(pan)!=null){
             return cardService.findByPan(pan).getBankId();
-        else return null;
+        }else return null;
     }
 
-	@PostMapping(value="/getBankId")
+    @PostMapping(value="/getBankId")
     public Long getBankId(@RequestBody String pan){
         if(cardService.findByPan(pan)!=null)
             return 1L;
@@ -57,7 +65,7 @@ public class BankController {
         PaymentDTO paymentDTO=new PaymentDTO();
         Payment payment=new Payment();
         if(paymentRequestDTO.getAmount() == null || paymentRequestDTO.getErrorUrl().isEmpty() || paymentRequestDTO.getFailedUrl().isEmpty() || paymentRequestDTO.getMerchantId().isEmpty()
-        || paymentRequestDTO.getSuccessUrl().isEmpty() || paymentRequestDTO.getMerchantOrderId() == null || paymentRequestDTO.getMerchantTimestamp() == null || paymentRequestDTO.getMerchantId().isEmpty()){
+                || paymentRequestDTO.getSuccessUrl().isEmpty() || paymentRequestDTO.getMerchantOrderId() == null || paymentRequestDTO.getMerchantTimestamp() == null || paymentRequestDTO.getMerchantId().isEmpty()){
             paymentDTO.setPaymentUrl(paymentRequestDTO.getErrorUrl());
             paymentDTO.setSuccess(false);
             payment.setPaymentUrl(paymentRequestDTO.getErrorUrl());
@@ -70,7 +78,7 @@ public class BankController {
             log.setTimestamp(calendar.getTime());
             System.out.println(log);
         } else{
-        	payment.setAmount(paymentRequestDTO.getAmount());
+            payment.setAmount(paymentRequestDTO.getAmount());
             paymentDTO.setPaymentUrl(paymentRequestDTO.getSuccessUrl());
             paymentDTO.setSuccess(true);
             payment.setPaymentUrl(paymentRequestDTO.getSuccessUrl());
@@ -84,7 +92,7 @@ public class BankController {
             System.out.println(log);
         }
         payment.setMerchantId(paymentRequestDTO.getMerchantId());
-        
+
         paymentService.save(payment);
 
         paymentDTO.setPaymentId(Long.valueOf(paymentService.findAll().size()));
@@ -93,20 +101,29 @@ public class BankController {
         return paymentDTO;
     }
     @PostMapping(value = "/check")
-    public String BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
-        System.out.println(securityCheckDTO.toString());
+    public ResponseEntity<ResponseDTO> BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
         Payment payment = paymentService.findPaymentById(securityCheckDTO.getPaymentId());
         System.out.println("Payment: "+payment);
-        Long clientId = luClient.getUser(cardService.findByPan(securityCheckDTO.getPan()).getClientId()).getId();
-        System.out.println("CliendId: " +clientId);
+        Long clientId;
+        Long bankId;
+        Card cardBuyer;
+        if(cardService.findByPan(securityCheckDTO.getPan())!=null) {
+            bankId =cardService.findByPan(securityCheckDTO.getPan()).getBankId();
+            cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
+        } else {
+            bankId = bankClient.getCardId(securityCheckDTO.getPan());
+            if(bankId == null){
+                return null;
+            }
+            cardBuyer = new Card();
+        }
+
         //Long sellerId = securityCheckDTO.getPaymentId();
-        System.out.println(payment.getMerchantId());
         Card card = cardService.findByMerchantId(payment.getMerchantId());
         Long sellerId = card.getClientId();
         System.out.println("SellerId: "+sellerId);
-        Card cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
 
-        if(card.getBankId() == cardBuyer.getBankId()) {
+        if(card.getBankId() == bankId) {
             if(cardBuyer.getAvailableMoney() - payment.getAmount() >= 0){
                 cardBuyer.setAvailableMoney(cardBuyer.getAvailableMoney() - payment.getAmount());
                 card.setAvailableMoney(card.getAvailableMoney()+payment.getAmount());
@@ -118,7 +135,7 @@ public class BankController {
                 calendar.setTime(date);
                 log.setTimestamp(calendar.getTime());
                 System.out.println(log);
-                return "uspesno";
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"), HttpStatus.OK);
             }
             Log log1 = new Log(LogType.ERROR, cardBuyer.getCardNumber(), 1, "Not enough money on card");
             Date date = new Date();
@@ -126,7 +143,7 @@ public class BankController {
             calendar.setTime(date);
             log1.setTimestamp(calendar.getTime());
             System.out.println(log1);
-            return null;
+            return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
 
         }
         else {
@@ -134,13 +151,13 @@ public class BankController {
             PccRequest2DTO response=pccClient.SendPccRequest(new PccRequestDTO(payment.getId(),new Date(),cardDTO,payment.getAmount()));
 
             if(response==null)
-                return null;
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
             else{
                 card.setAvailableMoney(card.getAvailableMoney()+ payment.getAmount());
                 cardService.save(card);
                 TransactionDTO transactionDTO=new TransactionDTO(true,response.getAcquierOrderId(),response.getAcquierTimestamp(),response.getIssuerOrderId(),payment.getId(),payment.getPaymentUrl());
                 String returnString=kpClient.Transaction(transactionDTO);
-                return returnString;
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
             }
         }
     }
@@ -159,7 +176,5 @@ public class BankController {
         }
         return null;
     }
-
-
 
 }

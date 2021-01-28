@@ -65,6 +65,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
     }
 
+    public List<User> findAll(){
+        return userRepository.findAll();
+    }
   
     public User createUser(User user){
         if (userRepository.findByEmail(user.getEmail()) != null) throw new UserAlreadyExistsException();

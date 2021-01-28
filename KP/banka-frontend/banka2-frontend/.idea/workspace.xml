@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b103336-91ad-4b21-ae35-1d8b55f343a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/banka-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../paypal/paypal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bitcoin-frontend/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../bitcoin-frontend/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" beforeDir="false" afterPath="$PROJECT_DIR$/../../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp-front/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/src/PaymentMethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/src/main/java/com/example/kp/client/PaypalClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/java/com/example/kp/client/PaypalClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../paypal/src/main/java/com/example/paypal/controller/PapPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../paypal/src/main/java/com/example/paypal/controller/PapPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/PaypalApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/PaypalApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/client/PayPalClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/client/PayPalClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/controller/PapPalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../paypal/target/classes/com/example/paypal/controller/PapPalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/src/components/user/Membership.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/src/components/user/Membership.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/controller/MembershipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/controller/MembershipController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +86,10 @@
       <option name="presentableId" value="Default" />
       <updated>1610444616026</updated>
       <workItem from="1610444618636" duration="2820000" />
+      <workItem from="1610494728738" duration="900000" />
+      <workItem from="1610521007008" duration="883000" />
+      <workItem from="1611253457438" duration="627000" />
+      <workItem from="1611255722120" duration="29000" />
     </task>
     <servers />
   </component>
@@ -86,5 +106,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
