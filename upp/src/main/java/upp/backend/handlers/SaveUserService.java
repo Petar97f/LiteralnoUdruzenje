@@ -86,9 +86,11 @@ public class SaveUserService implements JavaDelegate {
         userDetailsService.createUser(userModel);
         ConfirmationToken confirmationToken= new ConfirmationToken(userModel, execution.getProcessInstanceId());
         confirmationTokenRepository.save(confirmationToken);
-
-        user.setId(userRepository.findByEmail(userModel.getEmail()).getId().toString());
+    
+        user.setId(userRepository.findByEmail(userModel.getEmail()).getUsername());
         identityService.saveUser(user);
+        System.out.println("savedUser");
+        identityService.createMembership(userModel.getUsername(), "users");
     }
 }
 

@@ -11,12 +11,22 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.identity.Group;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Configuration
 @EnableWebMvc
 @EnableFeignClients
 @SpringBootApplication
 public class UppApplication {
 
+	@Autowired
+	private IdentityService identityService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(UppApplication.class, args);
 	}
@@ -39,5 +49,21 @@ public class UppApplication {
 
 		bean.setOrder(0);
 		return bean;
+	}
+	
+	@PostConstruct
+	private void createUserGroup() {
+		List<Group> groups = identityService.createGroupQuery()
+				.groupIdIn("users", "guests").list();
+		if (groups.isEmpty()) {
+
+			Group usersGroup = identityService.newGroup("users");
+			usersGroup.setName("users");
+			identityService.saveGroup(usersGroup);
+			
+			Group guestsGroup = identityService.newGroup("guests");
+			guestsGroup.setName("guests");
+			identityService.saveGroup(guestsGroup);
+		}
 	}
 }

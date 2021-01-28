@@ -40,7 +40,6 @@ class Forms extends Component {
   }
 
   onInputChange = (e, name, value) => {
-    console.log(e.target.files)
     let form = {...this.state.form};
     form[name] = value;
     this.setState({
@@ -59,9 +58,9 @@ class Forms extends Component {
       let file = files[i];
       let filename = files[i].name;
       console.log(filename)
-      let ext = filename.split('.')[filename.split('.').length - 1];
+      //let ext = filename.split('.')[filename.split('.').length - 1];
       let blob = file.slice(0, file.size, file.type); 
-      file = new File([blob], `${filename}.${ext}`, {type: file.type});
+      file = new File([blob], `${filename}`, {type: file.type});
       console.log(file);
       data.append(`file`, file);
     }

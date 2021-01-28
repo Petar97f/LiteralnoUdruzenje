@@ -26,7 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.camunda.bpm.engine.identity.Group;
+import java.util.stream.Collectors;
 import upp.backend.dto.FormSubmissionDTO;
 import upp.backend.dto.RegistrationDTO;
 import upp.backend.dto.RegistrationFormDTO;
@@ -111,6 +112,35 @@ public class CamundaController {
 		message.put("status", "fail");
 		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
 		
+	}
+	
+	@GetMapping(path = "/startProcess", produces = "application/json")
+	public @ResponseBody ResponseEntity<?> startProcessUser() {
+		System.out.println("Usao");
+		String username = this.identityService.getCurrentAuthentication().getUserId();
+		System.out.println("username 130--"+username);
+		HashMap<String, String> message = new HashMap<String, String>();
+		if (username != null) {
+			List<Group> groups = this.identityService.createGroupQuery().groupMember(username).list();
+			List<String> userIds = groups.stream().map(Group::getId).collect(Collectors.toList());
+			if (userIds.contains("users")) {
+				ProcessInstance pi = null;
+				try {
+					pi = runtimeService.startProcessInstanceByKey("upload_pdf");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.println("OVDE 1");
+				}
+				Task task = taskService.createTaskQuery().processInstanceId(pi.getId()).list().get(0);
+				TaskFormData taskFormData = null;
+				taskFormData = formService.getTaskFormData(task.getId());
+				List<FormField> properties = taskFormData.getFormFields();
+				return new ResponseEntity<>( new FormFieldsDTO(task.getId(), task.getProcessInstanceId(),properties), HttpStatus.OK);
+			}
+		}
+		message.put("message", "not found");
+		message.put("status", "fail");
+		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping(value="/submitForm/{taskId}", produces = "application/json")

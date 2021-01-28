@@ -28,6 +28,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 
 import org.camunda.bpm.engine.FormService;
+import org.camunda.bpm.engine.IdentityService;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
@@ -77,7 +78,8 @@ public class UserController {
 	@Autowired
     ProcessEngine processEngine;
 	
-	
+	@Autowired
+	private IdentityService identityService;
 	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
@@ -110,9 +112,9 @@ public class UserController {
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
 					loginDTO.getEmail(), loginDTO.getPassword());
 			SecurityContextHolder.getContext().setAuthentication(token);
-			System.out.println(loginDTO.getEmail());
-			System.out.println(loginDTO.getPassword());
+
 			authenticationManager.authenticate(token);
+			
 			UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getEmail());
 			System.out.println("details"+details);
 			User userr=userDetailsService.findUserByEmail(loginDTO.getEmail());
@@ -219,11 +221,13 @@ public class UserController {
 		System.out.println(processInstanceId);
 		System.out.println("File upload start");
 		String fileDownloadUrl = "";
-		String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		//String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		String username = this.identityService.getCurrentAuthentication().getUserId();
 		
 		System.out.println("username" + username);
 		System.out.println(file);
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		System.out.println("Filename"+fileName);
 		message.put("message", "success");
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
 	}
