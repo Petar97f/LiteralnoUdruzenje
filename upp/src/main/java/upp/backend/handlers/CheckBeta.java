@@ -6,7 +6,9 @@ import java.util.Map;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.form.FormField;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CheckBeta implements JavaDelegate {
 
 	@Override

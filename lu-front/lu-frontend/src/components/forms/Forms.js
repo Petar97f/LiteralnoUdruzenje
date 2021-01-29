@@ -161,7 +161,14 @@ class Forms extends Component {
                   <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} onChange={e => this.onFileUpload(e, item.id, 2)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
                 </Form.Group>
               )
-            } else {
+            } else if (item.properties['textarea'] !== undefined) { 
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Label className="font-weight-bold">{item.label}</Form.Label>
+                  <Form.Control type="textarea" cols={item.properties['cols']} rows={item.properties['rows']} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                </Form.Group>
+              )
+            }else {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
@@ -170,11 +177,20 @@ class Forms extends Component {
               )
             }  
           } else if (item.type.name === 'boolean') {
-            return (
-              <Form.Group key={item.id}>
-                <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(e, item.id, e.target.checked)} />
-              </Form.Group>
-            ); 
+            if (item.properties['radio'] !== undefined) {
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Check type="radio" label={item.label} value={item.properties['value']} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked)} />
+                </Form.Group>
+              ); 
+            } else {
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(e, item.id, e.target.checked)} />
+                </Form.Group>
+              ); 
+            }
+            
           }
         })}
       </div>

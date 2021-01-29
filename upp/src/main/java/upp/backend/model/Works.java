@@ -9,7 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Works {
@@ -25,10 +27,8 @@ public class Works {
     @Column
     private String filePath;
     
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-    private Set<OpinionMember> opinions;
-    
-    @Column
+    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
     
     
@@ -67,14 +67,6 @@ public class Works {
 		this.filePath = filePath;
 	}
 
-	public Set<OpinionMember> getOpinions() {
-		return opinions;
-	}
-
-	public void setOpinions(Set<OpinionMember> opinions) {
-		this.opinions = opinions;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -82,6 +74,7 @@ public class Works {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
     
 }
