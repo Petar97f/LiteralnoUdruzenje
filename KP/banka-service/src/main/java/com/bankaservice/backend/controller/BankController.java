@@ -13,6 +13,7 @@ import com.bankaservice.backend.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
@@ -36,6 +37,7 @@ public class BankController {
 
     @Autowired
     private BankClient bankClient;
+    private PasswordEncoder passwordEncoder;
 
 
     @GetMapping(value = "/getCardOwner")
@@ -110,10 +112,14 @@ public class BankController {
         if(cardService.findByPan(securityCheckDTO.getPan())!=null) {
             bankId =cardService.findByPan(securityCheckDTO.getPan()).getBankId();
             cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
+            if(cardBuyer.getPan().equals(securityCheckDTO.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && cardBuyer.getSecurityCode().equals(passwordEncoder.encode(securityCheckDTO.getSecurityCode()))){
+
+            }else
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
         } else {
             bankId = bankClient.getCardId(securityCheckDTO.getPan());
             if(bankId == null){
-                return null;
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
             }
             cardBuyer = new Card();
         }
@@ -167,6 +173,9 @@ public class BankController {
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO){
         Card card=cardService.findByPan(pccRequestDTO.getCardDTO().getPan());
+        if(card.getSecurityCode().equals(passwordEncoder.encode(pccRequestDTO.getCardDTO().getSecurityCode())) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
+
+        }else return null;
         if(card.getAvailableMoney()-pccRequestDTO.getAmount()>=0){
             card.setAvailableMoney(card.getAvailableMoney()-pccRequestDTO.getAmount());
             cardService.save(card);

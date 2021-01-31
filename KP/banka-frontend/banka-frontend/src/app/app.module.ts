@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DemoMaterialModule} from './material-module';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import {RouterModule} from '@angular/router';
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        DemoMaterialModule,
     ],
   providers: [],
     exports: [RouterModule],
