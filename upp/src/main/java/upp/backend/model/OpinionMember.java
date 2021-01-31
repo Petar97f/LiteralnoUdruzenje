@@ -22,19 +22,25 @@ public class OpinionMember {
 
     @Column
     private String memberId;
+    
+    @Column
+    private String comment;
 
 	public OpinionMember() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public OpinionMember(Long id, OpinionStatus opinion, String autorId, String memberId) {
+	
+	public OpinionMember(Long id, OpinionStatus opinion, String autorId, String memberId, String comment) {
 		super();
 		this.id = id;
 		this.opinion = opinion;
 		this.autorId = autorId;
 		this.memberId = memberId;
+		this.comment = comment;
 	}
+
 
 	public OpinionStatus getOpinion() {
 		return opinion;
@@ -68,4 +74,15 @@ public class OpinionMember {
 		this.memberId = memberId;
 	}
 
+
+	public String getComment() {
+		return comment;
+	}
+
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	
 }

@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import upp.backend.model.Works;
 import upp.backend.repository.WorksRepository;
@@ -23,22 +25,33 @@ public class WorksService {
 	public String upload(MultipartFile file,String username, String processInstanceId) {
 		String fileName = file.getOriginalFilename();
 		
-		if(!Files.exists(root)) {
+		if(!Files.exists(Paths.get("uploads/"+username))) {
 			try {
-				Files.createDirectory(root);
+				Files.createDirectory(Paths.get("uploads/"+username));
 		    } catch (IOException e) {
+		    	e.printStackTrace();
 		        throw new RuntimeException("Could not initialize folder for upload!");
 		     }
 		}
 		
+		if(!Files.exists(Paths.get("uploads/"+username+"/" + processInstanceId))) {
+			try {
+				Files.createDirectory(Paths.get("uploads/"+username+"/" + processInstanceId));
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 		try {
-	      Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+	      Files.copy(file.getInputStream(), Paths.get("uploads/"+username+"/" + processInstanceId).resolve(file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
 	    } catch (Exception e) {
+	    	e.printStackTrace();
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 		}
 		
-		System.out.println("Filename"+fileName);
-		return fileName;
+		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/uploads/")
+				.path(username + "/" + processInstanceId+"/"+fileName).toUriString();
+		System.out.println("Filename"+fileDownloadUri);
+		return fileDownloadUri;
 	}
 	
 	public Works save(Works works) {

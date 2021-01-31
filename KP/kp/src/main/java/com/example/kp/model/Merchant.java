@@ -18,7 +18,13 @@ public class Merchant {
 
     @Column
     private String password;
-
+    
+    @Column
+    private String address;
+    
+    @Column 
+    private String phoneNumber;
+    
     @ElementCollection(targetClass=PaymentType.class)
     private List<PaymentType> paymentTypes;
 
@@ -48,8 +54,43 @@ public class Merchant {
         this.errorUrl = errorUrl;
         this.bankId = bankId;
     }
+    
+    
 
-    public String getMerchantId() {
+    public Merchant(Long id, String merchantId, String password, String address, String phoneNumber,
+			List<PaymentType> paymentTypes, String successUrl, String failedUrl, String errorUrl, Long bankId) {
+		super();
+		this.id = id;
+		this.merchantId = merchantId;
+		this.password = password;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.paymentTypes = paymentTypes;
+		this.successUrl = successUrl;
+		this.failedUrl = failedUrl;
+		this.errorUrl = errorUrl;
+		this.bankId = bankId;
+	}
+    
+    
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getMerchantId() {
         return merchantId;
     }
 

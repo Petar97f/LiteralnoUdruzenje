@@ -21,6 +21,7 @@ import upp.backend.security.TokenUtils;
 import upp.backend.service.GenreService;
 import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
+import upp.backend.service.WorksService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -39,7 +40,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -80,6 +84,9 @@ public class UserController {
 	
 	@Autowired
 	private IdentityService identityService;
+	
+	@Autowired
+	private WorksService worksService;
 	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
@@ -215,19 +222,45 @@ public class UserController {
 		return new ResponseEntity<>("fail", HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping(value="/upload/{processInstanceId}", produces = "application/json")
-	public ResponseEntity<?> onFileUpload(@PathVariable String processInstanceId, @RequestBody MultipartFile file)  {
+	@PostMapping(value="/upload/{processInstanceId}/{taskId}", consumes = { "multipart/form-data" })
+	public ResponseEntity<?> onFileUpload(@PathVariable String processInstanceId,@PathVariable String taskId, @RequestParam("files") MultipartFile[] files) throws Exception   {
 		HashMap<String, String> message = new HashMap<String, String>();
 		System.out.println(processInstanceId);
-		System.out.println("File upload start");
-		String fileDownloadUrl = "";
-		//String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
-		String username = this.identityService.getCurrentAuthentication().getUserId();
-		
-		System.out.println("username" + username);
-		System.out.println(file);
-		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		System.out.println("File upload start" + files);
+		List<String> urls = new ArrayList<String>();
+		String username = (String) runtimeService.getVariable(processInstanceId, "currentUser");
+		try {
+			
+			System.out.println("hehre");
+			Arrays.asList(files).stream().forEach(file -> {
+				String fileDownloadUrl = worksService.upload(file, username, processInstanceId);
+				urls.add(fileDownloadUrl);
+				System.out.println("loop");
+				System.out.println("Filename 231"+file.getOriginalFilename());
+		      });
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    	message.put("message", "fail");
+			return new ResponseEntity<>(message, HttpStatus.CREATED);
+	       
+	     }
+		String joined = urls.toString().replace(", ", ",").replaceAll("[\\[.\\]]", "");
+		System.out.println(joined);
+		runtimeService.setVariable(processInstanceId, "pdf", joined);
+		taskService.complete(taskId);
+		//save file to dir
+		/*try {
+			fileDownloadUrl = worksService.upload(files[0], username, processInstanceId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			message.put("message", "fail");
+			return new ResponseEntity<>(message, HttpStatus.CREATED);
+		}
+
+		String fileName = StringUtils.cleanPath(files[0].getOriginalFilename());
 		System.out.println("Filename"+fileName);
+		
+*/
 		message.put("message", "success");
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
 	}

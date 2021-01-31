@@ -1,12 +1,16 @@
 import React, { Component} from 'react';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
+
+const sleep = (seconds) => new Promise((resolve, reject) => setTimeout(resolve, seconds * 1000));
+
 class Forms extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
       form: {
-      }
+      },
+      errors: ''
     }
   }
 
@@ -49,36 +53,70 @@ class Forms extends Component {
   }
 
 
-  onFileUpload = async (e, name) => {
-    let files = Array.from(e.target.files)
-    console.log(files)
-    let data = new FormData();
-    for (let i = 0; i < files.length; i++) 
-    {
-      let file = files[i];
-      let filename = files[i].name;
-      console.log(filename)
-      //let ext = filename.split('.')[filename.split('.').length - 1];
-      let blob = file.slice(0, file.size, file.type); 
-      file = new File([blob], `${filename}`, {type: file.type});
-      console.log(file);
-      data.append(`file`, file);
+  onFileUpload = async (e, name, minLength) => {
+    if (minLength && Number(minLength) < 2) {
+      alert("Please submit more files");
     }
-    //let response = await axios.post(`http://localhost:8081/upload`, data);
+    try {
+      let form = {...this.state.form};
+      let files = Array.from(e.target.files)
+      
+      let listFilenames = [];
+      let data = new FormData();
 
-    let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
-      method: 'post',
-      headers: {
-        //'Accept': 'application/json',
-        //'Content-Type': 'application/json',
-        'X-Auth-Token': localStorage.getItem("token")
-      },
-      body: data
-    })).json();
-    if (response) {
-      console.log(response)
-    }
-    //this.props.onUpdate(form);
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        let filename = files[i].name;
+        listFilenames.push(filename)
+        //let ext = filename.split('.')[filename.split('.').length - 1];
+        let blob = file.slice(0, file.size, file.type); 
+        file = new File([blob], `${filename}`, {type: file.type});
+        console.log(filename)
+        data.append(`files`, file, filename);
+      }
+
+      let response = await (await fetch(`http://localhost:8081/upload/${this.props.processInstanceId}/${this.props.taskId}`, {
+        method: 'post',
+        headers: {
+          //'Accept': 'application/json',
+          //'Content-Type': 'application/json',
+          'X-Auth-Token': localStorage.getItem("token")
+        },
+        body: data
+      })).json();
+
+
+      /*let promises = await Promise.all(files.map(item => {
+         
+          let file = item;
+          let filename = item.name;
+          listFilenames.push(filename)
+          console.log(filename)
+          let blob = file.slice(0, file.size, file.type); 
+          file = new File([blob], `${filename}`, {type: file.type});
+          console.log(filename)
+          data.append(`file`, file);
+          return fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
+            method: 'post',
+            headers: {
+              'X-Auth-Token': localStorage.getItem("token")
+            },
+            body: data
+          });
+      }));*/
+
+
+
+      form[name] = listFilenames;
+      this.setState({
+        form: form
+      });
+      this.props.onUpdate(form);
+  } catch (err) {
+    this.setState({
+      errors: err.toString()
+    });
+  }
   }
 
   render () {
@@ -120,10 +158,17 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onFileUpload(e, item.id)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
+                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} onChange={e => this.onFileUpload(e, item.id, 2)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
                 </Form.Group>
               )
-            } else {
+            } else if (item.properties['textarea'] !== undefined) { 
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Label className="font-weight-bold">{item.label}</Form.Label>
+                  <Form.Control type="textarea" cols={item.properties['cols']} rows={item.properties['rows']} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                </Form.Group>
+              )
+            }else {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
@@ -132,11 +177,20 @@ class Forms extends Component {
               )
             }  
           } else if (item.type.name === 'boolean') {
-            return (
-              <Form.Group key={item.id}>
-                <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(e, item.id, e.target.checked)} />
-              </Form.Group>
-            ); 
+            if (item.properties['radio'] !== undefined) {
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Check type="radio" label={item.label} value={item.properties['value']} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked)} />
+                </Form.Group>
+              ); 
+            } else {
+              return (
+                <Form.Group key={item.id}>
+                  <Form.Check type="checkbox" label={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : false} onChange={e => this.onInputChange(e, item.id, e.target.checked)} />
+                </Form.Group>
+              ); 
+            }
+            
           }
         })}
       </div>

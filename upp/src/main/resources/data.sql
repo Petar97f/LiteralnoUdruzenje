@@ -15,6 +15,17 @@ INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, u
 VALUES ('User6','Prezime6','user6@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'user6');
 
 INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('UserMember7','PrezimeMember7','user7@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'userMember7');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('UserMember8','PrezimeMember8','user8@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'userMember8');
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
+VALUES ('UserMember9','PrezimeMember9','user9@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'userMember9');
+
+
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
 VALUES ('User7','Prezime7','user7@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad7','Country3', true, true, 7,'user7');
 INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
 VALUES ('User8','Prezime8','user8@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad8','Country2', true, true, 1,'user8');
