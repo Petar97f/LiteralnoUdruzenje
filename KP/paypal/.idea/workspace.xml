@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e51d87c-2c23-4494-aebd-7cb82eb36c99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/paypal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcoin-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcoin-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcoin-frontend/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcoin-frontend/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/PaypalClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/PaypalClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/paypal/controller/PapPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/paypal/controller/PapPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/paypal/PaypalApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/paypal/PaypalApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/paypal/client/PayPalClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/paypal/client/PayPalClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/paypal/controller/PapPalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/paypal/controller/PapPalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/Membership.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/Membership.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/controller/MembershipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/controller/MembershipController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1mzSJ8Fj9lb8xvL93H2afcSjl82" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="PaypalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="paypal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paypal.PaypalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e51d87c-2c23-4494-aebd-7cb82eb36c99" name="Default Changelist" comment="" />
+      <created>1610494860205</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610494860205</updated>
+      <workItem from="1610494863445" duration="54000" />
+      <workItem from="1610495723202" duration="2983000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

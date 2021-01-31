@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a336ba3-2436-4350-874a-d9ae3d1fa686" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/banka-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../banka-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../upp" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -71,6 +72,8 @@
       <workItem from="1610402582105" duration="1728000" />
       <workItem from="1610408470888" duration="5633000" />
       <workItem from="1610442622766" duration="10586000" />
+      <workItem from="1610494821676" duration="2912000" />
+      <workItem from="1612017734682" duration="4396000" />
     </task>
     <servers />
   </component>

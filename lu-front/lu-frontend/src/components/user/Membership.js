@@ -78,7 +78,7 @@ class Membership extends Component {
         <div className="margin-top-page">
           <div className="d-flex flex-row mt-2 ml-3">
             <div className="p-3" >
-              <p><label>Membership price: 1200</label></p>
+              <p><label>Membership price: 12</label></p>
               {this.state.membership && this.state.membership.active ?
                <p><label>Membership status: 'activated' </label></p>
                :

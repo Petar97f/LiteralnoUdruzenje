@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/banka-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,22 +47,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kp-front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Eureka" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Banka2ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="banka2-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.banka2service.Banka2ServiceApplication" />
@@ -80,6 +68,8 @@
       <updated>1610414670403</updated>
       <workItem from="1610414672674" duration="330000" />
       <workItem from="1610443041967" duration="7786000" />
+      <workItem from="1610494774803" duration="3663000" />
+      <workItem from="1612109493051" duration="3167000" />
     </task>
     <servers />
   </component>
