@@ -41,6 +41,20 @@ public class EmailService {
 
         sendEmail(mailMessage);
     }
+    
+    
+    public void sendToWriter(String subject, User user, String text){
+        ConfirmationToken confirmationToken = confirmationTokenRepository.findByUser(user);
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(user.getEmail());
+        mailMessage.setSubject("Notification request to upload book");
+        mailMessage.setFrom("literalnoudruzenje26@gmail.com");
+
+        mailMessage.setText("Please upload the full text ");
+
+        sendEmail(mailMessage);
+    }
+    
     public static String generateString() {
         String uuid = UUID.randomUUID().toString();
         return  uuid;
