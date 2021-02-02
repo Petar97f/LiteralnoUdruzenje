@@ -23,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @CrossOrigin("*")
@@ -140,6 +141,20 @@ public class PaymentController {
     public Map<String, Object> PaypalPay( @RequestBody RequestDTO requestDTO) {
     	return paypalClient.makePayment(requestDTO.getAmount().toString());
     }
+    
+    @PostMapping(value="/CriptoPayment")
+    public Map<String, Object> CriptoPayment( @RequestBody CryptoAtributeDTO cryptoDTO) {
+    	Map<String, Object> response = new HashMap<String, Object>();
+    	String redirectUrl = "https://api-sandbox.coingate.com/v2/orders";
+    	redirectUrl.concat("?price_amount="+cryptoDTO.getAmount());
+    	redirectUrl.concat("&price_amount="+cryptoDTO.getCurrency());
+    	redirectUrl.concat("&price_amount="+cryptoDTO.getRecieveCurrency());
+    	response.put("status", "success");
+        response.put("redirect_url", redirectUrl);
+    	return response;
+    }
+    
+    
     
     
 }
