@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CardService {
     @Autowired
     CardRepository cardRepository;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public Card findByPan(String pan) {
@@ -20,9 +23,20 @@ public class CardService {
         return cardRepository.findByMerchantId(merchantId);    }
 
     public Card findCardById(Long id){return cardRepository.findCardById(id);}
-    public void save(Card card){
+    public void saveFirst(Card card){
         card.setSecurityCode(passwordEncoder.encode(card.getSecurityCode()));
         card.setMerchantPassword(passwordEncoder.encode(card.getMerchantPassword()));
-        cardRepository.save(card);}
+        cardRepository.save(card);
+    }
+    public void save(Card card){
+        cardRepository.save(card);
+    }
+    public void code(){
+        List<Card> cards = cardRepository.findAll();
+        for (Card c:cards
+        ) {
+            saveFirst(c);
+        }
+    }
 
 }

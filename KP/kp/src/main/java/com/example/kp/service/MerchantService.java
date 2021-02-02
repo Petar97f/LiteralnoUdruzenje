@@ -12,6 +12,7 @@ import java.util.List;
 public class MerchantService {
     @Autowired
     private MerchantRepository merchantRepository;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public Merchant findMerchantByMerchantId(String id){
