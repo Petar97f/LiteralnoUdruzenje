@@ -7,12 +7,14 @@ import './App.scss';
 import User from './components/user/User';
 import Membership  from './components/user/Membership';
 import SubmitBook  from './components/user/SubmitBook';
+import Member from './components/user/Member';
+import AdminMemberPanel from './components/user/AdminMemberPanel';
 import jwt from 'jwt-decode' 
 
 class AppRoutes extends Component {
 	
 	componentDidMount () {
-		//console.log(User)
+		console.log(User)
 	}
 
   render () {
@@ -39,7 +41,7 @@ class AppRoutes extends Component {
 						</Switch>
 					</Suspense>
 				);
-			} else if (User.role === "BETA_READER") {
+			} else if (User.role === "ROLE_BETA_READER") {
 				return (
 					<Suspense>
 						<Switch>
@@ -62,7 +64,7 @@ class AppRoutes extends Component {
 						</Switch>
 					</Suspense>
 				);
-			} else if (User.role === "LECTOR") {
+			} else if (User.role === "ROLE_LECTOR") {
 				return (
 					<Suspense>
 						<Switch>
@@ -72,7 +74,7 @@ class AppRoutes extends Component {
 						</Switch>
 					</Suspense>
 				);
-			} else if (User.role === "EDITOR") {
+			} else if (User.role === "ROLE_EDITOR") {
 				return (
 					<Suspense>
 						<Switch>
@@ -82,23 +84,23 @@ class AppRoutes extends Component {
 						</Switch>
 					</Suspense>
 				);
-			} else if (User.role === "BOARD_MEMBER") {
+			} else if (User.role === "ROLE_BOARD_MEMBER") {
 				return (
 					<Suspense>
 						<Switch>
-							<Route exact path="/user" component={UserPage} />
+							<Route exact path="/member" component={Member} />
 							<Route exact path="/about" component={About} />
-							<Redirect to="/user" />
+							<Redirect to="/member" />
 						</Switch>
 					</Suspense>
 				);
-			} else if (User.role === "ADMIN_BOARD_MEMBER") {
+			} else if (User.role === "ROLE_ADMIN_BOARD_MEMBER") {
 				return (
 					<Suspense>
 						<Switch>
-							<Route exact path="/user" component={UserPage} />
+							<Route exact path="/admin" component={AdminMemberPanel} />
 							<Route exact path="/about" component={About} />
-							<Redirect to="/user" />
+							<Redirect to="/admin" />
 						</Switch>
 					</Suspense>
 				);

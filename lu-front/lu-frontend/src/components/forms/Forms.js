@@ -14,7 +14,7 @@ class Forms extends Component {
     }
   }
 
-  componentDidMount () { 
+  componentDidMount = () => { 
   
   }
 
@@ -51,7 +51,21 @@ class Forms extends Component {
     });
     this.props.onUpdate(form);
   }
-
+  onRadioButton = (e, id, value, selectName) => {
+    let name = document.getElementsByName(selectName);
+    let form = {...this.state.form};
+    for (let i = 0; i < name.length; i++) {
+      if (name[i].checked) {
+        form[name[i].id] = name[i].checked.toString();
+      } else {
+        form[name[i].id] = name[i].checked.toString();
+      }
+    }
+    this.setState({
+      form: form
+    });
+    this.props.onUpdate(form);
+  }
 
   onFileUpload = async (e, name, minLength) => {
     if (minLength && Number(minLength) < 2) {
@@ -165,14 +179,38 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type="textarea" cols={item.properties['cols']} rows={item.properties['rows']} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control as="textarea" cols={item.properties['cols']} rows={item.properties['rows']} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control.Feedback type="invalid">
+                    Dont leave empty.
+                  </Form.Control.Feedback>
                 </Form.Group>
               )
+            } else if (item.properties['readonly'] !== undefined) {
+              if (item.properties['download'] !== undefined) {
+                let links = item.value.value.split(',');
+                return links.map((link, i ) => {
+                  let name = link.split('/');
+                  return (
+                    <Form.Group key={i}>
+                      <Form.Label className="font-weight-bold">Download:</Form.Label>
+                      <a className="btn btn-link mr-auto" href={link} target="_blank" rel='noopener noreferrer'>{name[name.length-1]}</a>
+                    </Form.Group>
+                  )
+                }) 
+                
+              } else {
+                return (
+                  <Form.Group key={item.id}>
+                    <Form.Label className="font-weight-bold">{item.label}</Form.Label>
+                    <Form.Control type="text" value={item.value.value} readOnly/>
+                  </Form.Group>
+                )
+              }
             }else {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+                  <Form.Control type={item.type.name} placeholder={item.label} value={this.state.form[item.id] ? this.state.form[item.id] : ''} onChange={e => this.onInputChange(e, item.id, e.target.value)} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} />
                 </Form.Group>
               )
             }  
@@ -180,7 +218,10 @@ class Forms extends Component {
             if (item.properties['radio'] !== undefined) {
               return (
                 <Form.Group key={item.id}>
-                  <Form.Check type="radio" label={item.label} value={item.properties['value']} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked)} />
+                  <Form.Check type="radio" label={item.label} id={item.id} value={this.state.form[item.id] ? this.state.form[item.id] : false} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked, item.properties['name'])} />
+                  <Form.Control.Feedback type="invalid">
+                    Must choose one.
+                  </Form.Control.Feedback>
                 </Form.Group>
               ); 
             } else {
@@ -190,7 +231,13 @@ class Forms extends Component {
                 </Form.Group>
               ); 
             }
-            
+          } else if (item.type.name === 'long') {
+            return (
+              <Form.Group key={item.id}>
+                <Form.Label className="font-weight-bold">{item.label}</Form.Label>
+                <Form.Control type="number" value={this.state.form[item.id] ? this.state.form[item.id] : item.properties['min']} min={item.properties['min']} onChange={e => this.onInputChange(e, item.id, e.target.value)}  required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]}/>
+              </Form.Group>
+            );
           }
         })}
       </div>

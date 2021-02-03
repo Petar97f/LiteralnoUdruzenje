@@ -44,7 +44,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <AppRoutes />
-        <Footer />
+        {<Footer />}
       </div>
     );
   }

@@ -76,7 +76,7 @@ public class UppApplication {
 	@PostConstruct
 	private void createUserGroup() {
 		List<Group> groups = identityService.createGroupQuery()
-				.groupIdIn("users", "guests", "members").list();
+				.groupIdIn("users", "guests", "members", "adminMember").list();
 		if (groups.isEmpty()) {
 
 			Group usersGroup = identityService.newGroup("users");
@@ -90,9 +90,13 @@ public class UppApplication {
 			Group membersGroup = identityService.newGroup("members");
 			membersGroup.setName("members");
 			identityService.saveGroup(membersGroup);
+			
+			Group adminMembersGroup = identityService.newGroup("adminMember");
+			adminMembersGroup.setName("adminMember");
+			identityService.saveGroup(adminMembersGroup);
 		}
 		List<User> users = identityService.createUserQuery().userIdIn("user6", "userMember7", "userMember8",
-				"userMember9").list();
+				"userMember9", "admin7").list();
 		if (users.isEmpty()) {
 			upp.backend.model.User user6 = new upp.backend.model.User();
 			user6.setUsername("user6");
@@ -137,6 +141,17 @@ public class UppApplication {
 			user9.setCountry("Country2");
 			saveInCamunda(user9);
 			identityService.createMembership("userMember9", "members");
+			
+			upp.backend.model.User admin7 = new upp.backend.model.User();
+			admin7.setUsername("admin7");
+			admin7.setName("Admin7");
+			admin7.setSurname("Prezime7");
+			admin7.setEmail("admin7@gmail.com");
+			admin7.setPassword("$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6");
+			admin7.setCity("Grad6");
+			admin7.setCountry("Country2");
+			saveInCamunda(admin7);
+			identityService.createMembership("admin7", "adminMember");
 		}
 		
 	}

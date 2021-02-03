@@ -33,14 +33,9 @@ public class SendEmailService implements JavaDelegate {
     	
     	LOGGER.info("\n\n Send email " + execution.getId() + "\n\n");
 
-  //     List<RegistrationDTO> fields= (List<RegistrationDTO>) execution.getVariable("registration");
-   //    System.out.println(fields);
-       System.out.println("usao u email");
         User user = new User();
         RegistrationFormDTO registrationFormDTO = (RegistrationFormDTO) execution.getVariable("registration");
         List<FormSubmissionDTO> fields=registrationFormDTO.getDto();
-        System.out.println("lista formSubmisionDto");
-        System.out.println(fields);
         for (FormSubmissionDTO f: fields) {
             if(f.getFieldId().equals("email"))
                 user=userService.findUserByEmail(f.getFieldValue());

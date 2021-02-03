@@ -45,4 +45,15 @@ public class EmailService {
         String uuid = UUID.randomUUID().toString();
         return  uuid;
     }
+    
+    public void sendEmail(String subject, User user, String text){
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        
+        mailMessage.setTo(user.getEmail());
+        mailMessage.setSubject(subject);
+        mailMessage.setFrom("literalnoudruzenje26@gmail.com");
+        mailMessage.setText(text);
+
+        sendEmail(mailMessage);
+    }
 }

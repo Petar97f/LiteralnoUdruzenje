@@ -3,36 +3,30 @@ package upp.backend.handlers;
 import java.util.List;
 
 import org.camunda.bpm.engine.IdentityService;
-import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.delegate.DelegateTask;
 import org.camunda.bpm.engine.delegate.TaskListener;
 import org.camunda.bpm.engine.identity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import upp.backend.service.UserService;
-
 @Service
-public class AssignmentHandler implements TaskListener  {
-
-	@Autowired
-	private UserService userService;
+public class SetTimeLimit implements TaskListener  {
 	
 	@Autowired
 	private IdentityService identityService;
 	
-	@Autowired
-	private TaskService taskService;
-	
 	@Override
 	public void notify(DelegateTask delegateTask) {
 		// TODO Auto-generated method stub
-		String username = (String) delegateTask.getVariable("oneMember");
+		//get user admin member
+		List<User> users = identityService.createUserQuery().memberOfGroup("adminMember").list();
+		User u = users.get(0);
+		System.out.println("admin member"+ u.getId());
+		//delegateTask.setVariable("oneMember", u.getId());
 		String userNameToGiveOpinion = (String) delegateTask.getVariable("username");
-		String pdfToGiveOpinion = (String) delegateTask.getVariable("pdf");
-		delegateTask.setAssignee(username);
-		delegateTask.setVariable("userName", userNameToGiveOpinion);
-		delegateTask.setVariable("pdf", pdfToGiveOpinion);
+		delegateTask.setVariable("user", userNameToGiveOpinion);
+		delegateTask.getExecution().setVariable("oneMember", u.getId());
+		delegateTask.getProcessEngineServices().getTaskService().setAssignee(delegateTask.getId(),u.getId());
+		
 	}
-
 }

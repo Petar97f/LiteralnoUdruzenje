@@ -25,6 +25,9 @@ public class OpinionMember {
     
     @Column
     private String comment;
+    
+    @Column
+    private int numberOfLoops;
 
 	public OpinionMember() {
 		super();
@@ -82,6 +85,16 @@ public class OpinionMember {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+
+	public int getNumberOfLoops() {
+		return numberOfLoops;
+	}
+
+
+	public void setNumberOfLoops(int numberOfLoops) {
+		this.numberOfLoops = numberOfLoops;
 	}
 
 	

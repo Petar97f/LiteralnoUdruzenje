@@ -26,7 +26,9 @@ import upp.backend.service.WorksService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import org.springframework.http.HttpHeaders;
+
+
+
 
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.IdentityService;
@@ -34,10 +36,15 @@ import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -125,6 +132,7 @@ public class UserController {
 			UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getEmail());
 			System.out.println("details"+details);
 			User userr=userDetailsService.findUserByEmail(loginDTO.getEmail());
+		//	User userr = userService.findUserByEmail(loginDTO.getEmail());
 			System.out.println(userr);
 			if(!userr.getActivated()){
 				return new ResponseEntity<>("fail", HttpStatus.UNAUTHORIZED);
@@ -244,9 +252,10 @@ public class UserController {
 			return new ResponseEntity<>(message, HttpStatus.CREATED);
 	       
 	     }
-		String joined = urls.toString().replace(", ", ",").replaceAll("[\\[.\\]]", "");
-		System.out.println(joined);
-		runtimeService.setVariable(processInstanceId, "pdf", joined);
+		System.out.println("urls --->" + urls);
+		String listString = String.join(", ", urls);
+		System.out.println("listString --->" + listString);
+		runtimeService.setVariable(processInstanceId, "pdf", listString);
 		taskService.complete(taskId);
 		//save file to dir
 		/*try {
@@ -263,6 +272,15 @@ public class UserController {
 */
 		message.put("message", "success");
 		return new ResponseEntity<>(message, HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/uploads/{username}/{processId}/{fileName:.+}")
+	public ResponseEntity<?> downloadFileFromLocal(@PathVariable String username, @PathVariable String processId, @PathVariable String fileName) {
+		System.out.println("here to download file");
+		Resource resource = worksService.downloadFile(processId, username, fileName);
+		return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF)
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+				.body(resource);
 	}
     
 }
