@@ -35,11 +35,6 @@ class Publish extends Component{
         }
     }
 
-    onLogin = (e) => {
-        e.preventDefault();
-        this.props.onLogin();
-    }
-
     onSubmitRegister = async (e) => {
         e.preventDefault();
         try {
@@ -67,7 +62,7 @@ class Publish extends Component{
                 })
             })).text();
             if (response != 'fail') {
-                alert('Registration successful, we will send you email to confirm registration');
+                alert('Success');
                 this.props.onClose();
             } else {
                 alert('Something went wrong.');
@@ -95,7 +90,7 @@ class Publish extends Component{
                             {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} />}
                         </Modal.Body>
                         <Modal.Footer>
-                            <button className="btn btn-primary" type="submit">Register</button>
+                            <button className="btn btn-primary" type="submit">Publish</button>
                             <button className="btn btn-primary"  onClick={this.props.onClose}>Cancel</button>
                         </Modal.Footer>
                     </Form>

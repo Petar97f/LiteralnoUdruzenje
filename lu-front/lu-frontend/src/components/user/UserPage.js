@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
-import Publish from '../app/Publish'
+import Publish from '../app/Publish';
 
 class UserPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      merchatId: '1234'
+      merchatId: '1234',
+      showPublisher: false
     }
   }
 
@@ -84,10 +85,9 @@ class UserPage extends Component {
           </div>
         </div>
         <div className="d-flex flex-row mt-2 ml-3">
-        <button className="btn btn-primary" >Upload your book</button>
-          <button onClick={this.openPublisher}>Submit book</button>
+          <button className="btn btn-primary" onClick={this.openPublisher}>Submit book</button>
         </div>
-        {this.state.showPublisher && <Publish/>}
+        {this.state.showPublisher && <Publish show={this.state.showPublisher} onClose={e => this.setState({showPublisher: false})}/>}
       </div>
     );
   }
