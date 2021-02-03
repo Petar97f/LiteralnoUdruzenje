@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e33140c-214f-440c-98df-c97894a7782b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/banka-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../paypal/paypal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-frontend/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcoin/KP/bitcoin/mnse3BptcMQwm7zF6wLPudTHHQnN2hfwWm/my-wallet-service-testnet.spvchain/my-wallet-service-testnet.wallet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/PaypalClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/client/PaypalClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paypal/src/main/java/com/example/paypal/controller/PapPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../paypal/src/main/java/com/example/paypal/controller/PapPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/PaypalApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/PaypalApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/client/PayPalClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/client/PayPalClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/controller/PapPalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../paypal/target/classes/com/example/paypal/controller/PapPalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/Membership.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/Membership.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/controller/MembershipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/controller/MembershipController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../banka-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\stefan\Documents\GitHub\LiteralnoUdruzenje\KP\bitcoin-frontend\bitcoin-frontend\node_modules\typescript\lib" />
   </component>
@@ -44,6 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1610488964776</updated>
       <workItem from="1610488966036" duration="2478000" />
+      <workItem from="1610494795958" duration="104000" />
+      <workItem from="1610495919277" duration="2330000" />
     </task>
     <servers />
   </component>
@@ -60,5 +78,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

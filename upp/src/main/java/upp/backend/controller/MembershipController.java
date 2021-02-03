@@ -40,7 +40,7 @@ public class MembershipController {
 		HashMap<String, String> message = new HashMap<String, String>();
 		System.out.println("Here is email: " + username);
 		User user = userService.findByUsername(username);
-		double price = (double) 1200;
+		double price = (double) 12;
 		if (user == null) {
 			message.put("message", "Something went wrong");
 			message.put("status", "fail");
@@ -54,7 +54,7 @@ public class MembershipController {
 				message.put("status", "error");
 				return new ResponseEntity<>(message, HttpStatus.OK);
 			}
-			String url = "http://localhost:8085/paypal/make/payment/1?sum=" + price;
+			String url = "http://localhost:8085/make/payment?sum=" + price;
 			System.out.println(url);
 			message.put("message", "Membership payment");
 			message.put("status", "success");

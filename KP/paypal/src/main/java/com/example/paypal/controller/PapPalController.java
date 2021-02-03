@@ -32,7 +32,7 @@ public class PapPalController {
     @Autowired
     private UppClient uppClient;
 
-    @PostMapping(value = "/make/payment")
+    @GetMapping(value = "/make/payment")
     public Map<String, Object> makePayment(@RequestParam("sum") String sum){
     	//UserDTO user =uppClient.getUser(userId);
         return payPalClient.createPayment(sum);
