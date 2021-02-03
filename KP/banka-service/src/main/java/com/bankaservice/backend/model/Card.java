@@ -147,4 +147,21 @@ public class Card {
     public void setBankId(Long bankId) {
         this.bankId = bankId;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", clientId=" + clientId +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", expirationDate='" + expirationDate + '\'' +
+                ", cvc='" + cvc + '\'' +
+                ", availableMoney=" + availableMoney +
+                ", pan='" + pan + '\'' +
+                ", securityCode='" + securityCode + '\'' +
+                ", merchantId='" + merchantId + '\'' +
+                ", merchantPassword='" + merchantPassword + '\'' +
+                ", bankId=" + bankId +
+                '}';
+    }
 }

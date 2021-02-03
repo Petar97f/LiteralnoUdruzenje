@@ -27,17 +27,20 @@ public class Book {
     @Column
     private Date yearOfIssue;
 
-    @Column
-    private String editors;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User editor;
 
-    @Column
-    private String lectors;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User lecturer;
 
     @Column
     private Integer numOfPages;
 
     @Column
     private Double price;
+
+    @Column
+    private String synopsis;
 
     public Book() {
     }
@@ -99,22 +102,6 @@ public class Book {
         this.yearOfIssue = yearOfIssue;
     }
 
-    public String getEditors() {
-        return editors;
-    }
-
-    public void setEditors(String editors) {
-        this.editors = editors;
-    }
-
-    public String getLectors() {
-        return lectors;
-    }
-
-    public void setLectors(String lectors) {
-        this.lectors = lectors;
-    }
-
     public Integer getNumOfPages() {
         return numOfPages;
     }
@@ -123,4 +110,27 @@ public class Book {
         this.numOfPages = numOfPages;
     }
 
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public User getEditor() {
+        return editor;
+    }
+
+    public void setEditor(User editor) {
+        this.editor = editor;
+    }
+
+    public User getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(User lecturer) {
+        this.lecturer = lecturer;
+    }
 }

@@ -1,8 +1,13 @@
-<div class="bgimg">
-<h2>Bank 1</h2>
-<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <mat-form-field class="example-full-width">
+<div class="bgimg" style="display: flex;
+   min-height: 100%;
+   min-height: 100vh;
+   align-items: center;
+">
+  <div style="display:block;margin:0px auto;">
+<h2 class="ml-5 pt-2">Bank 1</h2>
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()" style="width:400px">
+  <div class="form-group" >
+    <mat-form-field class="example-full-width ml-5">
       <label for="pan">PAN</label>
     <input matInput type="text" formControlName="pan" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pan.errors }" />
     <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
@@ -11,7 +16,7 @@
     </mat-form-field>
   </div>
   <div class="form-group">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width ml-5">
       <label for="securityCode">Security code</label>
     <input matInput type="password" formControlName="securityCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.securityCode.errors }" />
     <div *ngIf="submitted && f.securityCode.errors" class="invalid-feedback">
@@ -20,7 +25,7 @@
     </mat-form-field>
   </div>
   <div class="form-group">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width ml-5">
     <label for="cardHolderName">Card holder name</label>
     <input matInput type="text" formControlName="cardHolderName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardHolderName.errors }" />
     <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
@@ -29,7 +34,7 @@
     </mat-form-field>
   </div>
   <div class="form-group">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width ml-5">
     <label for="expirationDate">Expiration date format (MM/YYYY)</label>
     <input matInput type="text" formControlName="expirationDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
     <div *ngIf="submitted && f.expirationDate.errors" class="invalid-feedback">
@@ -37,11 +42,12 @@
     </div>
     </mat-form-field>
   </div>
-  <div class="form-group">
+  <div class="form-group ml-5">
     <button [disabled]="loading" class="btn btn-primary">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
       Send
     </button>
   </div>
 </form>
+  </div>
 </div>

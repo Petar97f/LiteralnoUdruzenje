@@ -6,13 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/src/PaymentMethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/kp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/kp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_4_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/service/MerchantService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +65,25 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Eureka" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.banka2service.service" />
+    </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Banka2ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="banka2-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.banka2service.Banka2ServiceApplication" />
@@ -70,6 +104,7 @@
       <workItem from="1610443041967" duration="7786000" />
       <workItem from="1610494774803" duration="3663000" />
       <workItem from="1612109493051" duration="3167000" />
+      <workItem from="1612206829264" duration="2946000" />
     </task>
     <servers />
   </component>

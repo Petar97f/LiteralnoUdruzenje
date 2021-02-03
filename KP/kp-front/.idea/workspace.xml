@@ -3,13 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="e31fec6c-a926-4839-b068-6ae289d34738" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentMethods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/kp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/kp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_4_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/service/MerchantService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +69,7 @@
       <workItem from="1610444231791" duration="7143000" />
       <workItem from="1610494828807" duration="2792000" />
       <workItem from="1612110782354" duration="1701000" />
+      <workItem from="1612206846388" duration="1804000" />
     </task>
     <servers />
   </component>

@@ -13,11 +13,14 @@ import com.bankaservice.backend.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
 import java.util.Date;
+
+
 
 @RestController
 @CrossOrigin("*")
@@ -37,6 +40,7 @@ public class BankController {
 
     @Autowired
     private BankClient bankClient;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -64,6 +68,7 @@ public class BankController {
 
     @PostMapping(value = "/BankPay")
     public PaymentDTO BankPay(@RequestBody PaymentRequestDTO paymentRequestDTO){
+        cardService.code();
         PaymentDTO paymentDTO=new PaymentDTO();
         Payment payment=new Payment();
         if(paymentRequestDTO.getAmount() == null || paymentRequestDTO.getErrorUrl().isEmpty() || paymentRequestDTO.getFailedUrl().isEmpty() || paymentRequestDTO.getMerchantId().isEmpty()
@@ -106,16 +111,22 @@ public class BankController {
     public ResponseEntity<ResponseDTO> BankCheck(@RequestBody SecurityCheckDTO securityCheckDTO){
         Payment payment = paymentService.findPaymentById(securityCheckDTO.getPaymentId());
         System.out.println("Payment: "+payment);
+        System.out.println(securityCheckDTO.toString());
         Long clientId;
         Long bankId;
         Card cardBuyer;
         if(cardService.findByPan(securityCheckDTO.getPan())!=null) {
             bankId =cardService.findByPan(securityCheckDTO.getPan()).getBankId();
             cardBuyer = cardService.findByPan(securityCheckDTO.getPan());
-            if(cardBuyer.getPan().equals(securityCheckDTO.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && cardBuyer.getSecurityCode().equals(passwordEncoder.encode(securityCheckDTO.getSecurityCode()))){
-
-            }else
+            System.out.println(bankId);
+            System.out.println(cardBuyer.toString());
+           System.out.println("code "+ passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode()));
+            if(cardBuyer.getPan().equals(securityCheckDTO.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode())){
+                System.out.println("usao unutra");
+            }else{
+                System.out.println("usao u else");
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
+            }
         } else {
             bankId = bankClient.getCardId(securityCheckDTO.getPan());
             if(bankId == null){
@@ -173,8 +184,8 @@ public class BankController {
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO){
         Card card=cardService.findByPan(pccRequestDTO.getCardDTO().getPan());
-        if(card.getSecurityCode().equals(passwordEncoder.encode(pccRequestDTO.getCardDTO().getSecurityCode())) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
-
+        if(card.getSecurityCode().equals(pccRequestDTO.getCardDTO().getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
+                System.out.println("usao u clienta");
         }else return null;
         if(card.getAvailableMoney()-pccRequestDTO.getAmount()>=0){
             card.setAvailableMoney(card.getAvailableMoney()-pccRequestDTO.getAmount());
