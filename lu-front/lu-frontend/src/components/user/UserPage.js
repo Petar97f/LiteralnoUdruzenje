@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
+import Publish from '../app/Publish'
 
 class UserPage extends Component {
   constructor(props) {
@@ -31,6 +32,13 @@ class UserPage extends Component {
       });
     }
 	}
+
+  openPublisher = (e) => {
+    e.preventDefault();
+    this.setState({
+      showPublisher: true
+    })
+  }
   
   onBuy = async () => {
     //now we need to redirect on new app
@@ -77,11 +85,12 @@ class UserPage extends Component {
         </div>
         <div className="d-flex flex-row mt-2 ml-3">
         <button className="btn btn-primary" >Upload your book</button>
+          <button onClick={this.openPublisher}>Submit book</button>
         </div>
+        {this.state.showPublisher && <Publish/>}
       </div>
     );
   }
   
 }
-
 export default UserPage;

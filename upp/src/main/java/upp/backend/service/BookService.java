@@ -33,9 +33,7 @@ public class BookService {
         BookDTO bookDTO = new BookDTO();
         bookDTO.setId(book.getId());
         bookDTO.setName(book.getName());
-        bookDTO.setEditors(book.getEditors());
         bookDTO.setAuthorId(book.getAuthorId());
-        bookDTO.setLectors(book.getLectors());
         bookDTO.setNumOfPages(book.getNumOfPages());
         bookDTO.setPrice(book.getPrice());
         bookDTO.setPublisherId(book.getPublisherId());
