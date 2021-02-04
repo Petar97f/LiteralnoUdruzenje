@@ -25,6 +25,9 @@ public class Genre {
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     private Set<User> users;
 
+	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	private Set<Book> books;
+
 	public Genre() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -66,6 +69,14 @@ public class Genre {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public Set<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(Set<Book> books) {
+		this.books = books;
 	}
 
 	@Override

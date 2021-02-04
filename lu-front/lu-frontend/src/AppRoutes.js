@@ -9,6 +9,7 @@ import Membership  from './components/user/Membership';
 import SubmitBook  from './components/user/SubmitBook';
 import Member from './components/user/Member';
 import AdminMemberPanel from './components/user/AdminMemberPanel';
+import ReadManuscript from "./components/app/ReadManuscript";
 import jwt from 'jwt-decode' 
 
 class AppRoutes extends Component {
@@ -80,6 +81,7 @@ class AppRoutes extends Component {
 						<Switch>
 							<Route exact path="/user" component={UserPage} />
 							<Route exact path="/about" component={About} />
+							<Route exact path="/read" component={ReadManuscript}/>
 							<Redirect to="/user" />
 						</Switch>
 					</Suspense>

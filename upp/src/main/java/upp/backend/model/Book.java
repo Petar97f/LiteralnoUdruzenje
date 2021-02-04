@@ -2,6 +2,7 @@ package upp.backend.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
@@ -22,9 +23,6 @@ public class Book {
     private String publisherId;
 
     @Column
-    private String genre;
-
-    @Column
     private Date yearOfIssue;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,6 +39,13 @@ public class Book {
 
     @Column
     private String synopsis;
+
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "book_genres",
+            joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
+    private Set<Genre> genres;
 
     public Book() {
     }
@@ -86,14 +91,6 @@ public class Book {
         this.publisherId = publisherId;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public Date getYearOfIssue() {
         return yearOfIssue;
     }
@@ -132,5 +129,13 @@ public class Book {
 
     public void setLecturer(User lecturer) {
         this.lecturer = lecturer;
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
     }
 }

@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a336ba3-2436-4350-874a-d9ae3d1fa686" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/AppRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../lu-front/lu-frontend/src/components/user/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveAndSelectEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveAndSelectEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/ValidateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/ValidateBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/book.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/book.bpmn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/diagram-book.bpmn" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <workItem from="1610494821676" duration="2912000" />
       <workItem from="1612017734682" duration="4396000" />
       <workItem from="1612206838819" duration="4648000" />
-      <workItem from="1612384906059" duration="595000" />
+      <workItem from="1612384906059" duration="1799000" />
     </task>
     <servers />
   </component>

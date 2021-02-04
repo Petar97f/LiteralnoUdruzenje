@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
 import Publish from '../app/Publish';
+import ReadManuscript from "../app/ReadManuscript";
 
 class UserPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       merchatId: '1234',
-      showPublisher: false
+      showPublisher: false,
+      showManuscript: false
     }
   }
 
@@ -38,6 +40,13 @@ class UserPage extends Component {
     e.preventDefault();
     this.setState({
       showPublisher: true
+    })
+  }
+
+  openManuscript = (e) => {
+    e.preventDefault();
+    this.setState({
+      showManuscript: true
     })
   }
   
@@ -86,8 +95,10 @@ class UserPage extends Component {
         </div>
         <div className="d-flex flex-row mt-2 ml-3">
           <button className="btn btn-primary" onClick={this.openPublisher}>Submit book</button>
+          <button className="btn btn-primary" onClick={this.openManuscript}>Read book</button>
         </div>
         {this.state.showPublisher && <Publish show={this.state.showPublisher} onClose={e => this.setState({showPublisher: false})}/>}
+        {this.state.showManuscript && <ReadManuscript show={this.state.showManuscript} onClose={e => this.setState({showManuscript: false})}/>}
       </div>
     );
   }

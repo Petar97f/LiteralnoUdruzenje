@@ -40,6 +40,7 @@ public class BankController {
 
     @Autowired
     private BankClient bankClient;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
