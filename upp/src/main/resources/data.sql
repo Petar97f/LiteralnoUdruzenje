@@ -38,8 +38,8 @@ INSERT INTO user_genres (user_id, genre_id) VALUES (3, 2);
 
 
 
-INSERT INTO book (id,name,author_id,publisher_id,genre,year_of_issue,num_of_pages,price)
-VALUES (1,'Mali princ','1','1','knjiga','2020-11-11',33,100.00);
+INSERT INTO book (id,name,author_id,publisher_id,year_of_issue,num_of_pages,price)
+VALUES (1,'Mali princ','1','1','2020-11-11',33,100.00);
 
-INSERT INTO book (id,name,author_id,publisher_id,genre,year_of_issue,num_of_pages,price)
-VALUES (2,'Veliki princ','1','1','kopija','2020-11-12',71,900.00);
+INSERT INTO book (id,name,author_id,publisher_id,year_of_issue,num_of_pages,price)
+VALUES (2,'Veliki princ','1','1','2020-11-12',71,900.00);

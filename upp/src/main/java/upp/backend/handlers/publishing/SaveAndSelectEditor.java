@@ -10,8 +10,7 @@ import upp.backend.repository.BookRepository;
 import upp.backend.repository.GenreRepository;
 import upp.backend.repository.UserRepository;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 @Component
@@ -28,25 +27,30 @@ public class SaveAndSelectEditor implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        List<FormFieldDTO> dtos = (List<FormFieldDTO>) delegateExecution.getVariable("Book details form");
+        Map<String,Object> formVariables = delegateExecution.getVariables();
         List<User> editors = userRepository.findAllByUserRole(UserRole.EDITOR);
         Book book = new Book();
         Genre genre = new Genre();
-        for(FormFieldDTO f : dtos) {
-            if(f.getFieldId().equals("name")) {
-                book.setName(f.getFieldValue());
-            } else if(f.getFieldId().equals("genre")) {
-                book.setGenre(f.getFieldValue());
-                genre.setName(f.getFieldValue());
-            } else if(f.getFieldId().equals("synopsis")) {
-                book.setSynopsis(f.getFieldValue());
+
+        book.setName(formVariables.get("name").toString());
+        book.setSynopsis(formVariables.get("synopsis").toString());
+
+        if (formVariables.get("genres") != null) {
+            String genres = formVariables.get("genres").toString();
+            String str[] = genres.split(",");
+            List<String> genresListIds = new ArrayList<String>();
+            genresListIds = Arrays.asList(str);
+            if (genresListIds.isEmpty()) {
+                System.out.println("ovdeee2");
             }
+            System.out.println(genresListIds);
         }
         Random rand = new Random();
         int randomNumber = rand.nextInt(editors.size());
         System.out.println("Random broj je " + randomNumber);
         User editor = editors.get(randomNumber);
         book.setEditor(editor);
+        delegateExecution.setVariable("editor", editor.getId().toString());
         bookRepository.save(book);
         genreRepository.save(genre);
 

@@ -38,7 +38,6 @@ public class BookService {
         bookDTO.setPrice(book.getPrice());
         bookDTO.setPublisherId(book.getPublisherId());
         bookDTO.setYearOfIssue(book.getYearOfIssue());
-        bookDTO.setGenre(book.getGenre());
         return bookDTO;
     }
 }
