@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Component
 public class TokenUtils {
 
@@ -25,7 +27,8 @@ public class TokenUtils {
 
     @Value("18000")
     private Long expiration;
-    
+    @Value("Authorization")
+    private String AUTH_HEADER;
     @Autowired
     private UserService userService;
 
@@ -43,10 +46,24 @@ public class TokenUtils {
 
     }
     
+    public String getAuthHeaderFromHeader(HttpServletRequest request) {
+        return request.getHeader(AUTH_HEADER);
+    }
+    
     public String getProcessIdFromToken(String token) {
 		final Claims claims = this.getClaimsFromToken(token);
 		return (String) claims.getOrDefault("processId", -1);
 	}
+    
+    public String getToken(HttpServletRequest request) {
+        String authHeader = getAuthHeaderFromHeader(request);
+
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            return authHeader.substring(7);
+        }
+
+        return null;
+    }
 
     private Claims getClaimsFromToken(String token) {
         Claims claims;

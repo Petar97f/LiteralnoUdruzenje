@@ -43,8 +43,28 @@ public class AuthFilter extends ZuulFilter{
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 
-		/*String authRequest = request.getHeader("Authorization");
-		System.out.println(authRequest);*/
+		String authRequest = request.getHeader("Authorization");
+		System.out.println(authRequest);
+		
+		if(authRequest != null && authRequest.contains("Bearer")) {
+			System.out.println("IMA TOKEN");
+			String token = tokenUtils.getToken(request);
+			System.out.println(token);
+			
+			String username = tokenUtils.getUsernameFromToken(token);
+			System.out.println(username);
+			
+			String role = tokenUtils.getRoleFromToken(token);
+			System.out.println(role);
+			
+			String id = tokenUtils.getIdFromToken(token);
+			System.out.println(id);
+			ctx.addZuulRequestHeader("token", token);
+			ctx.addZuulRequestHeader("role", role);
+			ctx.addZuulRequestHeader("id", id);
+		} else {
+			System.out.println("IMA USERNAME I PASSWORD");
+		}
 		
 		
 		try {

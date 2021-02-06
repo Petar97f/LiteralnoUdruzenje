@@ -28,5 +28,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Petar/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar" sourcepath="C:/Users/Petar/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.dom4j"/>
+			<attribute name="maven.artifactId" value="dom4j"/>
+			<attribute name="maven.version" value="2.1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

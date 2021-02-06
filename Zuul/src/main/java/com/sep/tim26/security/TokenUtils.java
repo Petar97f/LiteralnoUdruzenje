@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.sep.tim26.AuthClient;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,12 +23,13 @@ public class TokenUtils {
     @Value("somesecret")
     public String SECRET;
 
-    @Value("86400000")
+    @Value("18000")
     private int EXPIRES_IN;
 
     @Value("Authorization")
     private String AUTH_HEADER;
-
+    @Autowired
+    private AuthClient authClient;
     private static final String AUDIENCE_UNKNOWN = "unknown";
     private static final String AUDIENCE_WEB = "web";
     private static final String AUDIENCE_MOBILE = "mobile";
@@ -47,6 +50,9 @@ public class TokenUtils {
                 .setExpiration(generateExpirationDate())
                 .claim("role", role) //postavljanje proizvoljnih podataka u telo JWT tokena
                 .claim("id", id.toString())
+                .claim("created", new Date(System.currentTimeMillis()))
+                .claim("user", authClient.getUser(id))
+                .claim("sub", authClient.getUser(id).getUsername())
                 .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
     }
 
@@ -91,7 +97,8 @@ public class TokenUtils {
         String username;
         try {
             final Claims claims = this.getAllClaimsFromToken(token);
-            username = claims.getSubject();
+            //username = claims.getSubject();
+            username = (String)claims.get("sub");
         } catch (Exception e) {
             username = null;
         }
