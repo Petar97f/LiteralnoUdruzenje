@@ -11,7 +11,8 @@ import Member from './components/user/Member';
 import AdminMemberPanel from './components/user/AdminMemberPanel';
 import ReadManuscript from "./components/app/ReadManuscript";
 import EditorPage from './components/user/EditorPage';
-import jwt from 'jwt-decode' 
+import jwt from 'jwt-decode'
+import LectorPage from "./components/user/LectorPage";
 
 class AppRoutes extends Component {
 	
@@ -70,9 +71,9 @@ class AppRoutes extends Component {
 				return (
 					<Suspense>
 						<Switch>
-							<Route exact path="/user" component={UserPage} />
+							<Route exact path="/user" component={LectorPage} />
 							<Route exact path="/about" component={About} />
-							<Redirect to="/user" />
+							<Redirect to="/lector" />
 						</Switch>
 					</Suspense>
 				);

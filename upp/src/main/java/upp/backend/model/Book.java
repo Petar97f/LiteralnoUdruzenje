@@ -2,6 +2,7 @@ package upp.backend.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -46,6 +47,13 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
     private Set<Genre> genres;
+
+    @ManyToMany
+    @JoinTable(
+            name = "book_comment",
+            joinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_comments_id", referencedColumnName = "id",  nullable=true)})
+    private List<BookComments> comments;
 
     public Book() {
     }
@@ -137,5 +145,13 @@ public class Book {
 
     public void setGenres(Set<Genre> genres) {
         this.genres = genres;
+    }
+
+    public List<BookComments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<BookComments> comments) {
+        this.comments = comments;
     }
 }

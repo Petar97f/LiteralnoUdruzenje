@@ -50,7 +50,8 @@ public class SaveAndSelectEditor implements JavaDelegate {
         System.out.println("Random broj je " + randomNumber);
         User editor = editors.get(randomNumber);
         book.setEditor(editor);
-        delegateExecution.setVariable("editor", editor.getId().toString());
+
+        delegateExecution.setVariable("editor", editor.getUsername());
         bookRepository.save(book);
         genreRepository.save(genre);
 
