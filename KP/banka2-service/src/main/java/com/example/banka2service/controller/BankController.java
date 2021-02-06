@@ -66,7 +66,6 @@ public class BankController {
 
     @PostMapping(value = "/BankPay")
     public PaymentDTO BankPay(@RequestBody PaymentRequestDTO paymentRequestDTO){
-        cardService.code();
         PaymentDTO paymentDTO=new PaymentDTO();
         Payment payment=new Payment();
         if(paymentRequestDTO.getAmount() == null || paymentRequestDTO.getErrorUrl().isEmpty() || paymentRequestDTO.getFailedUrl().isEmpty() || paymentRequestDTO.getMerchantId().isEmpty()
