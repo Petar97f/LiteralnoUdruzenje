@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
 import Forms from '.././forms/Forms.js';
+import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
 
 class AdminMemberPanel extends Component {
   constructor(props) {

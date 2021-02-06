@@ -54,11 +54,12 @@ public class MembershipController {
 				message.put("status", "error");
 				return new ResponseEntity<>(message, HttpStatus.OK);
 			}
-			String url = "http://localhost:8085/make/payment?sum=" + price;
-			System.out.println(url);
+			//add usernmae and add procesInstance Id
+			String url2 = "http://localhost:8085/make/payment?sum=" + price+"&username="+user.getUsername()+"&processInstanceId="+membership.getProcessInstanceId();
+			
 			message.put("message", "Membership payment");
 			message.put("status", "success");
-			message.put("data", url);
+			message.put("data", url2);
 			return new ResponseEntity<>(message, HttpStatus.OK);
 		}
 		//Membership membership = new Membership();

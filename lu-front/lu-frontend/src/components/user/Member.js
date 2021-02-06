@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
 import Forms from '.././forms/Forms.js';
-
+import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
 class Member extends Component {
   constructor(props) {
     super(props);
@@ -93,16 +93,18 @@ class Member extends Component {
         <div className="d-flex flex-row ml-3 pt-4">
           <div className="mt-2">
             Give opinion:
-            <div className="mt-2">
-              {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} processInstanceId={this.state.processInstanceId} taskId={this.state.taskId} />}
-            </div>
-            <div>
-            {this.state.formFields ?
-                <button className="btn btn-primary" type="button" onClick={this.onSubmit}>Submit</button>
-                :
-                <p>-No new works</p>
-            } 
-            </div>
+            <Form className="needs-validation" role="form"  onSubmit={this.onSubmit}>
+              <div className="mt-2">
+                {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} processInstanceId={this.state.processInstanceId} taskId={this.state.taskId} />}
+              </div>
+              <div>
+              {this.state.formFields ?
+                  <button className="btn btn-primary" type="button"  type="submit" /*onClick={this.onSubmit}*/>Submit</button>
+                  :
+                  <p>-No new works</p>
+              } 
+              </div>
+            </Form>
           </div>
         </div>
       </div>

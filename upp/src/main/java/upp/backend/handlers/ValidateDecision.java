@@ -25,9 +25,12 @@ public class ValidateDecision  implements JavaDelegate {
 		// TODO Auto-generated method stub
 		Map<String, Object> formVariables = execution.getVariables();
 		String autorId = formVariables.get("username").toString();
-		int numberOfLoops = (int) execution.getVariable("numberOfLoops");
+		int numberOfLoops = 0;
+		if (execution.getVariable("numberOfLoops") != null) {
+			numberOfLoops = (int) execution.getVariable("numberOfLoops");
+		}
 		
-		boolean isSuitable = opinionMemberService.isSuitable(autorId, numberOfLoops);
+		boolean isSuitable = opinionMemberService.isSuitable(autorId, numberOfLoops - 1);
 		if (isSuitable) {
 			User user = userService.findByUsername(autorId);
 			user.setIsApproved(true);

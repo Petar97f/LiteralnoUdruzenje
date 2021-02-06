@@ -34,6 +34,9 @@ public class Membership {
 	@Column
 	private boolean isActive;
 	
+	@Column
+	private String processInstanceId;
+	
 	public Membership() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -93,6 +96,15 @@ public class Membership {
 		return "Membership [id=" + id + ", name=" + name + ", price=" + price + ", payedUntil=" + payedUntil + ", user="
 				+ user + ", isActive=" + isActive + "]";
 	}
+
+	public String getProcessInstanceId() {
+		return processInstanceId;
+	}
+
+	public void setProcessInstanceId(String processInstanceId) {
+		this.processInstanceId = processInstanceId;
+	}
+
 
 
 	

@@ -12,7 +12,7 @@ class Membership extends Component {
   }
 
   async componentDidMount () { 
-    try {
+   /* try {
       let response = await (await fetch(`http://localhost:8081/membership/getMembership/${User.username}`, {
         method: 'get',
         headers: {
@@ -35,10 +35,7 @@ class Membership extends Component {
       this.setState({
         errors: err.toString()
       });
-    }
-    //get membership by id if activated = true
-    //ako je null isto ostaviti pay Membership
-    // skoloniti i napisati placeno ako je membership payed
+    }*/
   }
 
   payMembership = async (e) => {
@@ -78,19 +75,20 @@ class Membership extends Component {
         <div className="margin-top-page">
           <div className="d-flex flex-row mt-2 ml-3">
             <div className="p-3" >
-              <p><label>Membership price: 12</label></p>
-              {this.state.membership && this.state.membership.active ?
-               <p><label>Membership status: 'activated' </label></p>
-               :
-               <p><label>Membership status: 'inactive'</label></p>
-              }
-              <br/>
-              {this.state.membership && this.state.membership.active ? 
-                <p></p>
+              <Form className="needs-validation" role="form"  onSubmit={this.payMembership}>
+                <p><label>Membership price: 12</label></p>
+                {this.state.membership && this.state.membership.active ?
+                <p><label>Membership status: 'activated' </label></p>
                 :
-                <button className="btn btn-primary" onClick={this.payMembership}>Pay Membership</button>
-              }
-             
+                <p><label>Membership status: 'inactive'</label></p>
+                }
+                <br/>
+                {this.state.membership && this.state.membership.active ? 
+                  <p></p>
+                  :
+                  <button className="btn btn-primary" type="submit" /*onClick={this.payMembership}*/>Pay Membership</button>
+                }
+              </Form>
             </div>
           </div>
         </div>

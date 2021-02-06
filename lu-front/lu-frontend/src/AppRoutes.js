@@ -5,6 +5,7 @@ import UserPage from './components/user/UserPage';
 import About from './components/app/About';
 import './App.scss';
 import User from './components/user/User';
+import PaymentStatus from './components/user/PaymentStatus';
 import Membership  from './components/user/Membership';
 import SubmitBook  from './components/user/SubmitBook';
 import Member from './components/user/Member';
@@ -37,6 +38,9 @@ class AppRoutes extends Component {
 					<Suspense>
 						<Switch>
 							<Route exact path="/user" component={UserPage} />
+							<Route exact path="/success" component={PaymentStatus} />
+							<Route exact path="/failed" component={PaymentStatus} />
+							<Route exact path="/error" component={PaymentStatus} />
 							<Route exact path="/about" component={About} />
 							<Route exact path="/membership" component={Membership} />
 							<Route exact path="/submitBook" component={SubmitBook} />
@@ -114,6 +118,9 @@ class AppRoutes extends Component {
 				<Suspense>
 					<Switch>
 						<Route exact path="/" component={MainPanel} />
+						<Route exact path="/success" component={PaymentStatus} />
+						<Route exact path="/failed" component={PaymentStatus} />
+						<Route exact path="/error" component={PaymentStatus} />
 						<Redirect to="/" />
 					</Switch>
 				</Suspense>

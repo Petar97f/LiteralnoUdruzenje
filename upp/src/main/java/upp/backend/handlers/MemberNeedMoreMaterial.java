@@ -22,12 +22,9 @@ public class MemberNeedMoreMaterial implements JavaDelegate   {
 		Map<String, Object> formVariables = execution.getVariables();
 		String autorId = formVariables.get("username").toString();
 		int numberOfLoops = (int) execution.getVariable("numberOfLoops");
-		System.out.println("MemberNeedMoreMaterial" + numberOfLoops);
-		//get need more docs by loop
 		boolean needMore = opinionMemberService.isMemberNeedMoreMaterial(autorId, numberOfLoops);
 		execution.setVariable("needMore", needMore);
 		numberOfLoops++;
-		System.out.println("Uvecaj nubler of loops"+numberOfLoops);
 		execution.setVariable("numberOfLoops", numberOfLoops);
 	}
 

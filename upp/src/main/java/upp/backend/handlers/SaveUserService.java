@@ -3,6 +3,9 @@ package upp.backend.handlers;
 import com.netflix.discovery.converters.Auto;
 import upp.backend.model.ConfirmationToken;
 import upp.backend.model.FormFieldDTO;
+import upp.backend.model.Genre;
+import upp.backend.model.OpinionMember;
+
 import org.camunda.bpm.engine.IdentityService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
@@ -12,13 +15,16 @@ import org.springframework.stereotype.Service;
 import upp.backend.model.UserRole;
 import upp.backend.repository.ConfirmationTokenRepository;
 import upp.backend.repository.UserRepository;
+import upp.backend.service.GenreService;
 import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class SaveUserService implements JavaDelegate {
@@ -34,6 +40,8 @@ public class SaveUserService implements JavaDelegate {
 
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
+    @Autowired
+	 private GenreService genreService;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
@@ -77,10 +85,15 @@ public class SaveUserService implements JavaDelegate {
          String str[] = genres.split(",");
          List<String> genresListIds = new ArrayList<String>();
          genresListIds = Arrays.asList(str);
-         if (genresListIds.isEmpty()) {
-             System.out.println("ovdeee2");
+         if (!genresListIds.isEmpty()) {
+        	 Set<Genre> all = new HashSet<Genre>();
+             for (String id : genresListIds) {
+            	long ids =  Long.parseLong(id);
+            	Genre g = genreService.findById(ids);
+            	all.add(g);
+             }
+             userModel.setGenres(all);
          }
-         System.out.println(genresListIds);
         }
        
         userDetailsService.createUser(userModel);

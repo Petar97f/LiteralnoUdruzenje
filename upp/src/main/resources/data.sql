@@ -42,7 +42,7 @@ INSERT INTO user_genres (user_id, genre_id) VALUES (8, 1);
 INSERT INTO user_genres (user_id, genre_id) VALUES (3, 2);
 
 
-
+INSERT INTO pricelist (type_memebership, price) VALUES ('basic', 120);
 
 INSERT INTO book (id,name,author_id,publisher_id,year_of_issue,num_of_pages,price)
 VALUES (1,'Mali princ','1','1','2020-11-11',33,100.00);

@@ -28,9 +28,6 @@ public class ActivateUser implements JavaDelegate {
 		LOGGER.info("\n\n ActivateUser " + execution.getId() + "\n\n");
 		String username = (String)execution.getVariable("username");
 		boolean confirm = (boolean)execution.getVariable("confirm");
-		System.out.println("UserConfirmationService");
-		System.out.println("username"+ username);
-		System.out.println("confirm"+confirm);
 		
 		if (confirm) {
 			User user = this.userService.findByUsername(username);

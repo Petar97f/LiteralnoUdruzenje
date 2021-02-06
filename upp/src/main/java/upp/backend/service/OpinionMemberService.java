@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import upp.backend.model.OpinionMember;
 import upp.backend.model.OpinionStatus;
+import upp.backend.model.User;
 import upp.backend.repository.OpinionMemberRepository;
 
 @Service
@@ -59,13 +60,35 @@ public class OpinionMemberService {
 		boolean isSuitable = true;
 		List<OpinionMember> opinions = opinionMemberRepository.findByAutorId(autorId);
 		for (OpinionMember om: opinions ) {
-			if ((om.getOpinion().equals(OpinionStatus.MORE_DOCS) && om.getNumberOfLoops() == loop) || (om.getOpinion().equals(OpinionStatus.NOT_SUITABLE) && om.getNumberOfLoops() == loop)) {
-				System.out.println("hee need more"+ om.getMemberId());
-				isSuitable = false;
-				break;
+			if (om.getNumberOfLoops() == loop) {
+				System.out.println("is Sy" +OpinionStatus.MORE_DOCS + "  " + om.getOpinion().equals(OpinionStatus.MORE_DOCS));
+				System.out.println("is Sy" +OpinionStatus.NOT_SUITABLE + "" +  om.getOpinion().equals(OpinionStatus.NOT_SUITABLE));
+				if (om.getOpinion().equals(OpinionStatus.MORE_DOCS) || om.getOpinion().equals(OpinionStatus.NOT_SUITABLE) ) {
+					isSuitable = false;
+				}
 			}
+
 		}
 		return isSuitable;
+	}
+	
+	public OpinionMember findByUserAndLoop(String autorId, int loop) {
+		List<OpinionMember> opinions = opinionMemberRepository.findByAutorId(autorId);
+		for (OpinionMember om: opinions ) {
+			if (om.getNumberOfLoops() == loop) {
+				return om;
+			}
+		}
+		return null;
+	}
+	public OpinionMember findByUserAndLoopMember(String autorId,String memberId, int loop) {
+		List<OpinionMember> opinions = opinionMemberRepository.findByAutorId(autorId);
+		for (OpinionMember om: opinions ) {
+			if (om.getNumberOfLoops() == loop && om.getMemberId() == memberId) {
+				return om;
+			}
+		}
+		return null;
 	}
 	
 }

@@ -67,14 +67,15 @@ class Forms extends Component {
     this.props.onUpdate(form);
   }
 
+  
   onFileUpload = async (e, name, minLength) => {
-    if (minLength && Number(minLength) < 2) {
-      alert("Please submit more files");
-    }
     try {
       let form = {...this.state.form};
       let files = Array.from(e.target.files)
-      
+      if (minLength && Number(minLength) > files.length) {
+        alert("Please submit more files");
+        return;
+      }
       let listFilenames = [];
       let data = new FormData();
 
@@ -98,29 +99,6 @@ class Forms extends Component {
         },
         body: data
       })).json();
-
-
-      /*let promises = await Promise.all(files.map(item => {
-         
-          let file = item;
-          let filename = item.name;
-          listFilenames.push(filename)
-          console.log(filename)
-          let blob = file.slice(0, file.size, file.type); 
-          file = new File([blob], `${filename}`, {type: file.type});
-          console.log(filename)
-          data.append(`file`, file);
-          return fetch(`http://localhost:8081/upload/${this.props.processInstanceId}`, {
-            method: 'post',
-            headers: {
-              'X-Auth-Token': localStorage.getItem("token")
-            },
-            body: data
-          });
-      }));*/
-
-
-
       form[name] = listFilenames;
       this.setState({
         form: form
@@ -172,7 +150,7 @@ class Forms extends Component {
               return (
                 <Form.Group key={item.id}>
                   <Form.Label className="font-weight-bold">{item.label}</Form.Label>
-                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} onChange={e => this.onFileUpload(e, item.id, 2)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple/>
+                  <Form.Control id="validationDefault02" type={item.properties.file} placeholder={item.label} onChange={e => this.onFileUpload(e, item.id, item.properties.minLength)} aria-describedby="inputGroupPrepend2" required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} multiple={item.properties.multiple ? true : false}/>
                 </Form.Group>
               )
             } else if (item.properties['textarea'] !== undefined) { 
@@ -218,7 +196,7 @@ class Forms extends Component {
             if (item.properties['radio'] !== undefined) {
               return (
                 <Form.Group key={item.id}>
-                  <Form.Check type="radio" label={item.label} id={item.id} value={this.state.form[item.id] ? this.state.form[item.id] : false} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked, item.properties['name'])} />
+                  <Form.Check type="radio" label={item.label} id={item.id} value={this.state.form[item.id] ? this.state.form[item.id] : false} name={item.properties['name']} onChange={e => this.onRadioButton(e, item.id, e.target.checked, item.properties['name'])} required={item.validationConstraints.filter(item => item.name && item.name === 'required' ? true : false)[0]} />
                   <Form.Control.Feedback type="invalid">
                     Must choose one.
                   </Form.Control.Feedback>

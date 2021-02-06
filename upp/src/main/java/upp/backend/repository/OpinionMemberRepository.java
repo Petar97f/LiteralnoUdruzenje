@@ -12,4 +12,5 @@ public interface OpinionMemberRepository extends JpaRepository<OpinionMember,Lon
 	OpinionMember findOneById(Long id);
 	List<OpinionMember> findAll();
 	List<OpinionMember> findByAutorId(String autorId);
+	List<OpinionMember> findByAutorIdAndMemberIdAndNumberOfLoops(String autorId, String memberId, int loops);
 }

@@ -14,11 +14,13 @@ import upp.backend.dto.LoginDTO;
 import upp.backend.dto.RegistrationDTO;
 import upp.backend.dto.UserDTO;
 import upp.backend.model.ConfirmationToken;
+import upp.backend.model.Membership;
 import upp.backend.model.User;
 import upp.backend.repository.ConfirmationTokenRepository;
 import upp.backend.repository.UserRepository;
 import upp.backend.security.TokenUtils;
 import upp.backend.service.GenreService;
+import upp.backend.service.MembershipService;
 import upp.backend.service.UserDetailsServiceImpl;
 import upp.backend.service.UserService;
 import upp.backend.service.WorksService;
@@ -51,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin("*")
@@ -94,6 +97,9 @@ public class UserController {
 	
 	@Autowired
 	private WorksService worksService;
+	
+	@Autowired
+	private MembershipService membershipService;
 	
     @GetMapping(value = "/getUser/{userId}")
 	public UserDTO getUser(@PathVariable("userId") Long userId) {
@@ -283,4 +289,50 @@ public class UserController {
 				.body(resource);
 	}
     
+	@GetMapping("/success")
+	public ResponseEntity<?> successfulPayment(@RequestParam("username") String username, @RequestParam("processId") Optional<String> processId ) {
+		if(processId.isPresent()) {
+			this.runtimeService.setVariable(processId.get(), "paymentSuccessful" , true);
+		}
+		
+		User user = userService.findByUsername(username);
+		user.setIsApproved(true);
+		userService.save(user);
+		Membership membership = membershipService.findByUser(user);
+		membership.setActive(true);
+		membershipService.save(membership);
+		HttpHeaders headersRedirect = new HttpHeaders();
+		headersRedirect.add("Location", "http://localhost:3000/success");
+		headersRedirect.add("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/error")
+	public ResponseEntity<?> errorPayment(@RequestParam("username") String username, @RequestParam("processId") Optional<String> processId ) {
+		if(processId.isPresent()) {
+			this.runtimeService.setVariable(processId.get(), "paymentSuccessful" , false);
+		}
+		User user = userService.findByUsername(username);
+		user.setIsApproved(false);
+		userService.save(user);
+		HttpHeaders headersRedirect = new HttpHeaders();
+		headersRedirect.add("Location", "http://localhost:3000/error");
+		headersRedirect.add("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/failed")
+	public ResponseEntity<?> failedPayment(@RequestParam("username") String username, @RequestParam("processId") Optional<String> processId ) {
+		if(processId.isPresent()) {
+			this.runtimeService.setVariable(processId.get(), "paymentSuccessful" , false);
+		}
+		User user = userService.findByUsername(username);
+		user.setIsApproved(false);
+		userService.save(user);
+		HttpHeaders headersRedirect = new HttpHeaders();
+		headersRedirect.add("Location", "http://localhost:3000/failed");
+		headersRedirect.add("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+	}
+	
 }
