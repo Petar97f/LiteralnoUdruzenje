@@ -1,32 +1,33 @@
-import React, { Component, Fragment} from 'react';
-import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import Forms from '.././forms/Forms.js';
-import User from "../user/User";
+import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
+import {Form, Modal} from "react-bootstrap";
+import Forms from "../forms/Forms";
 
-
-class Publish extends Component{
+class SendToBetaReaders extends Component {
     constructor(props) {
         super(props);
         this.state = {
             formFields: [],
-            form: {}
+            form: {},
+            data: []
         }
     }
 
     async componentDidMount () {
         try {
-            let response = await (await fetch('http://localhost:8081/start/publishing', {
+            let response = await (await fetch('http://localhost:8081/getTask', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': localStorage.getItem("token")
                 },
             })).json();
+            console.log(response)
             this.setState({
                 formFields: response.formFields,
-                taskId: response.taskId
+                taskId: response.taskId,
+                processInstanceId: response.processInstanceId
             })
 
         } catch (err) {
@@ -42,12 +43,6 @@ class Publish extends Component{
             let returnDto = [];
             returnDto = Object.keys(this.state.form).map(value => {
                 let res = {};
-                if(this.state.form[value]==='writer'){
-                    res.fieldId = value;
-                    res.fieldValue = User.email;
-                    console.log(res.fieldValue);
-                    return res;
-                }else
                 if (this.state.form[value]) {
                     res.fieldId = value;
                     res.fieldValue = this.state.form[value].toString();
@@ -61,16 +56,25 @@ class Publish extends Component{
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     dto: returnDto
                 })
-            })).text();
-            if (response != 'fail') {
-                alert('Success');
-                this.props.onClose();
+            })).json();
+            console.log(response);
+            if (response.status != 'fail') {
+                console.log(response);
+                console.log(response.formFields);
+                if (response.formFields) {
+                    this.setState({
+                        formFields: response.formFields,
+                        taskId: response.taskId
+                    })
+                } else if (response.status === 'success') {
+                    alert('Ok');
+                    this.props.onClose();
+                }
             } else {
                 alert('Something went wrong.');
                 this.props.onClose();
@@ -81,7 +85,6 @@ class Publish extends Component{
             });
         }
     }
-
 
     render () {
         return (
@@ -97,7 +100,7 @@ class Publish extends Component{
                             {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} />}
                         </Modal.Body>
                         <Modal.Footer>
-                            <button className="btn btn-primary" type="submit">Publish</button>
+                            <button className="btn btn-primary" type="submit">{this.state.formFields.filter(item => item.id === 'betaReading')[0] && this.state.form.betaReading  ? 'Next' : 'Send to Lector'}</button>
                             <button className="btn btn-primary"  onClick={this.props.onClose}>Cancel</button>
                         </Modal.Footer>
                     </Form>
@@ -107,4 +110,4 @@ class Publish extends Component{
     }
 }
 
-export default withRouter(Publish);
+export default withRouter(SendToBetaReaders);

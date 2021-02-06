@@ -14,6 +14,12 @@ VALUES ('User5','Prezime5','user5@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3
 INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
 VALUES ('User6','Prezime6','user6@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'user6');
 
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username,points)
+VALUES ('UserBetaReader7','Prezime7','betareader1@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 2,'betareader1',0);
+
+INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username,points)
+VALUES ('UserBetaReader8','Prezime7','betareader2@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 2,'betareader2',0);
+
 INSERT INTO user (name,surname,email,password,city,country, activated,is_beta, user_role,username)
 VALUES ('UserMember7','PrezimeMember7','user7@gmail.com','$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6','Grad6','Country2', true, true, 6,'userMember7');
 

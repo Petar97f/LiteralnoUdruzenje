@@ -45,6 +45,9 @@ public class User {
     @Column
     private Boolean isApproved;
 
+    @Column
+	private Integer points;
+
     public User() {
     }
     
@@ -229,5 +232,28 @@ public class User {
 	public void setIsApproved(Boolean isApproved) {
 		this.isApproved = isApproved;
 	}
-	
+
+	public Boolean getBeta() {
+		return isBeta;
+	}
+
+	public void setBeta(Boolean beta) {
+		isBeta = beta;
+	}
+
+	public Boolean getApproved() {
+		return isApproved;
+	}
+
+	public void setApproved(Boolean approved) {
+		isApproved = approved;
+	}
+
+	public Integer getPoints() {
+		return points;
+	}
+
+	public void setPoints(Integer points) {
+		this.points = points;
+	}
 }

@@ -1,32 +1,33 @@
-import React, { Component, Fragment} from 'react';
-import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import Forms from '.././forms/Forms.js';
-import User from "../user/User";
+import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
+import {Form, Modal} from "react-bootstrap";
+import Forms from "../forms/Forms";
 
-
-class Publish extends Component{
+class SubmitManuscript extends Component{
     constructor(props) {
         super(props);
         this.state = {
             formFields: [],
-            form: {}
+            form: {},
+            data: []
         }
     }
 
     async componentDidMount () {
         try {
-            let response = await (await fetch('http://localhost:8081/start/publishing', {
+            let response = await (await fetch('http://localhost:8081/getTask', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': localStorage.getItem("token")
                 },
             })).json();
+            console.log(response)
             this.setState({
                 formFields: response.formFields,
-                taskId: response.taskId
+                taskId: response.taskId,
+                processInstanceId: response.processInstanceId
             })
 
         } catch (err) {
@@ -36,18 +37,11 @@ class Publish extends Component{
         }
     }
 
-    onSubmitRegister = async (e) => {
-        e.preventDefault();
+    onSubmit = async () => {
         try {
             let returnDto = [];
             returnDto = Object.keys(this.state.form).map(value => {
                 let res = {};
-                if(this.state.form[value]==='writer'){
-                    res.fieldId = value;
-                    res.fieldValue = User.email;
-                    console.log(res.fieldValue);
-                    return res;
-                }else
                 if (this.state.form[value]) {
                     res.fieldId = value;
                     res.fieldValue = this.state.form[value].toString();
@@ -57,20 +51,32 @@ class Publish extends Component{
                 res.fieldValue = this.state.form[value];
                 return res;
             });
+            console.log(returnDto)
             let response = await (await fetch(`http://localhost:8081/submitForm/${this.state.taskId}`, {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     dto: returnDto
                 })
-            })).text();
-            if (response != 'fail') {
-                alert('Success');
-                this.props.onClose();
+            })).json();
+            if (response.status != 'fail') {
+                console.log(response);
+                console.log(response.formFields);
+                if (response.formFields) {
+                    this.setState({
+                        formFields: response.formFields,
+                        taskId: response.taskId
+                    })
+                } else if (response.status === 'success') {
+                    alert('Submitted');
+                    this.setState({
+                        formFields: [],
+                        form: {},
+                    })
+                }
             } else {
                 alert('Something went wrong.');
                 this.props.onClose();
@@ -83,21 +89,23 @@ class Publish extends Component{
     }
 
 
+
+
     render () {
         return (
             <div>
                 <Modal show={this.props.show} onHide={this.props.onClose} style={{ paddingTop: '65px' }}>
-                    <Form className="needs-validation" role="form"  onSubmit={this.onSubmitRegister}>
+                    <Form className="needs-validation" role="form"  onSubmit={this.onSubmit}>
                         <Modal.Header closeButton>
                             <Modal.Title>
-                                <label>Register</label>
+                                <label>Give review</label>
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body style={{ maxHeight: 'calc(100vh - 30px - 30px - 75px - 57px - 60px - 16px)', overflowY: 'auto' }}>
                             {this.state.formFields && <Forms formFields={this.state.formFields} onUpdate={(form) => this.setState({form: form})} />}
                         </Modal.Body>
                         <Modal.Footer>
-                            <button className="btn btn-primary" type="submit">Publish</button>
+                            <button className="btn btn-primary" type="submit">Send</button>
                             <button className="btn btn-primary"  onClick={this.props.onClose}>Cancel</button>
                         </Modal.Footer>
                     </Form>
@@ -107,4 +115,4 @@ class Publish extends Component{
     }
 }
 
-export default withRouter(Publish);
+export default withRouter(SubmitManuscript);

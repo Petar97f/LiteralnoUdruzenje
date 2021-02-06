@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b89623d-97cf-4c24-9fe6-197adc04a6ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../KP/kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../KP/kp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/Publish.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/Publish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/ReadManuscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/ReadManuscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/EditorPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/EditorPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/user/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/UppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/UppApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveAndSelectEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveAndSelectEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveBookAndCheckPlagiarism.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/SaveBookAndCheckPlagiarism.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/ValidateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/handlers/publishing/ValidateBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/Genre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/book.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/book.bpmn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/data.sql" afterDir="false" />
     </list>
@@ -39,22 +43,20 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../KP/kp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -75,7 +77,8 @@
       <workItem from="1610408299905" duration="455000" />
       <workItem from="1610494750812" duration="3716000" />
       <workItem from="1612304738918" duration="4644000" />
-      <workItem from="1612384688934" duration="6569000" />
+      <workItem from="1612384688934" duration="6949000" />
+      <workItem from="1612467803325" duration="18667000" />
     </task>
     <servers />
   </component>
@@ -93,5 +96,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/AppRoutes.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
 import Forms from '.././forms/Forms.js';
+import ReadManuscript from "../app/ReadManuscript";
+import SendToBetaReaders from "../app/SendToBetaReaders";
 
 class EditorPage extends Component {
   constructor(props) {
@@ -8,11 +10,27 @@ class EditorPage extends Component {
     this.state = {
       formFields: [],
       form: {},
-      data: []
+      data: [],
+      showManuscript: false,
+      showBetaReaders: false
     }
   }
   async componentDidMount () {
 
+  }
+
+  openManuscript = (e) => {
+    e.preventDefault();
+    this.setState({
+      showManuscript: true
+    })
+  }
+
+  openBetaReaders = (e) => {
+    e.preventDefault();
+    this.setState({
+      showBetaReaders: true
+    })
   }
 
   render () {
@@ -22,6 +40,10 @@ class EditorPage extends Component {
           <div className="mt-2">
             Editor Page:
             /** import component here */
+            <button className="btn btn-primary" onClick={this.openManuscript}>Read book</button>
+            <button className="btn btn-primary" onClick={this.openBetaReaders}>Send to beta readers?</button>
+            {this.state.showManuscript && <ReadManuscript show={this.state.showManuscript} onClose={e => this.setState({showManuscript: false})}/>}
+            {this.state.showBetaReaders && <SendToBetaReaders show={this.state.showBetaReaders} onClose={e => this.setState({showBetaReaders: false})}/>}
           </div>
         </div>
       </div>

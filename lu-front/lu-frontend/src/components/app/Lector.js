@@ -1,12 +1,10 @@
-import React, { Component, Fragment} from 'react';
-import { Form, Dropdown, Modal, InputGroup } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import Forms from '.././forms/Forms.js';
+import React, {Component} from "react";
 import User from "../user/User";
+import {Form, Modal} from "react-bootstrap";
+import Forms from "../forms/Forms";
+import {withRouter} from "react-router-dom";
 
-
-class Publish extends Component{
+class Lector extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -17,16 +15,19 @@ class Publish extends Component{
 
     async componentDidMount () {
         try {
-            let response = await (await fetch('http://localhost:8081/start/publishing', {
+            let response = await (await fetch('http://localhost:8081/getTask', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': localStorage.getItem("token")
                 },
             })).json();
+            console.log(response)
             this.setState({
                 formFields: response.formFields,
-                taskId: response.taskId
+                taskId: response.taskId,
+                processInstanceId: response.processInstanceId
             })
 
         } catch (err) {
@@ -107,4 +108,4 @@ class Publish extends Component{
     }
 }
 
-export default withRouter(Publish);
+export default withRouter(Lector);

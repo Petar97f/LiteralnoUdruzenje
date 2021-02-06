@@ -1,5 +1,6 @@
 package upp.backend.service;
 
+import upp.backend.dto.BetaReaderDTO;
 import upp.backend.dto.GenreDTO;
 import upp.backend.dto.UserDTO;
 import upp.backend.model.Genre;
@@ -47,4 +48,11 @@ public class UserService {
  	   userDTO.setCountry(u.getCountry());
  	   return userDTO;
  	}
+
+ 	public BetaReaderDTO convertToBetaReaderDTO(User u){
+        BetaReaderDTO betaReaderDTO = new BetaReaderDTO();
+        betaReaderDTO.setId(u.getId());
+        betaReaderDTO.setUsername(u.getUsername());
+        return betaReaderDTO;
+    }
 }

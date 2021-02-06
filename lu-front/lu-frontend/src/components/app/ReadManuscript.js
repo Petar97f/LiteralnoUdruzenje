@@ -37,7 +37,8 @@ class ReadManuscript extends Component{
         }
     }
 
-    onSubmit = async () => {
+    onSubmit = async (e) => {
+        e.preventDefault();
         try {
             let returnDto = [];
             returnDto = Object.keys(this.state.form).map(value => {
@@ -51,32 +52,20 @@ class ReadManuscript extends Component{
                 res.fieldValue = this.state.form[value];
                 return res;
             });
-            console.log(returnDto)
             let response = await (await fetch(`http://localhost:8081/submitForm/${this.state.taskId}`, {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
                 },
                 body: JSON.stringify({
                     dto: returnDto
                 })
-            })).json();
-            if (response.status != 'fail') {
-                console.log(response);
-                console.log(response.formFields);
-                if (response.formFields) {
-                    this.setState({
-                        formFields: response.formFields,
-                        taskId: response.taskId
-                    })
-                } else if (response.status === 'success') {
-                    alert('Submitted');
-                    this.setState({
-                        formFields: [],
-                        form: {},
-                    })
-                }
+            })).text();
+            if (response != 'fail') {
+                alert('Success');
+                this.props.onClose();
             } else {
                 alert('Something went wrong.');
                 this.props.onClose();

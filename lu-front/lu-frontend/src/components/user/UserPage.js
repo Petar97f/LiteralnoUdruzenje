@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import User from '.././user/User';
 import Publish from '../app/Publish';
 import ReadManuscript from "../app/ReadManuscript";
+import SubmitBook from "./SubmitBook";
+import SubmitManuscript from "./SubmitManuscript";
 
 class UserPage extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class UserPage extends Component {
     this.state = {
       merchatId: '1234',
       showPublisher: false,
-      showManuscript: false
+      showManuscript: false,
+      showSubmit: false
     }
   }
 
@@ -40,6 +43,13 @@ class UserPage extends Component {
     e.preventDefault();
     this.setState({
       showPublisher: true
+    })
+  }
+
+  openSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      showSubmit: true
     })
   }
 
@@ -95,10 +105,12 @@ class UserPage extends Component {
         </div>
         <div className="d-flex flex-row mt-2 ml-3">
           <button className="btn btn-primary" onClick={this.openPublisher}>Submit book</button>
-          <button className="btn btn-primary" onClick={this.openManuscript}>Read book</button>
+          <button className="btn btn-primary" onClick={this.openSubmit}>Save pdf book</button>
+          <button className="btn btn-primary" onClick={this.openManuscript}>Save manuscript</button>
         </div>
         {this.state.showPublisher && <Publish show={this.state.showPublisher} onClose={e => this.setState({showPublisher: false})}/>}
-        {this.state.showManuscript && <ReadManuscript show={this.state.showManuscript} onClose={e => this.setState({showManuscript: false})}/>}
+        {this.state.showSubmit && <SubmitBook show={this.state.showSubmit} onClose={e => this.setState({showSubmit: false})}/>}
+        {this.state.showManuscript && <SubmitManuscript show={this.state.showManuscript} onClose={e => this.setState({showManuscript: false})}/>}
       </div>
     );
   }

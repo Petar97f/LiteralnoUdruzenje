@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import upp.backend.model.Book;
 import upp.backend.model.FormFieldDTO;
+import upp.backend.model.User;
 import upp.backend.repository.BookRepository;
+import upp.backend.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +22,8 @@ public class ValidateBook implements JavaDelegate {
 
     @Autowired
     BookRepository bookRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
@@ -53,6 +57,9 @@ public class ValidateBook implements JavaDelegate {
             isValid = false;
         }
 
+        User u=userRepository.findByUsername(formVariables.get("writer").toString());
+
         delegateExecution.setVariable("validated",isValid);
+        delegateExecution.setVariable("currentUser",u.getUsername());
     }
 }

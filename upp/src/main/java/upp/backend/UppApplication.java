@@ -90,14 +90,34 @@ public class UppApplication {
 			Group membersGroup = identityService.newGroup("members");
 			membersGroup.setName("members");
 			identityService.saveGroup(membersGroup);
+
+			Group editorsGroup = identityService.newGroup("editors");
+			membersGroup.setName("editors");
+			identityService.saveGroup(editorsGroup);
 			
 			Group adminMembersGroup = identityService.newGroup("adminMember");
 			adminMembersGroup.setName("adminMember");
 			identityService.saveGroup(adminMembersGroup);
+
+			Group betaReadersMembersGroup = identityService.newGroup("betaReaders");
+			betaReadersMembersGroup.setName("betaReaders");
+			identityService.saveGroup(betaReadersMembersGroup);
 		}
 		List<User> users = identityService.createUserQuery().userIdIn("user6", "userMember7", "userMember8",
 				"userMember9", "admin7").list();
 		if (users.isEmpty()) {
+			upp.backend.model.User user5 = new upp.backend.model.User();
+			user5.setUsername("user5");
+			user5.setName("User5");
+			user5.setSurname("Prezime5");
+			user5.setEmail("user5@gmail.com");
+			user5.setPassword("$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6");
+			user5.setCity("Grad5");
+			user5.setCountry("Country5");
+			saveInCamunda(user5);
+			identityService.createMembership("user5", "editors");
+
+
 			upp.backend.model.User user6 = new upp.backend.model.User();
 			user6.setUsername("user6");
 			user6.setName("User6");
@@ -141,6 +161,29 @@ public class UppApplication {
 			user9.setCountry("Country2");
 			saveInCamunda(user9);
 			identityService.createMembership("userMember9", "members");
+
+			upp.backend.model.User reader1 = new upp.backend.model.User();
+			reader1.setUsername("betareader1");
+			reader1.setName("UserMember9");
+			reader1.setSurname("PrezimeMember9");
+			reader1.setEmail("betareader1@gmail.com");
+			reader1.setPassword("$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6");
+			reader1.setCity("Grad6");
+			reader1.setCountry("Country2");
+			saveInCamunda(reader1);
+			identityService.createMembership("betareader1", "betaReaders");
+
+
+			upp.backend.model.User reader2 = new upp.backend.model.User();
+			reader2.setUsername("betareader2");
+			reader2.setName("UserReader2");
+			reader2.setSurname("PrezimeReader2");
+			reader2.setEmail("betareader2@gmail.com");
+			reader2.setPassword("$2y$12$jMfmhs1lwpKGSOeLeXkVSu/GOR3vXwG8ICVacerwNFXPKogaf/cq6");
+			reader2.setCity("Grad6");
+			reader2.setCountry("Country2");
+			saveInCamunda(reader2);
+			identityService.createMembership("betareader2", "betaReaders");
 			
 			upp.backend.model.User admin7 = new upp.backend.model.User();
 			admin7.setUsername("admin7");
