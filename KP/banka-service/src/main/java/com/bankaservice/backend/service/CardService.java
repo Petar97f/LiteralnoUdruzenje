@@ -17,7 +17,13 @@ public class CardService {
     private PasswordEncoder passwordEncoder;
     
     public Card findByPan(String pan) {
-    	return cardRepository.findByPan(pan);
+    	List<Card> cards = cardRepository.findAll();
+        for (Card c:cards
+             ) {
+            if(passwordEncoder.matches(pan,c.getPan()))
+                return c;
+        }
+        return null;
     }
     public Card findByMerchantId(String merchantId) {
     	return cardRepository.findByMerchantId(merchantId);    }
@@ -26,6 +32,7 @@ public class CardService {
     public void saveFirst(Card card){
         card.setSecurityCode(passwordEncoder.encode(card.getSecurityCode()));
         card.setMerchantPassword(passwordEncoder.encode(card.getMerchantPassword()));
+        card.setPan(passwordEncoder.encode(card.getPan()));
         cardRepository.save(card);
     }
     public void save(Card card){

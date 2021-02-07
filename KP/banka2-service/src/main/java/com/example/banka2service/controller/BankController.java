@@ -125,7 +125,7 @@ public class BankController {
             System.out.println(bankId);
             System.out.println(cardBuyer.toString());
             System.out.println("code "+ passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode()));
-            if(cardBuyer.getPan().equals(securityCheckDTO.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode())){
+            if(passwordEncoder.matches(securityCheckDTO.getPan(),cardBuyer.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode())){
                 System.out.println("usao unutra");
             }else{
                 System.out.println("usao u else");
@@ -194,7 +194,7 @@ public class BankController {
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO){
         Card card=cardService.findByPan(pccRequestDTO.getCardDTO().getPan());
-        if(card.getSecurityCode().equals(pccRequestDTO.getCardDTO().getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
+        if(passwordEncoder.matches(pccRequestDTO.getCardDTO().getSecurityCode(),card.getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
             System.out.println("usao u clienta");
         }else return null;
         if(card.getAvailableMoney()-pccRequestDTO.getAmount()>=0){
@@ -216,7 +216,7 @@ public class BankController {
         c.setMerchantId(String.valueOf(l));
         c.setMerchantPassword("1234");
         c.setSecurityCode("1234");
-        c.setPan(String.valueOf(l));
+        c.setPan(passwordEncoder.encode(String.valueOf(l)));
         c.setAvailableMoney(0F);
         c.setBankId(1L);
         c.setCardNumber(c.getPan());

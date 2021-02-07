@@ -1,7 +1,7 @@
 INSERT INTO merchant (id,error_url,failed_url,merchant_id,password,success_url,bank_id)
-VALUES (1,'greska','fail','1','123','uspeh',1);
+VALUES (1,'http://localhost:3005/error','http://localhost:3005/failed','1','123','http://localhost:3005/success',1);
 INSERT INTO merchant (id,error_url,failed_url,merchant_id,password,success_url,bank_id)
-VALUES (2,'lose','lose','2','12322','uspeha',2);
+VALUES (2,'http://localhost:3005/error','http://localhost:3005/failed','3','1234','http://localhost:3005/success',2);
 
 
 INSERT INTO merchant_payment_types(payment_types,merchant_id)
