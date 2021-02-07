@@ -5,6 +5,7 @@ import com.example.pcc.client.BankClient;
 import com.example.pcc.dto.PccRequest2DTO;
 import com.example.pcc.dto.PccRequestDTO;
 import com.example.pcc.model.Request;
+import com.example.pcc.service.LoggingService;
 import com.example.pcc.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +26,8 @@ public class PccController {
 
     @Autowired
     private Bank2Client bank2Client;
+    @Autowired
+    private LoggingService loggingService;
 
     @PostMapping(value = "/PccRequest")
     public PccRequest2DTO SendPccRequest(@RequestBody PccRequestDTO pccRequestDTO){
@@ -34,6 +37,7 @@ public class PccController {
         request.setAcquierOrderId(pccRequestDTO.getAcquierOrderId());
         request.setAcquierTimestamp(pccRequestDTO.getAcquierTimestamp());
         request.setAmount(pccRequestDTO.getAmount());
+        loggingService.writeLog("INFO","| New request saved",getClass().getSimpleName());
         requestService.save(request);
         System.out.println(pccRequestDTO.getCardDTO().getPan());
         Long bankId;
@@ -44,8 +48,11 @@ public class PccController {
 
         PccRequest2DTO pccRequest2DTO;
         if(bankId==1L){
+            loggingService.writeLog("INFO","| Sent request to bank",getClass().getSimpleName());
            pccRequest2DTO=bankClient.ClientBank(pccRequestDTO);
-        }else pccRequest2DTO=bank2Client.ClientBank(pccRequestDTO);
+        }else{
+            loggingService.writeLog("INFO","| Sent request to bank",getClass().getSimpleName());
+            pccRequest2DTO=bank2Client.ClientBank(pccRequestDTO);}
 
 
         return pccRequest2DTO;
