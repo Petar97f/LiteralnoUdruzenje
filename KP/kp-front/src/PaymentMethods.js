@@ -94,28 +94,27 @@ class PaymentsMethods extends Component {
               recieveCurrency: this.state.recieveCurrency
             })
           })).json();
-
-          console.log(response);
+          const headers = {
+            "x-requested-with": '*/*' ,
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Methods": `GET, POST, PATCH, PUT, DELETE, OPTIONS`,
+            "Access-Control-Expose-Headers": 'Authorization',
+            "Authorization": 'Bearer v3GexiQbkLfgWcdiB11b4t1s3FjRUFKbPcGDXhYi'
+          }
+         // console.log(response);
           if (response.status === "success"){
               if(response.redirect_url){
                 let url = response.redirect_url;
                 axios.post(
-                  url,
-                  {headers: {
-                    "Accept": "*/*",
-                    "Accept-Encoding": "gzip, deflate, br",
-                    "Connection": "keep-alive",
-                      "Authorization": `Bearer MejhzV6eTUgWEcP5ms3iFNjBeM4Dqu5w4pdBfkVD`,
-                     // "Access-Control-Allow-Origin": "*",
-                      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
-                      "Access-Control-Max-Age": "3600",
-                      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-requested-with, authorization,  X-Auth-Token"
-                    }
+                  'https://cors-anywhere.herokuapp.com/' + url ,{},
+                  {   headers: headers
+                    
                   }
-                )
-                .then((response) => {
+                ).then((response) => {
                     var response = response.data;
                     console.log(response)
+                   // console.log(response.orders[0].payment_url)
+                    window.open(response.payment_url,'_blank')
                   },
                   (error) => {
                   //  var status = error.response.status
@@ -134,9 +133,9 @@ class PaymentsMethods extends Component {
                 //     "Access-Control-Allow-Headers": `Origin, Content-Type, X-Auth-Token, Authorization`
                 //   }
                 // })
-                console.log(response)
 
               }
+              
           }else{
             alert("something went wrong ");
           }
