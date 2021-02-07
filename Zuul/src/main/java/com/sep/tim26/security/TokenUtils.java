@@ -20,8 +20,8 @@ public class TokenUtils {
     @Value("Xws")
     private String APP_NAME;
 
-    @Value("somesecret")
-    public String SECRET;
+    @Value("myXAuthSecret")
+    private String secret;
 
     @Value("18000")
     private int EXPIRES_IN;
@@ -52,8 +52,8 @@ public class TokenUtils {
                 .claim("id", id.toString())
                 .claim("created", new Date(System.currentTimeMillis()))
                 .claim("user", authClient.getUser(id))
-                .claim("sub", authClient.getUser(id).getUsername())
-                .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
+                .claim("sub", authClient.getUsername(id))
+                .signWith(SIGNATURE_ALGORITHM, secret).compact();
     }
 
     private String generateAudience() {
@@ -64,6 +64,9 @@ public class TokenUtils {
         return new Date(timeProvider.now().getTime() + EXPIRES_IN);
     }
 
+    
+    
+    
     public String refreshToken(String token) {
         String refreshedToken;
         try {
@@ -72,7 +75,7 @@ public class TokenUtils {
             refreshedToken = Jwts.builder()
                     .setClaims(claims)
                     .setExpiration(generateExpirationDate())
-                    .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
+                    .signWith(SIGNATURE_ALGORITHM, secret).compact();
         } catch (Exception e) {
             refreshedToken = null;
         }
@@ -95,14 +98,26 @@ public class TokenUtils {
 
     public String getUsernameFromToken(String token) {
         String username;
+        System.out.println("getUsernameFromToken");
         try {
-            final Claims claims = this.getAllClaimsFromToken(token);
-            //username = claims.getSubject();
-            username = (String)claims.get("sub");
-        } catch (Exception e) {
+            Claims claims = this.getClaimsFromToken(token);
+            System.out.println(claims);
+            username = claims.getSubject();
+        } catch (Exception ex) {
             username = null;
         }
         return username;
+
+    }
+    
+    private Claims getClaimsFromToken(String token) {
+        Claims claims;
+        try {
+            claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
+        } catch (Exception ex) {
+            claims = null;
+        }
+        return claims;
     }
 
     /**
@@ -169,8 +184,9 @@ public class TokenUtils {
 
     public String getToken(HttpServletRequest request) {
         String authHeader = getAuthHeaderFromHeader(request);
-
+        System.out.println("Utils:  |"+authHeader);
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        	System.out.println("OVDE?");
             return authHeader.substring(7);
         }
 
@@ -197,15 +213,12 @@ public class TokenUtils {
 
     private Claims getAllClaimsFromToken(String token) {
         Claims claims;
-        try {
+        
             claims = Jwts.parser()
-                    .setSigningKey(SECRET)
+                    .setSigningKey(secret)
                     .parseClaimsJws(token)
                     .getBody();
-        } catch (Exception e) {
-            claims = null;
-            System.out.println("EEE >>> %s" + e.getMessage());
-        }
+        
         return claims;
     }
 }

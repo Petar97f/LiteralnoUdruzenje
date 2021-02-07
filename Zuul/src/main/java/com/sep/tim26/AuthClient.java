@@ -24,7 +24,9 @@ public interface AuthClient {
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@Valid @RequestBody LoginDTO loginDTO) throws IOException;
 	@GetMapping(value = "/getUser/{userId}")
-	public UserDTO getUser(@PathVariable("userId") Long userId) ;
+	public UserDTO getUser(@PathVariable("userId") Long userId);
+	@GetMapping(value = "/getUsername/{userId}")
+	public String getUsername(@PathVariable("userId") Long userId); 
 		
 
     

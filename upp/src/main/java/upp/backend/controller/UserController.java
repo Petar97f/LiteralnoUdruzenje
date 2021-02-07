@@ -109,6 +109,14 @@ public class UserController {
     	return userDTO;
 		
 	}
+    @GetMapping(value = "/getUsername/{userId}")
+	public String getUsername(@PathVariable("userId") Long userId) {
+		
+    	User u = userService.findById(userId);
+    	UserDTO userDTO = new UserDTO(u.getId(),u.getName(),u.getSurname(),u.getUsername(),u.getEmail(),u.getPassword(),u.getCity(),u.getCountry(),u.getActivated());
+    	return userDTO.getUsername();
+		
+	}
 
 //
 //    @GetMapping(value = "/getFormRegister")
