@@ -4,6 +4,7 @@ import './App.css';
 import paypal from './assets/paypal.png';
 import bitcoin from './assets/bitcoin.png';
 import bank from './assets/bank.png';
+const axios = require('axios');
 
 class PaymentsMethods extends Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class PaymentsMethods extends Component {
       error: '',
       merchantId: props.match.params.id,
       amount: props.match.params.amount,
-      paymentsMethodsList: []
+      paymentsMethodsList: [],
+      currency: 'USD',
+      recieveCurrency: 'USD'
     }
   } 
 
@@ -78,11 +81,70 @@ class PaymentsMethods extends Component {
         });
       }
     } else if (selectedPayment === "CRYPTO") {
-      let res='http://localhost:4202/?amount='+this.state.amount;
-      window.open(
-          res,
-          '_blank'
-      );
+      try {
+        let response = await (await fetch('http://localhost:8084/CriptoPayment', {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              amount: this.state.amount,
+              currency: this.state.currency,
+              recieveCurrency: this.state.recieveCurrency
+            })
+          })).json();
+
+          console.log(response);
+          if (response.status === "success"){
+              if(response.redirect_url){
+                let url = response.redirect_url;
+                axios.post(
+                  url,
+                  {headers: {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Connection": "keep-alive",
+                      "Authorization": `Bearer MejhzV6eTUgWEcP5ms3iFNjBeM4Dqu5w4pdBfkVD`,
+                     // "Access-Control-Allow-Origin": "*",
+                      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
+                      "Access-Control-Max-Age": "3600",
+                      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-requested-with, authorization,  X-Auth-Token"
+                    }
+                  }
+                )
+                .then((response) => {
+                    var response = response.data;
+                    console.log(response)
+                  },
+                  (error) => {
+                  //  var status = error.response.status
+                
+                  }
+                );
+                //window.open(response.redirect_url,"_blank")
+                // let response = await fetch(`${response.redirect_url}`, {
+                //   method: 'post',
+                //   headers: {
+                //     'Accept': '*',
+                //     'Content-Type': 'application/json',
+                //     "Authorization": `Bearer MejhzV6eTUgWEcP5ms3iFNjBeM4Dqu5w4pdBfkVD`,
+                //     "Access-Control-Allow-Origin": `*`,
+                //     "Access-Control-Allow-Methods": `GET, POST, PATCH, PUT, DELETE, OPTIONS`,
+                //     "Access-Control-Allow-Headers": `Origin, Content-Type, X-Auth-Token, Authorization`
+                //   }
+                // })
+                console.log(response)
+
+              }
+          }else{
+            alert("something went wrong ");
+          }
+        } catch (err) {
+          this.setState({
+            errors: err.toString()
+          });
+        }
 
     } else if (selectedPayment === "PAYPAL") {
       try {
@@ -128,16 +190,46 @@ class PaymentsMethods extends Component {
             } else if (item === 'PAYPAL') {
               src = paypal;
             }
-            return(
-              <div className="item" onClick={e => this.getMethod(e, item)}>
-                <div className="inline">
-                  <img width="25px" height="25px" className="image" src={src} />
+            if (item === 'CRYPTO' ) {
+              return(
+                <div  className="item">
+                  <div onClick={e => this.getMethod(e, item)}>
+                    <div className="inline">
+                      <img width="25px" height="25px" className="image" src={src} />
+                    </div>
+                    <div className="inline padding-bottom">
+                      {item}
+                    </div>
+                  </div>
+                  <div className="inline border" style={{width: '100%'}}>
+                    <p>Price currency</p>
+                    <select value={this.state.currency} onChange={e => this.setState({currency: e.target.value})}>
+                      <option value="USD" selected={this.state.currency === "USD"}>USD</option>
+                      <option value="EUR" selected={this.state.currency === "EUR"}>EUR</option>
+                    </select>
+                  </div>
+                  <div className="inline border" style={{width: '100%'}}>
+                    <p>Recieve currency</p>
+                    <select value={this.state.recieveCurrency} onChange={e => this.setState({recieveCurrency: e.target.value})}>
+                      <option value="USD" selected={this.state.recieveCurrency === "USD"}>USD</option>
+                      <option value="EUR" selected={this.state.recieveCurrency === "EUR"}>EUR</option>
+                    </select>
+                  </div>
                 </div>
-                <div className="inline padding-bottom">
-                  {item}
+              )
+            } else {
+              return(
+                <div className="item" onClick={e => this.getMethod(e, item)}>
+                  <div className="inline">
+                    <img width="25px" height="25px" className="image" src={src} />
+                  </div>
+                  <div className="inline padding-bottom">
+                    {item}
+                  </div>
                 </div>
-              </div>
-            )
+              )
+             }
+
           })}
           </div>
         </header>

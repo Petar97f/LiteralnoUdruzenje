@@ -210,15 +210,17 @@ public class PaymentController {
     }
     
     @PostMapping(value="/CriptoPayment")
-    public Map<String, Object> CriptoPayment( @RequestBody CryptoAtributeDTO cryptoDTO) {
+    public ResponseEntity<?> CriptoPayment( @RequestBody CryptoAtributeDTO cryptoDTO) {
     	Map<String, Object> response = new HashMap<String, Object>();
     	String redirectUrl = "https://api-sandbox.coingate.com/v2/orders";
-    	redirectUrl.concat("?price_amount="+cryptoDTO.getAmount());
-    	redirectUrl.concat("&price_amount="+cryptoDTO.getCurrency());
-    	redirectUrl.concat("&price_amount="+cryptoDTO.getRecieveCurrency());
+    	redirectUrl = redirectUrl.concat("?price_amount="+cryptoDTO.getAmount());
+    	redirectUrl = redirectUrl.concat("&price_currency="+cryptoDTO.getCurrency());
+    	redirectUrl = redirectUrl.concat("&receive_currency="+cryptoDTO.getRecieveCurrency());
     	response.put("status", "success");
         response.put("redirect_url", redirectUrl);
-    	return response;
+   
+		//return new ResponseEntity<byte[]>(null, headersRedirect, HttpStatus.FOUND);
+    	return new ResponseEntity<>(response, HttpStatus.OK);
     }
     
     

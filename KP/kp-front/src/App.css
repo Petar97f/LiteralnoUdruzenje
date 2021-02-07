@@ -76,3 +76,7 @@ button {
 .align-left {
   text-align: left;
 }
+
+.border {
+  border-bottom: 2px solid #fff;
+}

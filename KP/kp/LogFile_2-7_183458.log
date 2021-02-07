@@ -1,0 +1,930 @@
+Feb 07, 2021 6:35:19 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_35 message: | getUser is called
+Feb 07, 2021 6:37:34 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_37 message: | getUser is called
+Feb 07, 2021 6:37:34 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_37 message: | getUser is called
+Feb 07, 2021 6:38:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:28 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:28 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:28 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:38:28 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_38 message: | getUser is called
+Feb 07, 2021 6:39:10 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:10 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:10 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:10 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:10 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:39:15 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_39 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:41:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_41 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:33 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:42:48 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_42 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:43:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_43 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:45:18 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_45 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:46:05 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_46 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:01 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:47:02 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_47 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 6:58:35 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_18_58 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:24 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:04:39 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_04 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:05:47 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_05 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:07 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:06:23 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_06 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:04 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:07:09 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_07 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:08:55 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_08 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:09:38 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_09 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called
+Feb 07, 2021 7:12:30 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_12 message: | getUser is called

@@ -1,0 +1,12 @@
+Feb 07, 2021 7:44:31 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_44 message: | getUser is called
+Feb 07, 2021 7:44:59 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_44 message: | getUser is called
+Feb 07, 2021 7:44:59 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_44 message: | getUser is called
+Feb 07, 2021 7:45:11 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_45 message: | getUser is called
+Feb 07, 2021 7:45:11 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_45 message: | getUser is called
+Feb 07, 2021 7:45:11 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_45 message: | getUser is called

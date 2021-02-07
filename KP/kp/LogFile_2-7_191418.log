@@ -1,0 +1,2 @@
+Feb 07, 2021 7:15:21 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_19_15 message: | getUser is called
