@@ -3,31 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="7e88e305-2862-4c74-8880-f44e80ced65f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka2-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../banka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp-front/src/PaymentMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/src/PaymentMethods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/.idea/kp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/.idea/kp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_4_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../kp/src/main/java/com/example/kp/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/java/com/example/kp/service/MerchantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/client/BankClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/client/BankClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/service/MerchantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../upp/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../banka2-frontend" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -104,6 +100,9 @@
       <workItem from="1611864128047" duration="2380000" />
       <workItem from="1612011918537" duration="12118000" />
       <workItem from="1612206858901" duration="2689000" />
+      <workItem from="1612692484307" duration="5736000" />
+      <workItem from="1612715289271" duration="60000" />
+      <workItem from="1612725053600" duration="611000" />
     </task>
     <servers />
   </component>

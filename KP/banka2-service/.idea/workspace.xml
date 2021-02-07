@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/BankaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/BankaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/Banka2ServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/Banka2ServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
-    </list>
+    <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +43,7 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.banka2service.service" />
+      <recent name="com.example.banka2service.dto" />
     </key>
   </component>
   <component name="RunManager">
@@ -87,6 +82,8 @@
       <workItem from="1612109493051" duration="3167000" />
       <workItem from="1612206829264" duration="2946000" />
       <workItem from="1612618732621" duration="682000" />
+      <workItem from="1612691850039" duration="2561000" />
+      <workItem from="1612719351250" duration="4346000" />
     </task>
     <servers />
   </component>

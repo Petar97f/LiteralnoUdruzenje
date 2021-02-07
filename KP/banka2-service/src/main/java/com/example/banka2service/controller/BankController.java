@@ -194,7 +194,7 @@ public class BankController {
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO){
         Card card=cardService.findByPan(pccRequestDTO.getCardDTO().getPan());
-        if(card.getSecurityCode().equals(pccRequestDTO.getCardDTO().getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
+        if(passwordEncoder.matches(pccRequestDTO.getCardDTO().getSecurityCode(),card.getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
             System.out.println("usao u clienta");
         }else return null;
         if(card.getAvailableMoney()-pccRequestDTO.getAmount()>=0){

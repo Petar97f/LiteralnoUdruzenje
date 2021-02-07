@@ -1,0 +1,6 @@
+Feb 07, 2021 8:23:07 PM com.bankaservice.backend.service.LoggingService writeLog
+INFO: classname: BankController level: INFO date: 2021_02_07_20_23 message: | Success request
+Feb 07, 2021 8:23:07 PM com.bankaservice.backend.service.LoggingService writeLog
+INFO: classname: BankController level: INFO date: 2021_02_07_20_23 message: | New payment saved
+Feb 07, 2021 8:23:07 PM com.bankaservice.backend.service.LoggingService writeLog
+INFO: classname: BankController level: INFO date: 2021_02_07_20_23 message: | New payment saved
