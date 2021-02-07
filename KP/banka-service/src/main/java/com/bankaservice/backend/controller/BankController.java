@@ -128,7 +128,7 @@ public class BankController {
             System.out.println(bankId);
             System.out.println(cardBuyer.toString());
            System.out.println("code "+ passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode()));
-            if(cardBuyer.getPan().equals(securityCheckDTO.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode())){
+            if(passwordEncoder.matches(securityCheckDTO.getPan(),cardBuyer.getPan()) && cardBuyer.getExpirationDate().equals(securityCheckDTO.getExpirationDate()) && passwordEncoder.matches(securityCheckDTO.getSecurityCode(),cardBuyer.getSecurityCode())){
                 System.out.println("usao unutra");
             }else{
                 System.out.println("usao u else");
@@ -136,8 +136,10 @@ public class BankController {
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/failed"),HttpStatus.BAD_REQUEST);
             }
         } else {
+            System.out.println("usao 88");
             bankId = bankClient.getCardId(securityCheckDTO.getPan());
             if(bankId == null){
+                System.out.println("usao u null posle 88");
                 loggingService.writeLog("SEVERE","| Card does not exist",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/error"),HttpStatus.BAD_REQUEST);
             }
@@ -222,7 +224,7 @@ public class BankController {
         c.setMerchantId(String.valueOf(l));
         c.setMerchantPassword("1234");
         c.setSecurityCode("1234");
-        c.setPan(String.valueOf(l));
+        c.setPan(passwordEncoder.encode(String.valueOf(l)));
         c.setAvailableMoney(0F);
         c.setBankId(1L);
         c.setCardNumber(c.getPan());

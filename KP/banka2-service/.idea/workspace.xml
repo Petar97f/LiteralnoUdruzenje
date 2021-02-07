@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="" />
+    <list default="true" id="dfb0d189-3e4a-45f4-b53e-89b904b98425" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/java/com/bankaservice/backend/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/banka2service/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/banka2service/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/java/com/example/kp/controller/PaymentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Bezbednost-PIK/BACKEND" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">

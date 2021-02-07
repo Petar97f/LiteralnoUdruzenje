@@ -4,9 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="0a336ba3-2436-4350-874a-d9ae3d1fa686" name="Default Changelist" comment="" />
-=======
     <list default="true" id="0a336ba3-2436-4350-874a-d9ae3d1fa686" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/banka2-frontend/.idea/workspace.xml" afterDir="false" />
@@ -14,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/java/com/example/banka2service/service/CardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../banka2-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../banka2-service/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcoin-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcoin-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../kp-front/.eslintcache" afterDir="false" />
@@ -31,7 +29,6 @@
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../upp/src/main/resources/application.properties" afterDir="false" />
     </list>
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
