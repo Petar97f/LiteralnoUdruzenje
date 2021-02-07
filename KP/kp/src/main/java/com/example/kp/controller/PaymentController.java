@@ -10,7 +10,9 @@ import com.example.kp.model.Log;
 import com.example.kp.model.LogType;
 import com.example.kp.model.Merchant;
 import com.example.kp.model.PaymentRequest;
+import com.example.kp.model.PaymentType;
 import com.example.kp.repository.MerchantRepository;
+import com.example.kp.service.LoggingService;
 import com.example.kp.service.MerchantService;
 import com.example.kp.service.PaymentRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -43,35 +48,81 @@ public class PaymentController {
 
     @Autowired
     private Bank2Client bank2Client;
+    
+    @Autowired
+    private LoggingService loggingService;
 
-
-    @GetMapping(value = "/getTypes/{merchantId}")
-    public PaymentTypesDTO getUser(@PathVariable("merchantId") String merchantId) {
+	@GetMapping(value = "/getTypes/{merchantId}")
+    public ResponseEntity<?> getUser(@PathVariable("merchantId") String merchantId) {
+    	loggingService.writeLog("INFO","| getUser is called", getClass().getSimpleName());
         Merchant merchant = merchantService.findMerchantByMerchantId(merchantId);
+        if (merchant == null) {
+        	loggingService.writeLog("SEVERE","| Request denied", getClass().getSimpleName());
+    		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
         PaymentTypesDTO paymentTypesDTO = new PaymentTypesDTO();
         paymentTypesDTO.setPaymentTypes(merchant.getPaymentTypes());
-        return paymentTypesDTO;
+    	return new ResponseEntity<>(paymentTypesDTO, HttpStatus.OK);
     }
 
 
     @GetMapping(value = "/getMerchantData/{merchantId}")
-    public IssuerDTO getIsserData(@PathVariable("merchantId") String merchantId){
+    public ResponseEntity<?> getIsserData(@PathVariable("merchantId") String merchantId) {
+    	loggingService.writeLog("INFO","| getIsserData is called",  getClass().getSimpleName());
+    	if (merchantId == null) {
+    		loggingService.writeLog("SEVERE","| Request denied",  getClass().getSimpleName());
+    		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    	}
         List<PaymentRequest> reqs=paymentRequestService.findAllByMerchant(merchantService.findMerchantByMerchantId(merchantId));
         IssuerDTO issuerDTO= new IssuerDTO(Long.valueOf(reqs.size()),new Date());
-        return issuerDTO;
+        return new ResponseEntity<>(issuerDTO, HttpStatus.OK);
     }
 
     @PostMapping(value="/addMerchant", produces="application/json")
-    public Merchant addMerchant(@RequestBody MerchantDTO merchantDTO) {
-    	Merchant m = new Merchant(merchantDTO.getId(),merchantDTO.getMerchantId(),merchantDTO.getPassword(),merchantDTO.getAddress(),merchantDTO.getPhoneNumber(),
-    			merchantDTO.getPaymentTypes(),merchantDTO.getSuccessUrl(),merchantDTO.getFailedUrl(),merchantDTO.getErrorUrl(),merchantDTO.getBankId());
+    public ResponseEntity<?> addMerchant(@RequestBody MerchantDTO merchantDTO) {
+    	loggingService.writeLog("INFO","| addMerchant is called",  getClass().getSimpleName());
+    	HashMap<String, String> message = new HashMap<String, String>();
+    	if (merchantDTO == null) {
+    		loggingService.writeLog("SEVERE","| Request denied",  getClass().getSimpleName());
+    		message.put("message", "Please fill out all fields");
+    		message.put("status", "fail");
+    		return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    	}
+    	List<PaymentType> paymentTypes = new ArrayList<>();
+    	System.out.println(merchantDTO);
+    	List<String> typesList = Arrays.asList(merchantDTO.getPaymentTypes().split(","));
+    	if (!typesList.isEmpty()) {
+    		for (String type : typesList ) {
+    			if (type.equals("bank")) {
+    				paymentTypes.add(PaymentType.BANK);
+    			} else if (type.equals("bitcoin")) {
+    				paymentTypes.add(PaymentType.CRYPTO);
+    			} else if (type.equals("paypal")) {
+    				paymentTypes.add(PaymentType.PAYPAL);
+    			}
+    		}
+    	}
+    	Merchant m = new Merchant();
+    	m.setAddress(merchantDTO.getAddress());
+    	m.setName(merchantDTO.getName());
+    	m.setPassword(merchantDTO.getPassword());
+    	m.setPhoneNumber(merchantDTO.getPhoneNumber());
+    	m.setPaymentTypes(paymentTypes);
+    	m.setBankId(merchantDTO.getBankId());
+    	m.setErrorUrl("http://localhost:3005/error");
+    	m.setFailedUrl("http://localhost:3005/failed");
+    	m.setSuccessUrl("http://localhost:3005/success");
     	merchantService.save(m);
-    	return m;
+    	loggingService.writeLog("INFO","| new merchant added",  getClass().getSimpleName());
+    	message.put("message", "Account created");
+		message.put("status", "success");
+    	return new ResponseEntity<>(message, HttpStatus.OK);
     }
     
     
     @PostMapping(value="/PaymentBank", produces="application/json")
     public @ResponseBody ResponseDTO BankPay(@RequestBody RequestDTO requestDTO){
+    	loggingService.writeLog("INFO","| BankPay is called",  getClass().getSimpleName());
         System.out.println(requestDTO.toString());
         System.out.println(requestDTO.getAmount());
         System.out.println(requestDTO.getId());
@@ -107,7 +158,7 @@ public class PaymentController {
         paymentRequest.setMerchantOrderId(paymentRequestDTO.getMerchantOrderId());
         paymentRequest.setMerchantTimestamp(new Date());
 
-
+        loggingService.writeLog("INFO","| Send request to kp",  getClass().getSimpleName());
         Log log = new Log(LogType.INFO, requestDTO.getId(), 1, "Send request to kp");
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();

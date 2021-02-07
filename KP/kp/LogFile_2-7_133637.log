@@ -1,0 +1,6 @@
+Feb 07, 2021 1:37:13 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_13_37 message: | addMerchant is called
+Feb 07, 2021 1:37:13 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_13_37 message: | new merchant added
+Feb 07, 2021 1:37:13 PM com.example.kp.service.LoggingService writeLog
+INFO: classname: PaymentController levelINFO date: 2021_02_07_13_37 message: | new merchant added

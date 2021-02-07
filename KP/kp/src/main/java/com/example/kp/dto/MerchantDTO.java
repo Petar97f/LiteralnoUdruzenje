@@ -11,10 +11,12 @@ public class MerchantDTO {
 private Long id;
     
     private String merchantId;
+    private String name;
     private String password;
     private String address;
     private String phoneNumber;
-    private List<PaymentType> paymentTypes;
+    //private List<PaymentType> paymentTypes;
+    private String paymentTypes;
     private String successUrl;
     private String failedUrl;
     private String errorUrl;
@@ -24,7 +26,7 @@ private Long id;
     	
     }
     
-	public MerchantDTO(Long id, String merchantId, String password, String address, String phoneNumber,
+	/*public MerchantDTO(Long id, String merchantId, String password, String address, String phoneNumber,
 			List<PaymentType> paymentTypes, String successUrl, String failedUrl, String errorUrl, Long bankId) {
 		super();
 		this.id = id;
@@ -37,10 +39,27 @@ private Long id;
 		this.failedUrl = failedUrl;
 		this.errorUrl = errorUrl;
 		this.bankId = bankId;
-	}
+	}*/
+    
 
 	public Long getId() {
 		return id;
+	}
+
+	public MerchantDTO(Long id, String merchantId, String name, String password, String address, String phoneNumber,
+			String paymentTypes, String successUrl, String failedUrl, String errorUrl, Long bankId) {
+		super();
+		this.id = id;
+		this.merchantId = merchantId;
+		this.name = name;
+		this.password = password;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.paymentTypes = paymentTypes;
+		this.successUrl = successUrl;
+		this.failedUrl = failedUrl;
+		this.errorUrl = errorUrl;
+		this.bankId = bankId;
 	}
 
 	public void setId(Long id) {
@@ -79,11 +98,12 @@ private Long id;
 		this.phoneNumber = phoneNumber;
 	}
 
-	public List<PaymentType> getPaymentTypes() {
+	
+	public String getPaymentTypes() {
 		return paymentTypes;
 	}
 
-	public void setPaymentTypes(List<PaymentType> paymentTypes) {
+	public void setPaymentTypes(String paymentTypes) {
 		this.paymentTypes = paymentTypes;
 	}
 
@@ -117,6 +137,22 @@ private Long id;
 
 	public void setBankId(Long bankId) {
 		this.bankId = bankId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "MerchantDTO [id=" + id + ", merchantId=" + merchantId + ", name=" + name + ", password=" + password
+				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", paymentTypes=" + paymentTypes
+				+ ", successUrl=" + successUrl + ", failedUrl=" + failedUrl + ", errorUrl=" + errorUrl + ", bankId="
+				+ bankId + "]";
 	}
     
     
