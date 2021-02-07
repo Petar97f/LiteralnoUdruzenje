@@ -15,6 +15,9 @@ public class Merchant {
     
     @Column
     private String merchantId;
+    
+    @Column
+    private String name;
 
     @Column
     private String password;
@@ -154,4 +157,14 @@ public class Merchant {
     public void setBankId(Long bankId) {
         this.bankId = bankId;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+    
+    
 }
