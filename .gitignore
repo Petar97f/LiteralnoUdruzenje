@@ -32,3 +32,7 @@ target/
 *.sublime-workspace
 
 kp/.idea
+
+*.log
+*.lck
+
