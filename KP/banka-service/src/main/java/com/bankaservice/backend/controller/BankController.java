@@ -177,12 +177,14 @@ public class BankController {
         else {
             CardDTO cardDTO= new CardDTO(securityCheckDTO.getPan(),securityCheckDTO.getSecurityCode(),securityCheckDTO.getCardHolderName(),securityCheckDTO.getExpirationDate());
             PccRequest2DTO response=pccClient.SendPccRequest(new PccRequestDTO(payment.getId(),new Date(),cardDTO,payment.getAmount()));
-
+            System.out.println("usao ovde na mesto 8");
             if(response==null) {
+                System.out.println("usao na 9");
                 loggingService.writeLog("SEVERE","| Transaction failed",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail", "http://localhost:3005/error"), HttpStatus.BAD_REQUEST);
 
             }else{
+                System.out.println("usao na 10");
                 card.setAvailableMoney(card.getAvailableMoney()+ payment.getAmount());
                 cardService.save(card);
                 TransactionDTO transactionDTO=new TransactionDTO(true,response.getAcquierOrderId(),response.getAcquierTimestamp(),response.getIssuerOrderId(),payment.getId(),payment.getPaymentUrl());
@@ -198,7 +200,7 @@ public class BankController {
     @PostMapping(value = "/ClientBank")
     public PccRequest2DTO ClientBank(@RequestBody PccRequestDTO pccRequestDTO){
         Card card=cardService.findByPan(pccRequestDTO.getCardDTO().getPan());
-        if(card.getSecurityCode().equals(pccRequestDTO.getCardDTO().getSecurityCode()) && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
+        if(passwordEncoder.matches(pccRequestDTO.getCardDTO().getSecurityCode(),card.getSecurityCode())  && card.getExpirationDate().equals(pccRequestDTO.getCardDTO().getExpirationDate())){
                 System.out.println("usao u clienta");
         }else return null;
         if(card.getAvailableMoney()-pccRequestDTO.getAmount()>=0){

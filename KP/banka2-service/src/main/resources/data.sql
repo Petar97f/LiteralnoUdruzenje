@@ -3,6 +3,6 @@ VALUES ('1','nesto',500);
 
 
 INSERT INTO card (client_id,card_number,available_money,merchant_id,pan,bank_id,cvc,expiration_date,merchant_password,security_code)
-values(1,'222',1000,'1','222',2,'111','11/2020','1234','1234');
+values(3,'222',1000,'3','222',2,'222','11/2022','1234','1234');
 INSERT INTO card (client_id,card_number,available_money,merchant_id,pan,bank_id,cvc,expiration_date,merchant_password,security_code)
-values(2,'12345',500,'2','12345',2,'111','11/2020','1234','1234');
+values(4,'223',500,'4','223',2,'223','11/2023','1234','1234');
