@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -122,12 +123,12 @@ public class BankController {
                 System.out.println("usao unutra");
             }else{
                 System.out.println("usao u else");
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/failed"),HttpStatus.BAD_REQUEST);
             }
         } else {
             bankId = bankClient.getCardId(securityCheckDTO.getPan());
             if(bankId == null){
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/error"),HttpStatus.BAD_REQUEST);
             }
             cardBuyer = new Card();
         }
@@ -149,7 +150,7 @@ public class BankController {
                 calendar.setTime(date);
                 log.setTimestamp(calendar.getTime());
                 System.out.println(log);
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"), HttpStatus.OK);
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http://localhost:3005/success"), HttpStatus.OK);
             }
             Log log1 = new Log(LogType.ERROR, cardBuyer.getCardNumber(), 1, "Not enough money on card");
             Date date = new Date();
@@ -157,7 +158,7 @@ public class BankController {
             calendar.setTime(date);
             log1.setTimestamp(calendar.getTime());
             System.out.println(log1);
-            return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http//localhost:3005/1/1"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/failed"),HttpStatus.BAD_REQUEST);
 
         }
         else {
@@ -165,13 +166,13 @@ public class BankController {
             PccRequest2DTO response=pccClient.SendPccRequest(new PccRequestDTO(payment.getId(),new Date(),cardDTO,payment.getAmount()));
 
             if(response==null)
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/error"),HttpStatus.BAD_REQUEST);
             else{
                 card.setAvailableMoney(card.getAvailableMoney()+ payment.getAmount());
                 cardService.save(card);
                 TransactionDTO transactionDTO=new TransactionDTO(true,response.getAcquierOrderId(),response.getAcquierTimestamp(),response.getIssuerOrderId(),payment.getId(),payment.getPaymentUrl());
                 String returnString=kpClient.Transaction(transactionDTO);
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http//localhost:3005/1/1"),HttpStatus.OK);
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http://localhost:3005/success"),HttpStatus.OK);
             }
         }
     }
@@ -194,6 +195,27 @@ public class BankController {
         return null;
     }
 
+    @PostMapping(value="/addCard")
+    public BankResponseDTO addCard(@RequestParam("lastMerchantId") String lastMerchantId){
+        Card c=new Card();
+        BankResponseDTO bankResponseDTO=new BankResponseDTO();
+        Long l=Long.parseLong(lastMerchantId)+1;
+        c.setMerchantId(String.valueOf(l));
+        c.setMerchantPassword("1234");
+        c.setSecurityCode("1234");
+        c.setPan(String.valueOf(l));
+        c.setAvailableMoney(0F);
+        c.setBankId(1L);
+        c.setCardNumber(c.getPan());
+        c.setCvc("123");
+        LocalDate localDate = LocalDate.now();
+        c.setExpirationDate(String.valueOf(localDate.getMonthValue())+"/"+String.valueOf(localDate.getYear()));
+        System.out.println(c);
+        cardService.saveFirst(c);
+        bankResponseDTO.setMerchantId(c.getMerchantId());
+        bankResponseDTO.setMerchantPassword(c.getMerchantPassword());
+        return bankResponseDTO;
+    }
     
     
 }

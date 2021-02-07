@@ -55,11 +55,14 @@ export class AppComponent {
     this.loading = true;
     this.login(this.f.pan.value, this.f.securityCode.value,this.f.cardHolderName.value,this.f.expirationDate.value,this.paymentId)
       .subscribe(
-        data => {
+          (res: ResponseDTO) => {
           alert('success');
+          window.close();
+          window.open(res.data);
         },
         error => {
           alert('error');
+          window.close();
         });
   }
 
@@ -68,4 +71,9 @@ export class AppComponent {
     return this.http.post<any>('http://localhost:8082/check', { pan, securityCode,cardHolderName,expirationDate,paymentId})
       .pipe();
   }
+}
+
+export class ResponseDTO{
+  status: string;
+  data: string;
 }
