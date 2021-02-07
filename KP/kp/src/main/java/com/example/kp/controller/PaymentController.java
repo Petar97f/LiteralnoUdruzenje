@@ -109,6 +109,22 @@ public class PaymentController {
     	m.setPhoneNumber(merchantDTO.getPhoneNumber());
     	m.setPaymentTypes(paymentTypes);
     	m.setBankId(merchantDTO.getBankId());
+    	List<Merchant> merchants=merchantService.findall();
+    	Long mrchId=0L;
+        for (Merchant mrch:merchants
+             ) {
+            if(Long.parseLong(mrch.getMerchantId())>=mrchId){
+                mrchId+=1;
+            }
+        }
+        BankResponseDTO bankResponseDTO;
+    	if(merchantDTO.getBankId()==1){
+    	    bankResponseDTO=bankClient.addCard(mrchId.toString());
+        }else {
+    	    bankResponseDTO=bank2Client.addCard(mrchId.toString());
+        }
+    	m.setPassword(bankResponseDTO.getMerchantPassword());
+    	m.setMerchantId(bankResponseDTO.getMerchantId());
     	m.setErrorUrl("http://localhost:3005/error");
     	m.setFailedUrl("http://localhost:3005/failed");
     	m.setSuccessUrl("http://localhost:3005/success");
