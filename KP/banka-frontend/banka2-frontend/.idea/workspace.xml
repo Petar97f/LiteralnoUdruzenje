@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="5b103336-91ad-4b21-ae35-1d8b55f343a4" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="5b103336-91ad-4b21-ae35-1d8b55f343a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../banka-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banka-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/java/com/bankaservice/backend/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka-service/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/java/com/example/banka2service/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../banka2-service/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../banka2-service/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bitcoin-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp-front/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/client/BankClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/client/BankClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/model/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/model/Merchant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../kp/target/classes/com/example/kp/service/MerchantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lu-front/lu-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../upp/src/main/java/upp/backend/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../upp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../upp/src/main/resources/application.properties" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
