@@ -10,6 +10,7 @@ import com.example.banka2service.model.Log;
 import com.example.banka2service.model.LogType;
 import com.example.banka2service.model.Payment;
 import com.example.banka2service.service.CardService;
+import com.example.banka2service.service.LoggingService;
 import com.example.banka2service.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,6 +42,8 @@ public class BankController {
     private BankClient bankClient;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private LoggingService loggingService;
 
 
     @GetMapping(value = "/getCardOwner")
@@ -76,6 +79,7 @@ public class BankController {
             payment.setPaymentUrl(paymentRequestDTO.getErrorUrl());
             payment.setSuccess(false);
 
+            loggingService.writeLog("SEVERE","| Bad request send",getClass().getSimpleName());
             Log log = new Log(LogType.ERROR, payment.getPaymentUrl(), 1, "Bad request send");
             Date date = new Date();
             Calendar calendar = Calendar.getInstance();
@@ -89,6 +93,7 @@ public class BankController {
             payment.setPaymentUrl(paymentRequestDTO.getSuccessUrl());
             payment.setSuccess(true);
 
+            loggingService.writeLog("INFO","| Success request",getClass().getSimpleName());
             Log log = new Log(LogType.INFO, payment.getPaymentUrl(), 1, "Success request");
             Date date = new Date();
             Calendar calendar = Calendar.getInstance();
@@ -97,6 +102,7 @@ public class BankController {
             System.out.println(log);
         }
         payment.setMerchantId(paymentRequestDTO.getMerchantId());
+        loggingService.writeLog("INFO","| New payment saved",getClass().getSimpleName());
 
         paymentService.save(payment);
 
@@ -123,11 +129,13 @@ public class BankController {
                 System.out.println("usao unutra");
             }else{
                 System.out.println("usao u else");
+                loggingService.writeLog("SEVERE","| Wrong input data",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/failed"),HttpStatus.BAD_REQUEST);
             }
         } else {
             bankId = bankClient.getCardId(securityCheckDTO.getPan());
             if(bankId == null){
+                loggingService.writeLog("SEVERE","| Card does not exist",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/error"),HttpStatus.BAD_REQUEST);
             }
             cardBuyer = new Card();
@@ -150,6 +158,7 @@ public class BankController {
                 calendar.setTime(date);
                 log.setTimestamp(calendar.getTime());
                 System.out.println(log);
+                loggingService.writeLog("INFO","| Transaction successful",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http://localhost:3005/success"), HttpStatus.OK);
             }
             Log log1 = new Log(LogType.ERROR, cardBuyer.getCardNumber(), 1, "Not enough money on card");
@@ -158,6 +167,7 @@ public class BankController {
             calendar.setTime(date);
             log1.setTimestamp(calendar.getTime());
             System.out.println(log1);
+            loggingService.writeLog("SEVERE","| Transaction failed",getClass().getSimpleName());
             return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/failed"),HttpStatus.BAD_REQUEST);
 
         }
@@ -165,13 +175,15 @@ public class BankController {
             CardDTO cardDTO= new CardDTO(securityCheckDTO.getPan(),securityCheckDTO.getSecurityCode(),securityCheckDTO.getCardHolderName(),securityCheckDTO.getExpirationDate());
             PccRequest2DTO response=pccClient.SendPccRequest(new PccRequestDTO(payment.getId(),new Date(),cardDTO,payment.getAmount()));
 
-            if(response==null)
-                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail","http://localhost:3005/error"),HttpStatus.BAD_REQUEST);
-            else{
+            if(response==null) {
+                loggingService.writeLog("SEVERE", "| Transaction failed", getClass().getSimpleName());
+                return new ResponseEntity<ResponseDTO>(new ResponseDTO("fail", "http://localhost:3005/error"), HttpStatus.BAD_REQUEST);
+            } else{
                 card.setAvailableMoney(card.getAvailableMoney()+ payment.getAmount());
                 cardService.save(card);
                 TransactionDTO transactionDTO=new TransactionDTO(true,response.getAcquierOrderId(),response.getAcquierTimestamp(),response.getIssuerOrderId(),payment.getId(),payment.getPaymentUrl());
                 String returnString=kpClient.Transaction(transactionDTO);
+                loggingService.writeLog("INFO","| Transaction successful",getClass().getSimpleName());
                 return new ResponseEntity<ResponseDTO>(new ResponseDTO("success","http://localhost:3005/success"),HttpStatus.OK);
             }
         }
@@ -189,6 +201,7 @@ public class BankController {
             card.setAvailableMoney(card.getAvailableMoney()-pccRequestDTO.getAmount());
             cardService.save(card);
             IssuerDTO issuerDTO = kpClient.getIsserData(card.getMerchantId());
+            loggingService.writeLog("INFO","| Transaction successful",getClass().getSimpleName());
             PccRequest2DTO pccRequest2DTO=new PccRequest2DTO(pccRequestDTO.getAcquierOrderId(),pccRequestDTO.getAcquierTimestamp(),issuerDTO.getIssuerOrderId(),issuerDTO.getIssuerTimestamp(),true);
             return pccRequest2DTO;
         }
@@ -214,6 +227,8 @@ public class BankController {
         cardService.saveFirst(c);
         bankResponseDTO.setMerchantId(c.getMerchantId());
         bankResponseDTO.setMerchantPassword(c.getMerchantPassword());
+        loggingService.writeLog("INFO","| New card added",getClass().getSimpleName());
+
         return bankResponseDTO;
     }
     
